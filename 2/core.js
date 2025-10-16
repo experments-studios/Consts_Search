@@ -3,7 +3,7 @@
             searchPlaceholder: "Search...",
             noResults: "No results found for your search.",
             addCookie: "Add Cookie",
-            settings: "Settings",
+            settings: "Search Wikipedia",
             news: "News",
             categories: { 
                 "Technology": "Technology",
