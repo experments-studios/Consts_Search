@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>addcookie</title>
+  <title>Add Cookie</title>
   <style>
     body {
       margin: 0;
@@ -13,6 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column; 
     }
 
     .container {
@@ -21,6 +22,8 @@
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       text-align: center;
+      margin-bottom: 20px; 
+      width: 350px; 
     }
 
     .container h2 {
@@ -61,28 +64,226 @@
     button:hover {
       background-color: #0056b3;
     }
+
+    #cookieList {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-height: 300px;
+      overflow-y: auto;
+      width: 310px; 
+    }
+
+    #cookieList li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+      color: #333;
+      transition: background-color 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #cookieList li .cookie-url {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    #cookieList li:last-child {
+      border-bottom: none;
+    }
+
+    #cookieList li:hover {
+      background-color: #f0f8ff;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>installcookie</h2>
+    <h2>Install Cookie</h2>
     <div class="input-group">
-      <input type="text" id="projectName" placeholder="add_cookie...">
-      <button onclick="goToPage()">ADD</button>
+      <input type="text" id="cookieName" placeholder="Cookie Name / Project...">
+      <button onclick="addAndGo()">ADD</button>
     </div>
   </div>
 
+  <ul id="cookieList">
+  </ul>
+
   <script>
-    function goToPage() {
-      const input = document.getElementById("projectName").value.trim();
-      if (input !== "") {
-        const url = `${input}/index.html`;
-        window.location.href = url;
-      } else {
-        alert("no cookie");
+    let db;
+    const DB_NAME = "CookieURLDB"; 
+    const DB_VERSION = 1;
+    const STORE_NAME = "cookies"; 
+
+    function initDB() {
+      return new Promise((resolve, reject) => {
+        if (!window.indexedDB) {
+            alert("Your browser does not support IndexedDB.");
+            return reject("IndexedDB not supported");
+        }
+
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onerror = (event) => {
+          console.error("IndexedDB error:", event.target.error);
+          reject(event.target.error);
+        };
+
+        request.onsuccess = (event) => {
+          db = event.target.result;
+          console.log("IndexedDB successfully opened.");
+          resolve(db);
+        };
+
+        request.onupgradeneeded = (event) => {
+          db = event.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME, { keyPath: "name" });
+          }
+        };
+      });
+    }
+
+    function addCookieToDB(name, url) {
+      return new Promise((resolve, reject) => {
+        if (!db) {
+          return reject("Database not available.");
+        }
+
+        document.cookie = `${name}=; path=/; max-age=604800`;
+
+        const transaction = db.transaction([STORE_NAME], "readwrite");
+        const objectStore = transaction.objectStore(STORE_NAME);
+
+        const cookieData = {
+          name: name,
+          url: url 
+        };
+
+        const request = objectStore.put(cookieData); 
+
+        request.onsuccess = () => {
+          console.log(`Cookie "${name}" successfully added/updated in IndexedDB.`);
+          resolve();
+        };
+
+        request.onerror = (event) => {
+          console.error("Error adding cookie to IndexedDB:", event.target.error);
+          reject(event.target.error);
+        };
+      });
+    }
+
+    function getAllCookiesFromDB() {
+      return new Promise((resolve, reject) => {
+        if (!db) {
+          return reject("Database not available.");
+        }
+
+        const transaction = db.transaction([STORE_NAME], "readonly");
+        const objectStore = transaction.objectStore(STORE_NAME);
+        
+        const request = objectStore.getAll(); 
+
+        request.onsuccess = (event) => {
+          resolve(event.target.result); 
+        };
+
+        request.onerror = (event) => {
+          console.error("Error retrieving cookies from IndexedDB:", event.target.error);
+          reject(event.target.error);
+        };
+      });
+    }
+
+    async function loadCookies() {
+      const cookieList = document.getElementById("cookieList");
+      cookieList.innerHTML = ''; 
+
+      try {
+        const cookies = await getAllCookiesFromDB();
+
+        if (cookies.length === 0) {
+          const li = document.createElement("li");
+          li.textContent = "No cookies added.";
+          li.style.justifyContent = 'center'; 
+          cookieList.appendChild(li);
+          return;
+        }
+
+        cookies.forEach(cookie => {
+          const li = document.createElement("li");
+          
+          const nameSpan = document.createElement("span");
+          nameSpan.textContent = cookie.name;
+
+          const urlSpan = document.createElement("span");
+          urlSpan.textContent = `(${cookie.url})`;
+          urlSpan.classList.add("cookie-url");
+
+          li.appendChild(nameSpan);
+          li.appendChild(urlSpan);
+          
+          li.onclick = () => goToCookiePage(cookie.url); 
+          cookieList.appendChild(li);
+        });
+
+      } catch (error) {
+        console.error("Error loading cookies:", error);
+        const li = document.createElement("li");
+        li.textContent = "Could not load cookies.";
+        cookieList.appendChild(li);
       }
     }
+
+    function goToCookiePage(url) {
+        if (url) {
+            window.location.href = url;
+        } else {
+            alert("Invalid cookie URL.");
+        }
+    }
+
+    async function addAndGo() {
+      const cookieNameInput = document.getElementById("cookieName");
+      const name = cookieNameInput.value.trim();
+      
+      const url = `https://${name}/contextsearchmain.html`;
+
+      if (name === "") {
+        alert("no cookie name");
+        return;
+      }
+
+      try {
+        await addCookieToDB(name, url);
+        
+        await loadCookies(); 
+
+        window.location.href = url;
+        
+      } catch (error) {
+        alert("An error occurred while adding the cookie: " + error);
+        console.error("addAndGo Error:", error);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      try {
+        await initDB();
+        await loadCookies();
+      } catch (error) {
+        console.error("Initialization error:", error);
+      }
+    });
   </script>
 
 </body>
