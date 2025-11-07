@@ -1,4 +1,4 @@
-# 🔍 Context Search 
+# Context Search ![myicon.png](myicon.png)
 
 Context Search is an open-source, privacy-focused, fast, and secure search engine.
 
