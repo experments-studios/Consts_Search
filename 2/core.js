@@ -42,7 +42,7 @@
             searchPlaceholder: "Axtarış edin...",
             noResults: "Axtarışınıza uyğun nəticə tapılmadı.",
             addCookie: "Kuki Əlavə Et",
-            settings: "Tənzimləmələr",
+            settings: "Search Wikipedia",
             news: "Xəbərlər",
             categories: {
                 "Technology": "Texnologiya",
@@ -81,7 +81,7 @@
             searchPlaceholder: "Ara...",
             noResults: "Aramanıza uygun sonuç bulunamadı.",
             addCookie: "Çerez Ekle",
-            settings: "Ayarlar",
+            settings: "Search Wikipedia",
             news: "Haberler",
             categories: { 
                 "Technology": "Teknoloji",
@@ -119,6 +119,7 @@
     };
 
    
+const newLocal = "Batı felsefesinin kurucusu olarak kabul edilen Atinalı bir Yunan filozof. Sokratik sorgulama yöntemiyle tanınır. anahtar kelimeler: sokrates kim sokrates hakkında bilgiler sokrates hakkında metin";
     const sites = [
       { category: "Education", title: "W3Schools", description: { en: "A resource for learning web development.", az: "Veb inkişafını öyrənmək üçün resurs.", tr: "Web geliştirme öğrenmek için bir kaynak." }, url: "https://w3schools.com" },
       { category: "Marketing", title: "Moz", description: { en: "SEO and digital marketing tools.", az: "SEO və rəqəmsal marketinq alətləri.", tr: "SEO ve dijital pazarlama araçları." }, url: "https://moz.com" },
@@ -1486,9 +1487,9 @@
     "category": "History",
     "title": "Wikipedia - Genghis Khan",
     "description": {
-        "en": "The founder and first Great Khan (Emperor) of the Mongol Empire, which became the largest contiguous empire in history after his death.",
-        "az": "Monqol İmperiyasının qurucusu və ilk Böyük Xanı (İmperatoru), ölümündən sonra tarixdə ən böyük bitişik imperiyaya çevrildi.",
-        "tr": "Ölümünden sonra tarihin en büyük bitişik imparatorluğu haline gelen Moğol İmparatorluğu'nun kurucusu ve ilk Büyük Han'ı (İmparatoru)."
+        "en": "The founder and first Great Khan (Emperor) of the Mongol Empire, which became the largest contiguous empire in history after his death. Keywords: About the Mongol Empire, About the Mongol Khanate, About Genghis Khan, Who is Genghis Khan, Who were the Mongols, Where is the Mongol Empire? Where is the Mongol Khanate?",
+        "az": "Monqol İmperiyasının qurucusu və ilk Böyük Xanı (İmperatoru), ölümündən sonra tarixdə ən böyük bitişik imperiyaya çevrildi. Açar sözlər: Monqol İmperiyası haqqında, Monqol Xanlığı haqqında, Çingiz Xan haqqında, Çingiz Xan kimdir, Monqollar kimlər idi, Monqol İmperiyası haradadır? Monqol Xanlığı haradadır?  Monqol İmperyası haqqında esse  Monqol İmperyası haqqında inşa Monqol İmperyası dövləti esse  Monqol dövləti haqqında inşa Monqol xanlıqı haqqında esse  Monqol xanlıqı haqqında inşa",
+        "tr": "Ölümünden sonra tarihin en büyük bitişik imparatorluğu haline gelen Moğol İmparatorluğu'nun kurucusu ve ilk Büyük Han'ı (İmparatoru). anahtar kelimeler: Moğol imparatorluğu hakkında Moğol hanlığı hakkında Cengiz han hakkında Cengiz han kimdir Moğollar kimlerdi Moğol imparatorluqu neresi? Moğol hanlıqı neresi?"
     },
     "url": "https://en.wikipedia.org/wiki/Genghis_Khan"
 },
@@ -1498,8 +1499,7 @@
     "description": {
         "en": "A minor planet of the inner Solar System. They are rocky, airless worlds that orbit the sun, but are too small to be called planets.",
         "az": "Günəş sisteminin daxili hissəsinin kiçik planeti. Onlar günəşin ətrafında fırlanan, qayalı, havasız dünyalardır, lakin planet adlandırılmaq üçün çox kiçikdirlər.",
-        "tr": "İç Güneş Sistemi'nin küçük bir gezegeni. Güneşin etrafında dönen, kayalık, havasız dünyalardır, ancak gezegen olarak adlandırılamayacak kadar küçüktürler."
-    },
+        "tr": "İç Güneş Sistemi'nin küçük bir gezegeni. Güneşin etrafında dönen, kayalık, havasız dünyalardır, ancak gezegen olarak adlandırılamayacak kadar küçüktürler. anahtar kelimeler: astiroid ne?  astiroid hakkında bilgiler astiroid nedir?"},
     "url": "https://en.wikipedia.org/wiki/Asteroid"
 },
 {
@@ -1526,9 +1526,9 @@
     "category": "Geography",
     "title": "Wikipedia - Tokyo",
     "description": {
-        "en": "The capital and most populous city of Japan. It is the most populous metropolitan area in the world, with over 37 million residents.",
-        "az": "Yaponiyanın paytaxtı və ən sıx əhalisi olan şəhəri. 37 milyondan çox sakini ilə dünyanın ən sıx əhalisi olan metropoliten sahəsidir.",
-        "tr": "Japonya'nın başkenti ve en kalabalık şehri. 37 milyondan fazla sakini ile dünyanın en kalabalık metropol alanıdır."
+        "en": "The capital and most populous city of Japan. It is the most populous metropolitan area in the world, with over 37 million residents. Keywords: Where is Tokyo? Information about Tokyo. Interesting facts about Tokyo. The capital of Japan, Tokyo.",
+        "az": "Yaponiyanın paytaxtı və ən sıx əhalisi olan şəhəri. 37 milyondan çox sakini ilə dünyanın ən sıx əhalisi olan metropoliten sahəsidir. açar sözlər: tokyo haradır? tokyo haqqında məlumatlar  yaponyanın paytaxtı tokyo  tokyo haqqında maraqlı faktlar  tokyo haqqında esse  tokyo haqqında inşa",
+        "tr": "Japonya'nın başkenti ve en kalabalık şehri. 37 milyondan fazla sakini ile dünyanın en kalabalık metropol alanıdır. anahtar kelimeler: tokyo neresi  tokyo hakkında bilgiler  tokyo hakkında ilginç bilgiler  japonuyanın baş kenti reresi  japonyanın başkenti tokyo"
     },
     "url": "https://en.wikipedia.org/wiki/Tokyo"
 },
@@ -1656,9 +1656,9 @@
     "category": "Philosophy",
     "title": "Wikipedia - Socrates",
     "description": {
-        "en": "A Greek philosopher from Athens who is credited as the founder of Western philosophy. He is known for the Socratic method of inquiry.",
-        "az": "Qərb fəlsəfəsinin qurucusu kimi qəbul edilən Afinadan olan yunan filosofu. Sokratik sorğu metodu ilə tanınır.",
-        "tr": "Batı felsefesinin kurucusu olarak kabul edilen Atinalı bir Yunan filozof. Sokratik sorgulama yöntemiyle tanınır."
+        "en": "A Greek philosopher from Athens who is credited as the founder of Western philosophy. He is known for the Socratic method of inquiry. Keywords: Who is Socrates? Information about Socrates. Text about Socrates.",
+        "az": "Qərb fəlsəfəsinin qurucusu kimi qəbul edilən Afinadan olan yunan filosofu. Sokratik sorğu metodu ilə tanınır. açar sözlər: sokrates kimdir  sokrates haqında məlumat  sokrates haqqında esse  sokrates haqqında inşa ",
+        "tr": "Batı felsefesinin kurucusu olarak kabul edilen Atinalı Yunan filozof. Sokratik sorgulama yöntemiyle tanınır. anahtar kelimeler: sokrates kim sokrates hakkında bilgiler sokrates hakkında metin"
     },
     "url": "https://en.wikipedia.org/wiki/Socrates"
 },
@@ -1969,7 +1969,7 @@
     description: {
         en: "A popular mobile application for currency conversion and foreign exchange rate information. It offers live exchange rates and charts.",
         az: "Valyuta çevrilməsi və xarici valyuta məzənnəsi məlumatları üçün populyar mobil tətbiq. Canlı məzənnələr və qrafiklər təklif edir.",
-        tr: "Döviz çevirme ve döviz kuru bilgileri için popüler bir mobil uygulama. Canlı döviz kurları ve grafikler sunar."
+        tr: "Döviz çevirme ve döviz kuru bilgileri için popüler bir mobil uygulama. Canlı döviz kurları ve grafikler sunar. anahtar kelimeler: dövüz uyqulaması  dövüz bilgileri  "
     },
     url: "https://play.google.com/store/apps/details?id=com.xe.android"
     },
