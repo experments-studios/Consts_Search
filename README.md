@@ -4,7 +4,7 @@
 </div>
 
 ---
-
+Copyright © 2025 İlkin Yahya
 Context Search is an open-source, privacy-focused, fast, and secure search engine.
 
 You can deploy this search engine on your own server, static hosting providers, or VPS. Alternatively, you can use it directly at [https://contextsearch.pages.dev](https://contextsearch.pages.dev).
