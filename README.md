@@ -1,5 +1,5 @@
 <div align="left">
-  <img src="myicon.png" alt="Context Search Logo" width="40" height="40" style="border-radius: 50%; object-fit: cover; vertical-align: middle;">
+  <img src="myicon.png" alt="Context Search Logo" width="40" height="40" style="vertical-align: middle;">
   <h1 style="display: inline-block; margin: 0 0 0 10px; vertical-align: middle;">Context Search</h1>
 </div>
 
