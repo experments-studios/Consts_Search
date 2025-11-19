@@ -199,12 +199,11 @@ function searchSites(query, category='', lang=currentLang) {
     sitesToSearch.forEach(site => {
         let score = 0;
 
-        // Yalnızca geçerli arama terimleri varsa puanlama yap
+        
         if (queryTerms.length > 0) {
 
             const siteTitleNormalized = normalizeText(site.title);
 
-            // Phrase Matching (Yan Yana Kelime Eşleşmesi)
             if (queryTerms.length > 1 && siteTitleNormalized.includes(normalizedQuery)) {
                 score += 10;
             }
@@ -244,7 +243,6 @@ function searchSites(query, category='', lang=currentLang) {
             );
         }
 
-        // Sorgu yoksa (kategori araması veya ana liste) veya puan > 0 ise göster
         if (queryTerms.length === 0 || score > 0) {
             filteredSites.push({
                 ...site,
