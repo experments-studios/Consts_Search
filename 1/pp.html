@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - consts.pages.dev</title>
+    <style>
+        :root {
+            --primary-text-color: #e8eaed; 
+            --secondary-text-color: #bdc1c6; 
+            --background-color: #121212; 
+            --surface-color: #242428; 
+            --button-bg-color: #36363c; 
+            --accent-color: #00e0ff;
+            --logo-main-color: #00ff88; 
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-neon: 0 0 10px rgba(0, 224, 255, 0.4); 
+            --border-radius-sm: 4px;
+        }
+
+        body.light {
+            --primary-text-color: #202124;
+            --secondary-text-color: #5f6368;
+            --background-color: #f8f9fa;
+            --surface-color: #ffffff;
+            --button-bg-color: #e8eaed;
+            --accent-color: #1a73e8; 
+            --logo-main-color: #4285f4; 
+            --shadow-base: 0 1px 6px rgba(0, 0, 0, 0.1);
+            --shadow-neon: 0 1px 4px rgba(0, 0, 0, 0.08); 
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.8; 
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .content-card {
+            background-color: var(--surface-color);
+            color: var(--primary-text-color);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-base);
+            max-width: 800px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        h1 { 
+            font-size: 28px;
+            color: var(--logo-main-color); 
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+            text-align: center;
+        }
+        
+        h2 { 
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--button-bg-color);
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+        
+        a { 
+            color: var(--accent-color); 
+            text-decoration: none; 
+            transition: color 0.2s;
+        }
+        a:hover { 
+            text-decoration: underline; 
+            filter: brightness(1.2);
+        }
+
+        ul {
+            list-style-type: none; 
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 10px;
+            color: var(--secondary-text-color);
+        }
+
+        /* Xüsusi neon nöqtə */
+        ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            text-shadow: 0 0 5px var(--accent-color);
+        }
+
+        strong {
+            color: var(--primary-text-color);
+        }
+        
+        .back-button {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            padding: 10px 20px;
+            margin: 30px auto 0;
+            text-align: center;
+            background-color: var(--button-bg-color);
+            color: var(--secondary-text-color);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--button-bg-color);
+        }
+        .back-button:hover {
+            background-color: var(--surface-color);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-neon);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h1>Privacy Policy</h1>
+        <p>Thank you for visiting our website, **consts.pages.dev**. Your privacy is important to us.</p>
+
+        <h2>Data Collection & Usage</h2>
+        <p>This website **does not directly collect any personal data**. We do not use contact forms, membership systems, comment sections, or direct analytical/marketing cookies.</p>
+
+        <h2>Third-Party Processing (Cloudflare)</h2>
+        <p>However, our website is hosted and served using **Cloudflare Pages**. Cloudflare processes certain technical data automatically to ensure the security (such as protection against DDoS attacks) and performance (faster loading times) of our website. This technical data may include:</p>
+
+        <ul>
+            <li><strong>IP Addresses:</strong> Visitor IP addresses are processed by Cloudflare for security and traffic management purposes.</li>
+            <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security (e.g., to detect bots). These cookies do not collect personal data or track you.</li>
+            <li><strong>Traffic Logs:</strong> General, anonymized traffic data may be logged for security and performance monitoring.</li>
+        </ul>
+
+        <p>For more information about Cloudflare's data processing practices, please visit Cloudflare's Privacy Policy: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+
+        <h2>Scope</h2>
+        <p>This privacy policy applies solely to **consts.pages.dev** and does not cover other websites or services beyond our control.</p>
+
+        <h2>Contact</h2>
+        <p>If you have any questions about our privacy policy, please feel free to contact us.</p>
+
+        <p>Last Updated: **11 November 2025**</p>
+    </div>
+
+    <a href="index.html" class="back-button">← Back to Search</a>
+
+    <script>
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.classList.add('light');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>
+</body>
+</html>
