@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consts Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="myicon.png"> 
+    
+    <style>
+        /* ================================================= */
+        /* === 1. TEMEL VE DEĞİŞKEN TANIMLARI === */
+        /* ================================================= */
+        *, *::before, *::after {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        :root {
+            --primary-text-color: #e8eaed; 
+            --secondary-text-color: #bdc1c6; 
+            --background-color: #121212; 
+            --surface-color: #242428; 
+            --button-bg-color: #36363c; 
+            --border-width: 1px;
+            --accent-color: #00ff88; 
+            --logo-main-color: #00ff88; 
+            --logo-glow-color: rgba(0, 255, 136, 0.4); 
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-neon: 0 0 10px rgba(0, 224, 255, 0.6); 
+            --shadow-intense-neon: 0 0 15px var(--accent-color);
+            --border-radius-sm: 4px;
+            --border-radius-lg: 24px; 
+            --particle-color: rgba(0, 255, 136, 0.1);
+            --particle-size: 2px;
+            --btn-hover-bg: linear-gradient(45deg, var(--accent-color), var(--logo-main-color));
+        }
+
+        body.light {
+            --primary-text-color: #202124;
+            --secondary-text-color: #5f6368;
+            --background-color: #f8f9fa;
+            --surface-color: #ffffff;
+            --button-bg-color: #e8eaed;
+            --accent-color: #1a73e8; 
+            --logo-main-color: #4285f4; 
+            --logo-glow-color: rgba(66, 133, 244, 0.2);
+            --shadow-base: 0 1px 6px rgba(0, 0, 0, 0.1);
+            --shadow-neon: 0 1px 4px rgba(0, 0, 0, 0.08); 
+            --shadow-intense-neon: 0 3px 10px rgba(0, 0, 0, 0.15);
+            --particle-color: rgba(66, 133, 244, 0.05);
+            --btn-hover-bg: linear-gradient(45deg, var(--accent-color), #34a853);
+        }
+
+        /* ================================================= */
+        /* === 2. ANİMASYON KEYFRAMELERİ === */
+        /* ================================================= */
+
+        /* Logo için hafif sıçrama ve belirme (İlk yüklenme) */
+        @keyframes neonFadeIn {
+            0% { opacity: 0; transform: translateY(20px); text-shadow: none; }
+            100% { opacity: 1; transform: translateY(0); text-shadow: 0 0 10px var(--logo-glow-color); }
+        }
+
+        /* Consts Logosuna Sürekli Neon Titreme Efekti (Yeni!) */
+        @keyframes flickerNeon {
+            0%, 100% { 
+                text-shadow: 0 0 10px var(--logo-glow-color), 0 0 20px var(--accent-color);
+                opacity: 1;
+            }
+            5% { 
+                text-shadow: none; 
+                opacity: 0.95;
+            }
+            10% { 
+                text-shadow: 0 0 8px var(--logo-glow-color); 
+                opacity: 0.98;
+            }
+            15% { 
+                text-shadow: none; 
+                opacity: 0.9;
+            }
+            20% { 
+                text-shadow: 0 0 12px var(--logo-glow-color), 0 0 22px var(--accent-color);
+                opacity: 1;
+            }
+            25% { 
+                text-shadow: none; 
+                opacity: 0.95;
+            }
+        }
+        
+        /* Arama çubuğu ve butonlar için yavaşça kayarak girme */
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Arka plan parçacık animasyonu */
+        @keyframes moveParticles {
+            0% { background-position: 0 0; }
+            100% { background-position: 500px 500px; } 
+        }
+
+        /* Arama ikonunun nabız atma efekti */
+        @keyframes pulseSearchIcon {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        /* Tema değiştirme butonu tıklandığında */
+        @keyframes pressAndRelease {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        /* Site İkonu için ekstra parıltı */
+        @keyframes iconGlowPulse {
+            0%, 100% { box-shadow: var(--shadow-base); }
+            50% { box-shadow: 0 0 15px var(--accent-color), 0 0 25px rgba(0,255,136,0.6); }
+        }
+
+        /* ================================================= */
+        /* === 3. GENEL VE YERLEŞİM STİLLERİ === */
+        /* ================================================= */
+
+        body {
+            /* MOUSE İMLECİ DEĞİŞİKLİĞİ (Yeni!) */
+            /* Bir çapraz işaret/hedef imleci kullanıyoruz. Eğer desteklenmezse 'crosshair' kullanılır. */
+            cursor: url(''), crosshair;
+            
+            padding: 20px 10px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background-color); 
+            color: var(--primary-text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; 
+            transition: background 0.4s, color 0.4s; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Linkler ve Butonlar için Pointer İmleci */
+        a, button, .search-icon {
+            cursor: pointer !important;
+            cursor: url(''), pointer !important;
+        }
+        
+        /* Arka plan parçacık efekti (Aynı kaldı) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(var(--particle-color) var(--particle-size), transparent var(--particle-size)),
+                radial-gradient(var(--particle-color) var(--particle-size), transparent var(--particle-size));
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            animation: moveParticles 60s linear infinite;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px; 
+            gap: 35px; 
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* GİRİŞ ANİMASYONU UYGULAMASI */
+        .header-logo-container {
+            display: flex; 
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: neonFadeIn 1s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+        
+        #search-form { 
+            opacity: 0;
+            animation: slideInUp 0.7s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .buttons {
+            opacity: 0;
+            animation: slideInUp 0.7s ease-out forwards;
+            animation-delay: 1.2s;
+        }
+
+        .site-icon {
+            height: 40px; 
+            width: 40px;
+            margin-right: 15px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-base); 
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: iconGlowPulse 3s infinite alternate 1.5s;
+        }
+        .site-icon:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px var(--accent-color), 0 0 30px rgba(0,255,136,0.8);
+            animation: none;
+        }
+        .logo {
+            font-size: 40px; 
+            font-weight: 700; 
+            color: var(--logo-main-color); 
+            text-shadow: 0 0 10px var(--logo-glow-color); 
+            transition: color 0.4s, text-shadow 0.4s;
+            /* YENİ: Sürekli Titreme Animasyonu */
+            animation: flickerNeon 4s infinite alternate; 
+            
+        } 
+        
+        /* ================================================= */
+        /* === 4. FORM VE BUTON STİLLERİ (Aynı Kaldı) === */
+        /* ================================================= */
+
+        #search-form { 
+            width: 100%; 
+            height: 48px; 
+            border: var(--border-width) solid var(--button-bg-color); 
+            border-radius: var(--border-radius-lg); 
+            padding: 0 15px 0 20px; 
+            display: flex;
+            align-items: center; 
+            background: var(--surface-color);
+            box-shadow: var(--shadow-base); 
+            transition: all 0.3s ease-in-out;
+        }
+        #search-form:hover {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-neon);
+        }
+        #search-form:focus-within { 
+            box-shadow: var(--shadow-intense-neon); 
+            border-color: var(--accent-color);
+            transform: scale(1.01);
+            caret-color: var(--accent-color);
+        }
+        .search-input { 
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--primary-text-color);
+            font-size: 16px; 
+            font-family: inherit; 
+            transition: opacity 0.3s;
+        }
+        .search-icon { 
+            font-size: 20px; 
+            color: var(--accent-color); 
+            margin-left: 10px;
+            padding: 5px; 
+            transition: color 0.2s, transform 0.2s;
+            flex-shrink: 0; 
+        }
+        .search-icon.active {
+            animation: pulseSearchIcon 1.5s infinite ease-in-out;
+        }
+
+        .search-icon:hover {
+             color: var(--logo-main-color);
+             transform: scale(1.1);
+             animation: none;
+        }
+        .search-icon[disabled] { 
+            opacity: 0.5;
+            pointer-events: none;
+            animation: none;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px; 
+            width: 100%; 
+        }
+        .btn {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            padding: 10px 20px; 
+            font-size: 15px; 
+            font-weight: 500;
+            line-height: 1.2; 
+            border: var(--border-width) solid var(--button-bg-color); 
+            background-color: var(--button-bg-color);
+            color: var(--primary-text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius-sm); 
+            gap: 6px; 
+            box-shadow: var(--shadow-base); 
+            transition: all 0.3s ease-out;
+            z-index: 1;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--btn-hover-bg);
+            transition: left 0.3s ease-out;
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+        .btn:hover {
+            color: var(--background-color);
+            border-color: var(--accent-color); 
+            box-shadow: var(--shadow-neon); 
+            transform: translateY(-2px); 
+        }
+        
+        .toggle-mode {
+            position: absolute; 
+            top: 15px; 
+            right: 15px;
+            font-size: 14px;
+            padding: 8px 14px; 
+            border: 2px solid var(--accent-color); 
+            background: var(--button-bg-color);
+            color: var(--primary-text-color);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-base);
+            transition: all 0.3s ease-in-out;
+            z-index: 10;
+        }
+        .toggle-mode:hover {
+            background: var(--accent-color);
+            color: var(--surface-color); 
+            border-color: var(--background-color);
+            box-shadow: var(--shadow-neon);
+            transform: scale(1.05);
+        }
+        .toggle-mode:active {
+            animation: pressAndRelease 0.2s ease-out;
+        }
+
+        /* ================================================= */
+        /* === 5. MODAL (İZİN PENCERESİ) ANİMASYONLARI (Aynı Kaldı) === */
+        /* ================================================= */
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(8px);
+            opacity: 0; 
+            transition: opacity 0.4s ease-out;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+        }
+
+        .privacy-modal {
+            background-color: var(--surface-color);
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); 
+            color: var(--primary-text-color);
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid var(--logo-main-color);
+            
+            transform: scale(0.9) translateY(30px);
+            opacity: 0;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+        }
+        
+        .modal-overlay.active .privacy-modal {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        
+        /* ... Modal İçerik Stilleri ... */
+
+        /* ================================================= */
+        /* === 6. RESPONSIVE TASARIM (Aynı Kaldı) === */
+        /* ================================================= */
+        
+        @media (max-width: 768px) {
+            .logo { font-size: 34px; }
+            .site-icon { height: 36px; width: 36px; }
+            #search-form { max-width: 90%; height: 44px; padding: 0 15px; }
+            .search-input { font-size: 15px; }
+            .buttons { width: 90%; }
+            .btn { padding: 10px 18px; font-size: 14px; }
+            .toggle-mode { top: 10px; right: 10px; }
+            body::before { background-size: 30px 30px; animation-duration: 40s; }
+        }
+
+        @media (max-width: 480px) {
+            .logo { font-size: 30px; }
+            #search-form { height: 40px; }
+            .search-input { font-size: 14px; }
+            .buttons { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="toggle-mode" id="themeToggleBtn" onclick="toggleMode()" aria-label="Toggle Theme" tabindex="1"></button>
+
+    <main class="main-content">
+
+        <div class="header-logo-container">
+            <img src="myicon.png" alt="Consts" class="site-icon">
+            <div class="logo">Consts</div>
+        </div>
+
+        <form id="search-form" action="search.html" method="GET" role="search">
+            <input 
+                type="text" 
+                name="q" 
+                id="search-input"
+                class="search-input"
+                placeholder="Start discovering..."
+                list="suggestions"
+                autocomplete="off"
+                aria-label="Search query"
+                tabindex="2"
+                disabled 
+            >
+            <div class="search-icon" id="search-icon-btn" onclick="submitSearchIfEnabled()" role="button" aria-label="Search" tabindex="0" disabled></div>
+            <datalist id="suggestions"></datalist>
+        </form>
+
+        <div class="buttons" role="navigation" aria-label="Main Navigation">
+            <a href="addcookie.html" class="btn" id="cookie-btn" tabindex="3" disabled>Add Cookie</a>
+            <a href="search.html" class="btn" id="all-searches-btn" tabindex="4" disabled>All Searches</a>
+            <a href="pp.html" class="btn" id="privacy-btn" tabindex="5">Privacy Policy</a>
+        </div>
+
+    </main>
+    
+    <div class="modal-overlay" id="privacyModalOverlay">
+        <div class="privacy-modal">
+            <h2>Privacy Policy Acceptance</h2>
+            <div class="modal-content">
+                <p>Before proceeding with <strong>https://consts.pages.dev</strong>, please accept our privacy terms.</p>
+
+                <p>This website does not directly collect any personal identifying information. However, as the platform is hosted on Cloudflare Pages, <strong>IP addresses and technical traffic data</strong> are automatically processed by Cloudflare for security and performance purposes. By clicking 'I Accept', you agree to these terms.</p>
+                
+                <p>For more details, please visit the <a href="pp.html" target="_blank">Privacy Policy</a> page.</p>
+
+            </div>
+            <div class="modal-actions">
+                <button class="accept-btn" onclick="acceptPrivacy()">I Accept and Continue</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const body = document.body;
+        const mainContent = document.querySelector('.main-content');
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.getElementById('search-icon-btn');
+        const suggestionsList = document.getElementById('suggestions');
+        const privacyModalOverlay = document.getElementById('privacyModalOverlay');
+        const actionButtons = document.querySelectorAll('.btn');
+        const themeToggleBtn = document.getElementById('themeToggleBtn'); 
+        
+        const dbName = 'contextSearchHistoryDB'; 
+        const dbVersion = 1;
+        const PRIVACY_STORAGE_KEY = 'context_privacy_agreement';
+
+        let db;
+        
+        function initDB() {
+            if (!window.indexedDB) { return; }
+            const request = indexedDB.open(dbName, dbVersion);
+            request.onerror = function(event) {
+                console.error("Error opening IndexedDB:", event.target.errorCode);
+            };
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                if (localStorage.getItem(PRIVACY_STORAGE_KEY) === 'true') {
+                    loadSuggestions(); 
+                }
+            };
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                db.createObjectStore('history', { keyPath: 'query' });
+            };
+        }
+
+        function saveSearch(query) {
+            if (!db || !query || query.trim() === '') return;
+            const trimmedQuery = query.trim().toLowerCase();
+            const transaction = db.transaction(['history'], 'readwrite');
+            const objectStore = transaction.objectStore('history');
+            const record = { query: trimmedQuery, timestamp: Date.now() };
+            const request = objectStore.put(record); 
+            request.onerror = function(event) {
+                console.error(`Error saving '${trimmedQuery}':`, event.target.error);
+            };
+        }
+
+        function loadSuggestions() {
+            if (!db) return;
+            suggestionsList.innerHTML = '';
+            const transaction = db.transaction(['history'], 'readonly');
+            const objectStore = transaction.objectStore('history');
+            const request = objectStore.getAll();
+            request.onsuccess = function(event) {
+                const history = event.target.result;
+                history.sort((a, b) => b.timestamp - a.timestamp);
+                const suggestionsToShow = history.slice(0, 15);
+                suggestionsToShow.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.query;
+                    suggestionsList.appendChild(option);
+                });
+            };
+        }
+        
+        function toggleMode() {
+            const isLight = body.classList.toggle('light');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            themeToggleBtn.textContent = isLight ? 'theme' : 'theme';
+        }
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                body.classList.add('light');
+                themeToggleBtn.textContent = 'theme';
+            } else {
+                themeToggleBtn.textContent = 'theme';
+            }
+        }
+        
+        function submitSearchIfEnabled() {
+            if (!searchInput.disabled) {
+                searchForm.submit();
+            }
+        }
+
+        function enableInterface() {
+            searchInput.disabled = false;
+            searchIcon.removeAttribute('disabled');
+            searchIcon.classList.add('active'); 
+            
+            actionButtons.forEach(btn => {
+                if (btn.id !== 'privacy-btn') {
+                    btn.removeAttribute('disabled');
+                    btn.style.pointerEvents = 'auto';
+                }
+            });
+            
+            mainContent.style.opacity = '1'; 
+            mainContent.style.transform = 'translateY(0)';
+            
+            initDB(); 
+        }
+
+        function acceptPrivacy() {
+            privacyModalOverlay.classList.remove('active');
+            
+            setTimeout(() => {
+                privacyModalOverlay.style.display = 'none';
+                localStorage.setItem(PRIVACY_STORAGE_KEY, 'true'); 
+                enableInterface();
+                searchInput.focus();
+            }, 400); 
+        }
+
+        function checkPrivacyStatus() {
+            const accepted = localStorage.getItem(PRIVACY_STORAGE_KEY);
+
+            if (accepted === 'true') {
+                privacyModalOverlay.style.display = 'none';
+                enableInterface();
+            } else {
+                searchInput.disabled = true;
+                searchIcon.setAttribute('disabled', 'disabled');
+                searchIcon.classList.remove('active');
+                actionButtons.forEach(btn => {
+                    if (btn.id !== 'privacy-btn') {
+                        btn.setAttribute('disabled', 'disabled');
+                        btn.style.pointerEvents = 'none';
+                    }
+                });
+                
+                privacyModalOverlay.style.display = 'flex';
+                setTimeout(() => {
+                     privacyModalOverlay.classList.add('active');
+                }, 10);
+            }
+        }
+
+        searchForm.addEventListener('submit', function(event) {
+            const query = searchInput.value;
+            saveSearch(query);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applySavedTheme();
+            checkPrivacyStatus();
+        });
+    </script>
+</body>
+</html>

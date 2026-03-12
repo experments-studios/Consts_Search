@@ -4948,5 +4948,15 @@
             "tr": "youtube de yazılım ve yazılım geliştirme hakkında videolar yapan kanal  anahtar kelimeler: kodla youtube , Kodla Youtube , Kodla , yazılım"
         },
         "url": "https://github.com/Kodla-devs"
-    }
+    },
+    {
+        "category": "Programming",
+        "title": "constlang",
+        "description": {
+            "en": "high-performance programing language",
+            "az": "yüksək performanslı proqramlaşdırma dili",
+            "tr": "yüksek performanslı programlama dili"
+        },
+        "url": "https://constlang.pages.dev"
+    } 
 ]
