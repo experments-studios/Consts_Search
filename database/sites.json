@@ -20,14 +20,40 @@
         "url": "https://moz.com"
     },
     {
-        "category": "Marketing",
-        "title": "Mailchimp",
+        "category": "Technology",
+        "title": "Zapier",
         "description": {
-            "en": "Email marketing platform.",
-            "az": "E-poçt marketinq platforması.",
-            "tr": "E-posta pazarlama platformu."
+            "en": "A tool that automates workflows.",
+            "az": "İş axınlarını avtomatlaşdıran alət.",
+            "tr": "İş akışlarını otomatikleştiren araç.",
+            "es": "",
+            "ko": ""            
         },
-        "url": "https://mailchimp.com"
+        "url": "https://zapier.com"
+    },
+    {
+        "category": "Technology",
+        "title": "Pluget Search mobile",
+        "description": {
+            "en": "pluget search for mobile",
+            "az": "pluget searchın mobil tədbiqi",
+            "tr": "pluget search ın mobil uyqulaması",
+            "es": "",
+            "ko": ""            
+        },
+        "url": "https://mobile.plugetsearch.pages.dev/plugetsearch.apk"
+    },
+    {
+        "category": "Technology",
+        "title": "github - Pluget Search",
+        "description": {
+            "en": "Pluget Search",
+            "az": "Pluget Search",
+            "tr": "Pluget Search",
+            "es": "",
+            "ko": ""            
+        },
+        "url": "https://mobile.plugetsearch.pages.dev/plugetsearch.apk"
     },
     {
         "category": "Technology",
@@ -138,6 +164,16 @@
             "tr": "Kullanıcıların soru sorup cevap aldığı soru-cevap platformu."
         },
         "url": "https://quora.com"
+    },
+    {
+        "category": "Social Media",
+        "title": "LinkedIn",
+        "description": {
+            "en": "A professional networking and job search platform.",
+            "az": "Peşəkar şəbəkə qurma və iş axtarışı platforması.",
+            "tr": "Profesyonel ağ kurma ve iş arama platformu."
+        },
+        "url": "https://linkedin.com"
     },
     {
         "category": "Social Media",
@@ -4948,5 +4984,2709 @@
             "tr": "youtube de yazılım ve yazılım geliştirme hakkında videolar yapan kanal  anahtar kelimeler: kodla youtube , Kodla Youtube , Kodla , yazılım"
         },
         "url": "https://github.com/Kodla-devs"
-    } 
+    },
+  {
+    "category": "Global",
+    "title": "RSA cryptosystem",
+    "url": "https://en.wikipedia.org/wiki/RSA_cryptosystem",
+    "keywords": ["The", "", "RSA cryptosystem"],
+    "description": {
+      "en": "Details about RSA cryptosystem",
+      "tr": "RSA cryptosystem hakkında (The, )",
+      "az": "RSA cryptosystem haqqında ətraflı (The)",
+      "es": "Información sobre RSA cryptosystem",
+      "ko": "RSA cryptosystem 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "RSA cryptosystem - Part 2",
+    "url": "https://en.wikipedia.org/wiki/RSA_cryptosystem",
+    "keywords": ["The", "", "RSA cryptosystem"],
+    "description": {
+      "en": "Details about RSA cryptosystem",
+      "tr": "RSA cryptosystem hakkında (The, )",
+      "az": "RSA cryptosystem haqqında ətraflı (The)",
+      "es": "Información sobre RSA cryptosystem",
+      "ko": "RSA cryptosystem 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ety Habitation Site",
+    "url": "https://en.wikipedia.org/wiki/Ety_Habitation_Site",
+    "keywords": ["The", "", "Ety Habitation Site"],
+    "description": {
+      "en": "Details about Ety Habitation Site",
+      "tr": "Ety Habitation Site hakkında (The, )",
+      "az": "Ety Habitation Site haqqında ətraflı (The)",
+      "es": "Información sobre Ety Habitation Site",
+      "ko": "Ety Habitation Site 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ety Habitation Site - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Ety_Habitation_Site",
+    "keywords": ["The", "", "Ety Habitation Site"],
+    "description": {
+      "en": "Details about Ety Habitation Site",
+      "tr": "Ety Habitation Site hakkında (The, )",
+      "az": "Ety Habitation Site haqqında ətraflı (The)",
+      "es": "Información sobre Ety Habitation Site",
+      "ko": "Ety Habitation Site 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ezz",
+    "url": "https://en.wikipedia.org/wiki/Ezz",
+    "keywords": ["Ezz", "", "Ezz"],
+    "description": {
+      "en": "Details about Ezz",
+      "tr": "Ezz hakkında (Ezz, )",
+      "az": "Ezz haqqında ətraflı (Ezz)",
+      "es": "Información sobre Ezz",
+      "ko": "Ezz 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ezz - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Ezz",
+    "keywords": ["Ezz", "", "Ezz"],
+    "description": {
+      "en": "Details about Ezz",
+      "tr": "Ezz hakkında (Ezz, )",
+      "az": "Ezz haqqında ətraflı (Ezz)",
+      "es": "Información sobre Ezz",
+      "ko": "Ezz 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AKQ",
+    "url": "https://en.wikipedia.org/wiki/AKQ",
+    "keywords": ["AKQ", "", "AKQ"],
+    "description": {
+      "en": "Details about AKQ",
+      "tr": "AKQ hakkında (AKQ, )",
+      "az": "AKQ haqqında ətraflı (AKQ)",
+      "es": "Información sobre AKQ",
+      "ko": "AKQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AKQ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/AKQ",
+    "keywords": ["AKQ", "", "AKQ"],
+    "description": {
+      "en": "Details about AKQ",
+      "tr": "AKQ hakkında (AKQ, )",
+      "az": "AKQ haqqında ətraflı (AKQ)",
+      "es": "Información sobre AKQ",
+      "ko": "AKQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MVF",
+    "url": "https://en.wikipedia.org/wiki/MVF",
+    "keywords": ["MVF", "", "MVF"],
+    "description": {
+      "en": "Details about MVF",
+      "tr": "MVF hakkında (MVF, )",
+      "az": "MVF haqqında ətraflı (MVF)",
+      "es": "Información sobre MVF",
+      "ko": "MVF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MVF - Part 2",
+    "url": "https://en.wikipedia.org/wiki/MVF",
+    "keywords": ["MVF", "", "MVF"],
+    "description": {
+      "en": "Details about MVF",
+      "tr": "MVF hakkında (MVF, )",
+      "az": "MVF haqqında ətraflı (MVF)",
+      "es": "Información sobre MVF",
+      "ko": "MVF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "DLR",
+    "url": "https://en.wikipedia.org/wiki/DLR",
+    "keywords": ["Look", "up", "DLR"],
+    "description": {
+      "en": "Details about DLR",
+      "tr": "DLR hakkında (Look, up)",
+      "az": "DLR haqqında ətraflı (Look)",
+      "es": "Información sobre DLR",
+      "ko": "DLR 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "DLR - Part 2",
+    "url": "https://en.wikipedia.org/wiki/DLR",
+    "keywords": ["Look", "up", "DLR"],
+    "description": {
+      "en": "Details about DLR",
+      "tr": "DLR hakkında (Look, up)",
+      "az": "DLR haqqında ətraflı (Look)",
+      "es": "Información sobre DLR",
+      "ko": "DLR 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Christian Democratic Movement",
+    "url": "https://en.wikipedia.org/wiki/Christian_Democratic_Movement",
+    "keywords": ["The", "Christian", "Christian Democratic Movement"],
+    "description": {
+      "en": "Details about Christian Democratic Movement",
+      "tr": "Christian Democratic Movement hakkında (The, Christian)",
+      "az": "Christian Democratic Movement haqqında ətraflı (The)",
+      "es": "Información sobre Christian Democratic Movement",
+      "ko": "Christian Democratic Movement 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Christian Democratic Movement - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Christian_Democratic_Movement",
+    "keywords": ["The", "Christian", "Christian Democratic Movement"],
+    "description": {
+      "en": "Details about Christian Democratic Movement",
+      "tr": "Christian Democratic Movement hakkında (The, Christian)",
+      "az": "Christian Democratic Movement haqqında ətraflı (The)",
+      "es": "Información sobre Christian Democratic Movement",
+      "ko": "Christian Democratic Movement 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Duy",
+    "url": "https://en.wikipedia.org/wiki/Duy",
+    "keywords": ["scientist", "\u0110\u00e0o", "Duy"],
+    "description": {
+      "en": "Details about Duy",
+      "tr": "Duy hakkında (scientist, \u0110\u00e0o)",
+      "az": "Duy haqqında ətraflı (scientist)",
+      "es": "Información sobre Duy",
+      "ko": "Duy 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Duy - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Duy",
+    "keywords": ["scientist", "\u0110\u00e0o", "Duy"],
+    "description": {
+      "en": "Details about Duy",
+      "tr": "Duy hakkında (scientist, \u0110\u00e0o)",
+      "az": "Duy haqqında ətraflı (scientist)",
+      "es": "Información sobre Duy",
+      "ko": "Duy 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "VNC",
+    "url": "https://en.wikipedia.org/wiki/VNC",
+    "keywords": ["VNC", "", "VNC"],
+    "description": {
+      "en": "Details about VNC",
+      "tr": "VNC hakkında (VNC, )",
+      "az": "VNC haqqında ətraflı (VNC)",
+      "es": "Información sobre VNC",
+      "ko": "VNC 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "VNC - Part 2",
+    "url": "https://en.wikipedia.org/wiki/VNC",
+    "keywords": ["VNC", "", "VNC"],
+    "description": {
+      "en": "Details about VNC",
+      "tr": "VNC hakkında (VNC, )",
+      "az": "VNC haqqında ətraflı (VNC)",
+      "es": "Información sobre VNC",
+      "ko": "VNC 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Yuh",
+    "url": "https://en.wikipedia.org/wiki/Yuh",
+    "keywords": ["Yuh", "", "Yuh"],
+    "description": {
+      "en": "Details about Yuh",
+      "tr": "Yuh hakkında (Yuh, )",
+      "az": "Yuh haqqında ətraflı (Yuh)",
+      "es": "Información sobre Yuh",
+      "ko": "Yuh 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Yuh - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Yuh",
+    "keywords": ["Yuh", "", "Yuh"],
+    "description": {
+      "en": "Details about Yuh",
+      "tr": "Yuh hakkında (Yuh, )",
+      "az": "Yuh haqqında ətraflı (Yuh)",
+      "es": "Información sobre Yuh",
+      "ko": "Yuh 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "WXW",
+    "url": "https://en.wikipedia.org/wiki/WXW",
+    "keywords": ["WXW", "", "WXW"],
+    "description": {
+      "en": "Details about WXW",
+      "tr": "WXW hakkında (WXW, )",
+      "az": "WXW haqqında ətraflı (WXW)",
+      "es": "Información sobre WXW",
+      "ko": "WXW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "WXW - Part 2",
+    "url": "https://en.wikipedia.org/wiki/WXW",
+    "keywords": ["WXW", "", "WXW"],
+    "description": {
+      "en": "Details about WXW",
+      "tr": "WXW hakkında (WXW, )",
+      "az": "WXW haqqında ətraflı (WXW)",
+      "es": "Información sobre WXW",
+      "ko": "WXW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "JFB",
+    "url": "https://en.wikipedia.org/wiki/JFB",
+    "keywords": ["JFB", "", "JFB"],
+    "description": {
+      "en": "Details about JFB",
+      "tr": "JFB hakkında (JFB, )",
+      "az": "JFB haqqında ətraflı (JFB)",
+      "es": "Información sobre JFB",
+      "ko": "JFB 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "JFB - Part 2",
+    "url": "https://en.wikipedia.org/wiki/JFB",
+    "keywords": ["JFB", "", "JFB"],
+    "description": {
+      "en": "Details about JFB",
+      "tr": "JFB hakkında (JFB, )",
+      "az": "JFB haqqında ətraflı (JFB)",
+      "es": "Información sobre JFB",
+      "ko": "JFB 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Pound (force)",
+    "url": "https://en.wikipedia.org/wiki/Pound_(force)",
+    "keywords": ["Look", "up", "Pound (force)"],
+    "description": {
+      "en": "Details about Pound (force)",
+      "tr": "Pound (force) hakkında (Look, up)",
+      "az": "Pound (force) haqqında ətraflı (Look)",
+      "es": "Información sobre Pound (force)",
+      "ko": "Pound (force) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Pound (force) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Pound_(force)",
+    "keywords": ["Look", "up", "Pound (force)"],
+    "description": {
+      "en": "Details about Pound (force)",
+      "tr": "Pound (force) hakkında (Look, up)",
+      "az": "Pound (force) haqqında ətraflı (Look)",
+      "es": "Información sobre Pound (force)",
+      "ko": "Pound (force) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Mmm Mmm Mmm Mmm",
+    "url": "https://en.wikipedia.org/wiki/Mmm_Mmm_Mmm_Mmm",
+    "keywords": ["Dummies", "\u2013", "Mmm Mmm Mmm Mmm"],
+    "description": {
+      "en": "Details about Mmm Mmm Mmm Mmm",
+      "tr": "Mmm Mmm Mmm Mmm hakkında (Dummies, \u2013)",
+      "az": "Mmm Mmm Mmm Mmm haqqında ətraflı (Dummies)",
+      "es": "Información sobre Mmm Mmm Mmm Mmm",
+      "ko": "Mmm Mmm Mmm Mmm 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Mmm Mmm Mmm Mmm - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Mmm_Mmm_Mmm_Mmm",
+    "keywords": ["Dummies", "\u2013", "Mmm Mmm Mmm Mmm"],
+    "description": {
+      "en": "Details about Mmm Mmm Mmm Mmm",
+      "tr": "Mmm Mmm Mmm Mmm hakkında (Dummies, \u2013)",
+      "az": "Mmm Mmm Mmm Mmm haqqında ətraflı (Dummies)",
+      "es": "Información sobre Mmm Mmm Mmm Mmm",
+      "ko": "Mmm Mmm Mmm Mmm 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ENP",
+    "url": "https://en.wikipedia.org/wiki/ENP",
+    "keywords": ["ENP", "", "ENP"],
+    "description": {
+      "en": "Details about ENP",
+      "tr": "ENP hakkında (ENP, )",
+      "az": "ENP haqqında ətraflı (ENP)",
+      "es": "Información sobre ENP",
+      "ko": "ENP 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ENP - Part 2",
+    "url": "https://en.wikipedia.org/wiki/ENP",
+    "keywords": ["ENP", "", "ENP"],
+    "description": {
+      "en": "Details about ENP",
+      "tr": "ENP hakkında (ENP, )",
+      "az": "ENP haqqında ətraflı (ENP)",
+      "es": "Información sobre ENP",
+      "ko": "ENP 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CTM",
+    "url": "https://en.wikipedia.org/wiki/CTM",
+    "keywords": ["Look", "up", "CTM"],
+    "description": {
+      "en": "Details about CTM",
+      "tr": "CTM hakkında (Look, up)",
+      "az": "CTM haqqında ətraflı (Look)",
+      "es": "Información sobre CTM",
+      "ko": "CTM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CTM - Part 2",
+    "url": "https://en.wikipedia.org/wiki/CTM",
+    "keywords": ["Look", "up", "CTM"],
+    "description": {
+      "en": "Details about CTM",
+      "tr": "CTM hakkında (Look, up)",
+      "az": "CTM haqqında ətraflı (Look)",
+      "es": "Información sobre CTM",
+      "ko": "CTM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TGL (golf league)",
+    "url": "https://en.wikipedia.org/wiki/TGL_(golf_league)",
+    "keywords": ["TGL (golf league)", "", "TGL (golf league)"],
+    "description": {
+      "en": "Details about TGL (golf league)",
+      "tr": "TGL (golf league) hakkında (TGL (golf league), )",
+      "az": "TGL (golf league) haqqında ətraflı (TGL (golf league))",
+      "es": "Información sobre TGL (golf league)",
+      "ko": "TGL (golf league) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TGL (golf league) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/TGL_(golf_league)",
+    "keywords": ["TGL (golf league)", "", "TGL (golf league)"],
+    "description": {
+      "en": "Details about TGL (golf league)",
+      "tr": "TGL (golf league) hakkında (TGL (golf league), )",
+      "az": "TGL (golf league) haqqında ətraflı (TGL (golf league))",
+      "es": "Información sobre TGL (golf league)",
+      "ko": "TGL (golf league) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Society for Industrial and Applied Mathematics",
+    "url": "https://en.wikipedia.org/wiki/Society_for_Industrial_and_Applied_Mathematics",
+    "keywords": ["Mathematics", "(SIFIN),", "Society for Industrial and Applied Mathematics"],
+    "description": {
+      "en": "Details about Society for Industrial and Applied Mathematics",
+      "tr": "Society for Industrial and Applied Mathematics hakkında (Mathematics, (SIFIN),)",
+      "az": "Society for Industrial and Applied Mathematics haqqında ətraflı (Mathematics)",
+      "es": "Información sobre Society for Industrial and Applied Mathematics",
+      "ko": "Society for Industrial and Applied Mathematics 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Society for Industrial and Applied Mathematics - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Society_for_Industrial_and_Applied_Mathematics",
+    "keywords": ["Mathematics", "(SIFIN),", "Society for Industrial and Applied Mathematics"],
+    "description": {
+      "en": "Details about Society for Industrial and Applied Mathematics",
+      "tr": "Society for Industrial and Applied Mathematics hakkında (Mathematics, (SIFIN),)",
+      "az": "Society for Industrial and Applied Mathematics haqqında ətraflı (Mathematics)",
+      "es": "Información sobre Society for Industrial and Applied Mathematics",
+      "ko": "Society for Industrial and Applied Mathematics 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LBQ",
+    "url": "https://en.wikipedia.org/wiki/LBQ",
+    "keywords": ["LBQ", "", "LBQ"],
+    "description": {
+      "en": "Details about LBQ",
+      "tr": "LBQ hakkında (LBQ, )",
+      "az": "LBQ haqqında ətraflı (LBQ)",
+      "es": "Información sobre LBQ",
+      "ko": "LBQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LBQ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/LBQ",
+    "keywords": ["LBQ", "", "LBQ"],
+    "description": {
+      "en": "Details about LBQ",
+      "tr": "LBQ hakkında (LBQ, )",
+      "az": "LBQ haqqında ətraflı (LBQ)",
+      "es": "Información sobre LBQ",
+      "ko": "LBQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "IMV",
+    "url": "https://en.wikipedia.org/wiki/IMV",
+    "keywords": ["vehicle", "Toyota", "IMV"],
+    "description": {
+      "en": "Details about IMV",
+      "tr": "IMV hakkında (vehicle, Toyota)",
+      "az": "IMV haqqında ətraflı (vehicle)",
+      "es": "Información sobre IMV",
+      "ko": "IMV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "IMV - Part 2",
+    "url": "https://en.wikipedia.org/wiki/IMV",
+    "keywords": ["vehicle", "Toyota", "IMV"],
+    "description": {
+      "en": "Details about IMV",
+      "tr": "IMV hakkında (vehicle, Toyota)",
+      "az": "IMV haqqında ətraflı (vehicle)",
+      "es": "Información sobre IMV",
+      "ko": "IMV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Fort Chipewyan Airport",
+    "url": "https://en.wikipedia.org/wiki/Fort_Chipewyan_Airport",
+    "keywords": ["Fort", "Chipewyan", "Fort Chipewyan Airport"],
+    "description": {
+      "en": "Details about Fort Chipewyan Airport",
+      "tr": "Fort Chipewyan Airport hakkında (Fort, Chipewyan)",
+      "az": "Fort Chipewyan Airport haqqında ətraflı (Fort)",
+      "es": "Información sobre Fort Chipewyan Airport",
+      "ko": "Fort Chipewyan Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Fort Chipewyan Airport - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Fort_Chipewyan_Airport",
+    "keywords": ["Fort", "Chipewyan", "Fort Chipewyan Airport"],
+    "description": {
+      "en": "Details about Fort Chipewyan Airport",
+      "tr": "Fort Chipewyan Airport hakkında (Fort, Chipewyan)",
+      "az": "Fort Chipewyan Airport haqqında ətraflı (Fort)",
+      "es": "Información sobre Fort Chipewyan Airport",
+      "ko": "Fort Chipewyan Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "The Young Fresh Fellows",
+    "url": "https://en.wikipedia.org/wiki/The_Young_Fresh_Fellows",
+    "keywords": ["The", "Young", "The Young Fresh Fellows"],
+    "description": {
+      "en": "Details about The Young Fresh Fellows",
+      "tr": "The Young Fresh Fellows hakkında (The, Young)",
+      "az": "The Young Fresh Fellows haqqında ətraflı (The)",
+      "es": "Información sobre The Young Fresh Fellows",
+      "ko": "The Young Fresh Fellows 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "The Young Fresh Fellows - Part 2",
+    "url": "https://en.wikipedia.org/wiki/The_Young_Fresh_Fellows",
+    "keywords": ["The", "Young", "The Young Fresh Fellows"],
+    "description": {
+      "en": "Details about The Young Fresh Fellows",
+      "tr": "The Young Fresh Fellows hakkında (The, Young)",
+      "az": "The Young Fresh Fellows haqqında ətraflı (The)",
+      "es": "Información sobre The Young Fresh Fellows",
+      "ko": "The Young Fresh Fellows 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Archie Lindo",
+    "url": "https://en.wikipedia.org/wiki/Archie_Lindo",
+    "keywords": ["The", "Gleaner.", "Archie Lindo"],
+    "description": {
+      "en": "Details about Archie Lindo",
+      "tr": "Archie Lindo hakkında (The, Gleaner.)",
+      "az": "Archie Lindo haqqında ətraflı (The)",
+      "es": "Información sobre Archie Lindo",
+      "ko": "Archie Lindo 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Archie Lindo - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Archie_Lindo",
+    "keywords": ["The", "Gleaner.", "Archie Lindo"],
+    "description": {
+      "en": "Details about Archie Lindo",
+      "tr": "Archie Lindo hakkında (The, Gleaner.)",
+      "az": "Archie Lindo haqqında ətraflı (The)",
+      "es": "Información sobre Archie Lindo",
+      "ko": "Archie Lindo 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LVI",
+    "url": "https://en.wikipedia.org/wiki/LVI",
+    "keywords": ["LVI", "", "LVI"],
+    "description": {
+      "en": "Details about LVI",
+      "tr": "LVI hakkında (LVI, )",
+      "az": "LVI haqqında ətraflı (LVI)",
+      "es": "Información sobre LVI",
+      "ko": "LVI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LVI - Part 2",
+    "url": "https://en.wikipedia.org/wiki/LVI",
+    "keywords": ["LVI", "", "LVI"],
+    "description": {
+      "en": "Details about LVI",
+      "tr": "LVI hakkında (LVI, )",
+      "az": "LVI haqqında ətraflı (LVI)",
+      "es": "Información sobre LVI",
+      "ko": "LVI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "NLH",
+    "url": "https://en.wikipedia.org/wiki/NLH",
+    "keywords": ["NLH", "", "NLH"],
+    "description": {
+      "en": "Details about NLH",
+      "tr": "NLH hakkında (NLH, )",
+      "az": "NLH haqqında ətraflı (NLH)",
+      "es": "Información sobre NLH",
+      "ko": "NLH 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "NLH - Part 2",
+    "url": "https://en.wikipedia.org/wiki/NLH",
+    "keywords": ["NLH", "", "NLH"],
+    "description": {
+      "en": "Details about NLH",
+      "tr": "NLH hakkında (NLH, )",
+      "az": "NLH haqqında ətraflı (NLH)",
+      "es": "Información sobre NLH",
+      "ko": "NLH 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Olt",
+    "url": "https://en.wikipedia.org/wiki/Olt",
+    "keywords": ["Look", "up", "Olt"],
+    "description": {
+      "en": "Details about Olt",
+      "tr": "Olt hakkında (Look, up)",
+      "az": "Olt haqqında ətraflı (Look)",
+      "es": "Información sobre Olt",
+      "ko": "Olt 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Olt - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Olt",
+    "keywords": ["Look", "up", "Olt"],
+    "description": {
+      "en": "Details about Olt",
+      "tr": "Olt hakkında (Look, up)",
+      "az": "Olt haqqında ətraflı (Look)",
+      "es": "Información sobre Olt",
+      "ko": "Olt 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FTW Championship",
+    "url": "https://en.wikipedia.org/wiki/FTW_Championship",
+    "keywords": ["The", "", "FTW Championship"],
+    "description": {
+      "en": "Details about FTW Championship",
+      "tr": "FTW Championship hakkında (The, )",
+      "az": "FTW Championship haqqında ətraflı (The)",
+      "es": "Información sobre FTW Championship",
+      "ko": "FTW Championship 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FTW Championship - Part 2",
+    "url": "https://en.wikipedia.org/wiki/FTW_Championship",
+    "keywords": ["The", "", "FTW Championship"],
+    "description": {
+      "en": "Details about FTW Championship",
+      "tr": "FTW Championship hakkında (The, )",
+      "az": "FTW Championship haqqında ətraflı (The)",
+      "es": "Información sobre FTW Championship",
+      "ko": "FTW Championship 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Soldotna Airport",
+    "url": "https://en.wikipedia.org/wiki/Soldotna_Airport",
+    "keywords": ["Soldotna", "Airport", "Soldotna Airport"],
+    "description": {
+      "en": "Details about Soldotna Airport",
+      "tr": "Soldotna Airport hakkında (Soldotna, Airport)",
+      "az": "Soldotna Airport haqqında ətraflı (Soldotna)",
+      "es": "Información sobre Soldotna Airport",
+      "ko": "Soldotna Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Soldotna Airport - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Soldotna_Airport",
+    "keywords": ["Soldotna", "Airport", "Soldotna Airport"],
+    "description": {
+      "en": "Details about Soldotna Airport",
+      "tr": "Soldotna Airport hakkında (Soldotna, Airport)",
+      "az": "Soldotna Airport haqqında ətraflı (Soldotna)",
+      "es": "Información sobre Soldotna Airport",
+      "ko": "Soldotna Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Visa Waiver Program",
+    "url": "https://en.wikipedia.org/wiki/Visa_Waiver_Program",
+    "keywords": ["The", "Visa", "Visa Waiver Program"],
+    "description": {
+      "en": "Details about Visa Waiver Program",
+      "tr": "Visa Waiver Program hakkında (The, Visa)",
+      "az": "Visa Waiver Program haqqında ətraflı (The)",
+      "es": "Información sobre Visa Waiver Program",
+      "ko": "Visa Waiver Program 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Visa Waiver Program - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Visa_Waiver_Program",
+    "keywords": ["The", "Visa", "Visa Waiver Program"],
+    "description": {
+      "en": "Details about Visa Waiver Program",
+      "tr": "Visa Waiver Program hakkında (The, Visa)",
+      "az": "Visa Waiver Program haqqında ətraflı (The)",
+      "es": "Información sobre Visa Waiver Program",
+      "ko": "Visa Waiver Program 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "RFO",
+    "url": "https://en.wikipedia.org/wiki/RFO",
+    "keywords": ["RFO", "", "RFO"],
+    "description": {
+      "en": "Details about RFO",
+      "tr": "RFO hakkında (RFO, )",
+      "az": "RFO haqqında ətraflı (RFO)",
+      "es": "Información sobre RFO",
+      "ko": "RFO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "RFO - Part 2",
+    "url": "https://en.wikipedia.org/wiki/RFO",
+    "keywords": ["RFO", "", "RFO"],
+    "description": {
+      "en": "Details about RFO",
+      "tr": "RFO hakkında (RFO, )",
+      "az": "RFO haqqında ətraflı (RFO)",
+      "es": "Información sobre RFO",
+      "ko": "RFO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "John Quincy Adams",
+    "url": "https://en.wikipedia.org/wiki/John_Quincy_Adams",
+    "keywords": ["John", "Quincy", "John Quincy Adams"],
+    "description": {
+      "en": "Details about John Quincy Adams",
+      "tr": "John Quincy Adams hakkında (John, Quincy)",
+      "az": "John Quincy Adams haqqında ətraflı (John)",
+      "es": "Información sobre John Quincy Adams",
+      "ko": "John Quincy Adams 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "John Quincy Adams - Part 2",
+    "url": "https://en.wikipedia.org/wiki/John_Quincy_Adams",
+    "keywords": ["John", "Quincy", "John Quincy Adams"],
+    "description": {
+      "en": "Details about John Quincy Adams",
+      "tr": "John Quincy Adams hakkında (John, Quincy)",
+      "az": "John Quincy Adams haqqında ətraflı (John)",
+      "es": "Información sobre John Quincy Adams",
+      "ko": "John Quincy Adams 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "RPJ",
+    "url": "https://en.wikipedia.org/wiki/RPJ",
+    "keywords": ["RPJ", "", "RPJ"],
+    "description": {
+      "en": "Details about RPJ",
+      "tr": "RPJ hakkında (RPJ, )",
+      "az": "RPJ haqqında ətraflı (RPJ)",
+      "es": "Información sobre RPJ",
+      "ko": "RPJ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "RPJ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/RPJ",
+    "keywords": ["RPJ", "", "RPJ"],
+    "description": {
+      "en": "Details about RPJ",
+      "tr": "RPJ hakkında (RPJ, )",
+      "az": "RPJ haqqında ətraflı (RPJ)",
+      "es": "Información sobre RPJ",
+      "ko": "RPJ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HCY",
+    "url": "https://en.wikipedia.org/wiki/HCY",
+    "keywords": ["HCY", "", "HCY"],
+    "description": {
+      "en": "Details about HCY",
+      "tr": "HCY hakkında (HCY, )",
+      "az": "HCY haqqında ətraflı (HCY)",
+      "es": "Información sobre HCY",
+      "ko": "HCY 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HCY - Part 2",
+    "url": "https://en.wikipedia.org/wiki/HCY",
+    "keywords": ["HCY", "", "HCY"],
+    "description": {
+      "en": "Details about HCY",
+      "tr": "HCY hakkında (HCY, )",
+      "az": "HCY haqqında ətraflı (HCY)",
+      "es": "Información sobre HCY",
+      "ko": "HCY 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "University of Kurdistan Hewl\u00ear",
+    "url": "https://en.wikipedia.org/wiki/University_of_Kurdistan_Hewl\u00ear",
+    "keywords": ["University", "of", "University of Kurdistan Hewl\u00ear"],
+    "description": {
+      "en": "Details about University of Kurdistan Hewl\u00ear",
+      "tr": "University of Kurdistan Hewl\u00ear hakkında (University, of)",
+      "az": "University of Kurdistan Hewl\u00ear haqqında ətraflı (University)",
+      "es": "Información sobre University of Kurdistan Hewl\u00ear",
+      "ko": "University of Kurdistan Hewl\u00ear 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "University of Kurdistan Hewl\u00ear - Part 2",
+    "url": "https://en.wikipedia.org/wiki/University_of_Kurdistan_Hewl\u00ear",
+    "keywords": ["University", "of", "University of Kurdistan Hewl\u00ear"],
+    "description": {
+      "en": "Details about University of Kurdistan Hewl\u00ear",
+      "tr": "University of Kurdistan Hewl\u00ear hakkında (University, of)",
+      "az": "University of Kurdistan Hewl\u00ear haqqında ətraflı (University)",
+      "es": "Información sobre University of Kurdistan Hewl\u00ear",
+      "ko": "University of Kurdistan Hewl\u00ear 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "XFL (2020\u20132023)",
+    "url": "https://en.wikipedia.org/wiki/XFL_(2020\u20132023)",
+    "keywords": ["The", "", "XFL (2020\u20132023)"],
+    "description": {
+      "en": "Details about XFL (2020\u20132023)",
+      "tr": "XFL (2020\u20132023) hakkında (The, )",
+      "az": "XFL (2020\u20132023) haqqında ətraflı (The)",
+      "es": "Información sobre XFL (2020\u20132023)",
+      "ko": "XFL (2020\u20132023) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "XFL (2020\u20132023) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/XFL_(2020\u20132023)",
+    "keywords": ["The", "", "XFL (2020\u20132023)"],
+    "description": {
+      "en": "Details about XFL (2020\u20132023)",
+      "tr": "XFL (2020\u20132023) hakkında (The, )",
+      "az": "XFL (2020\u20132023) haqqında ətraflı (The)",
+      "es": "Información sobre XFL (2020\u20132023)",
+      "ko": "XFL (2020\u20132023) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Lexus LFA",
+    "url": "https://en.wikipedia.org/wiki/Lexus_LFA",
+    "keywords": ["The", "Lexus", "Lexus LFA"],
+    "description": {
+      "en": "Details about Lexus LFA",
+      "tr": "Lexus LFA hakkında (The, Lexus)",
+      "az": "Lexus LFA haqqında ətraflı (The)",
+      "es": "Información sobre Lexus LFA",
+      "ko": "Lexus LFA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Lexus LFA - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Lexus_LFA",
+    "keywords": ["The", "Lexus", "Lexus LFA"],
+    "description": {
+      "en": "Details about Lexus LFA",
+      "tr": "Lexus LFA hakkında (The, Lexus)",
+      "az": "Lexus LFA haqqında ətraflı (The)",
+      "es": "Información sobre Lexus LFA",
+      "ko": "Lexus LFA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Qiandongnan Miao and Dong Autonomous Prefecture",
+    "url": "https://en.wikipedia.org/wiki/Qiandongnan_Miao_and_Dong_Autonomous_Prefecture",
+    "keywords": ["Chinese", "singer", "Qiandongnan Miao and Dong Autonomous Prefecture"],
+    "description": {
+      "en": "Details about Qiandongnan Miao and Dong Autonomous Prefecture",
+      "tr": "Qiandongnan Miao and Dong Autonomous Prefecture hakkında (Chinese, singer)",
+      "az": "Qiandongnan Miao and Dong Autonomous Prefecture haqqında ətraflı (Chinese)",
+      "es": "Información sobre Qiandongnan Miao and Dong Autonomous Prefecture",
+      "ko": "Qiandongnan Miao and Dong Autonomous Prefecture 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Qiandongnan Miao and Dong Autonomous Prefecture - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Qiandongnan_Miao_and_Dong_Autonomous_Prefecture",
+    "keywords": ["Chinese", "singer", "Qiandongnan Miao and Dong Autonomous Prefecture"],
+    "description": {
+      "en": "Details about Qiandongnan Miao and Dong Autonomous Prefecture",
+      "tr": "Qiandongnan Miao and Dong Autonomous Prefecture hakkında (Chinese, singer)",
+      "az": "Qiandongnan Miao and Dong Autonomous Prefecture haqqında ətraflı (Chinese)",
+      "es": "Información sobre Qiandongnan Miao and Dong Autonomous Prefecture",
+      "ko": "Qiandongnan Miao and Dong Autonomous Prefecture 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Acura ILX",
+    "url": "https://en.wikipedia.org/wiki/Acura_ILX",
+    "keywords": ["The", "Acura", "Acura ILX"],
+    "description": {
+      "en": "Details about Acura ILX",
+      "tr": "Acura ILX hakkında (The, Acura)",
+      "az": "Acura ILX haqqında ətraflı (The)",
+      "es": "Información sobre Acura ILX",
+      "ko": "Acura ILX 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Acura ILX - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Acura_ILX",
+    "keywords": ["The", "Acura", "Acura ILX"],
+    "description": {
+      "en": "Details about Acura ILX",
+      "tr": "Acura ILX hakkında (The, Acura)",
+      "az": "Acura ILX haqqında ətraflı (The)",
+      "es": "Información sobre Acura ILX",
+      "ko": "Acura ILX 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AHM",
+    "url": "https://en.wikipedia.org/wiki/AHM",
+    "keywords": ["AHM", "", "AHM"],
+    "description": {
+      "en": "Details about AHM",
+      "tr": "AHM hakkında (AHM, )",
+      "az": "AHM haqqında ətraflı (AHM)",
+      "es": "Información sobre AHM",
+      "ko": "AHM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AHM - Part 2",
+    "url": "https://en.wikipedia.org/wiki/AHM",
+    "keywords": ["AHM", "", "AHM"],
+    "description": {
+      "en": "Details about AHM",
+      "tr": "AHM hakkında (AHM, )",
+      "az": "AHM haqqında ətraflı (AHM)",
+      "es": "Información sobre AHM",
+      "ko": "AHM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "The Weinstein Company",
+    "url": "https://en.wikipedia.org/wiki/The_Weinstein_Company",
+    "keywords": ["The", "Weinstein", "The Weinstein Company"],
+    "description": {
+      "en": "Details about The Weinstein Company",
+      "tr": "The Weinstein Company hakkında (The, Weinstein)",
+      "az": "The Weinstein Company haqqında ətraflı (The)",
+      "es": "Información sobre The Weinstein Company",
+      "ko": "The Weinstein Company 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "The Weinstein Company - Part 2",
+    "url": "https://en.wikipedia.org/wiki/The_Weinstein_Company",
+    "keywords": ["The", "Weinstein", "The Weinstein Company"],
+    "description": {
+      "en": "Details about The Weinstein Company",
+      "tr": "The Weinstein Company hakkında (The, Weinstein)",
+      "az": "The Weinstein Company haqqında ətraflı (The)",
+      "es": "Información sobre The Weinstein Company",
+      "ko": "The Weinstein Company 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Zero-length launch",
+    "url": "https://en.wikipedia.org/wiki/Zero-length_launch",
+    "keywords": ["The", "zero-length", "Zero-length launch"],
+    "description": {
+      "en": "Details about Zero-length launch",
+      "tr": "Zero-length launch hakkında (The, zero-length)",
+      "az": "Zero-length launch haqqında ətraflı (The)",
+      "es": "Información sobre Zero-length launch",
+      "ko": "Zero-length launch 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Zero-length launch - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Zero-length_launch",
+    "keywords": ["The", "zero-length", "Zero-length launch"],
+    "description": {
+      "en": "Details about Zero-length launch",
+      "tr": "Zero-length launch hakkında (The, zero-length)",
+      "az": "Zero-length launch haqqında ətraflı (The)",
+      "es": "Información sobre Zero-length launch",
+      "ko": "Zero-length launch 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ink",
+    "url": "https://en.wikipedia.org/wiki/Ink",
+    "keywords": ["Ink", "", "Ink"],
+    "description": {
+      "en": "Details about Ink",
+      "tr": "Ink hakkında (Ink, )",
+      "az": "Ink haqqında ətraflı (Ink)",
+      "es": "Información sobre Ink",
+      "ko": "Ink 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Ink - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Ink",
+    "keywords": ["Ink", "", "Ink"],
+    "description": {
+      "en": "Details about Ink",
+      "tr": "Ink hakkında (Ink, )",
+      "az": "Ink haqqında ətraflı (Ink)",
+      "es": "Información sobre Ink",
+      "ko": "Ink 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AGQ",
+    "url": "https://en.wikipedia.org/wiki/AGQ",
+    "keywords": ["AGQ", "", "AGQ"],
+    "description": {
+      "en": "Details about AGQ",
+      "tr": "AGQ hakkında (AGQ, )",
+      "az": "AGQ haqqında ətraflı (AGQ)",
+      "es": "Información sobre AGQ",
+      "ko": "AGQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AGQ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/AGQ",
+    "keywords": ["AGQ", "", "AGQ"],
+    "description": {
+      "en": "Details about AGQ",
+      "tr": "AGQ hakkında (AGQ, )",
+      "az": "AGQ haqqında ətraflı (AGQ)",
+      "es": "Información sobre AGQ",
+      "ko": "AGQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MVM",
+    "url": "https://en.wikipedia.org/wiki/MVM",
+    "keywords": ["MVM", "", "MVM"],
+    "description": {
+      "en": "Details about MVM",
+      "tr": "MVM hakkında (MVM, )",
+      "az": "MVM haqqında ətraflı (MVM)",
+      "es": "Información sobre MVM",
+      "ko": "MVM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MVM - Part 2",
+    "url": "https://en.wikipedia.org/wiki/MVM",
+    "keywords": ["MVM", "", "MVM"],
+    "description": {
+      "en": "Details about MVM",
+      "tr": "MVM hakkında (MVM, )",
+      "az": "MVM haqqında ətraflı (MVM)",
+      "es": "Información sobre MVM",
+      "ko": "MVM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "OMG 2",
+    "url": "https://en.wikipedia.org/wiki/OMG_2",
+    "keywords": ["OMG 2", "", "OMG 2"],
+    "description": {
+      "en": "Details about OMG 2",
+      "tr": "OMG 2 hakkında (OMG 2, )",
+      "az": "OMG 2 haqqında ətraflı (OMG 2)",
+      "es": "Información sobre OMG 2",
+      "ko": "OMG 2 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "OMG 2 - Part 2",
+    "url": "https://en.wikipedia.org/wiki/OMG_2",
+    "keywords": ["OMG 2", "", "OMG 2"],
+    "description": {
+      "en": "Details about OMG 2",
+      "tr": "OMG 2 hakkında (OMG 2, )",
+      "az": "OMG 2 haqqında ətraflı (OMG 2)",
+      "es": "Información sobre OMG 2",
+      "ko": "OMG 2 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Moscow State University",
+    "url": "https://en.wikipedia.org/wiki/Moscow_State_University",
+    "keywords": ["Machine,", "\u0441\u0442", "Moscow State University"],
+    "description": {
+      "en": "Details about Moscow State University",
+      "tr": "Moscow State University hakkında (Machine,, \u0441\u0442)",
+      "az": "Moscow State University haqqında ətraflı (Machine,)",
+      "es": "Información sobre Moscow State University",
+      "ko": "Moscow State University 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Moscow State University - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Moscow_State_University",
+    "keywords": ["Machine,", "\u0441\u0442", "Moscow State University"],
+    "description": {
+      "en": "Details about Moscow State University",
+      "tr": "Moscow State University hakkında (Machine,, \u0441\u0442)",
+      "az": "Moscow State University haqqında ətraflı (Machine,)",
+      "es": "Información sobre Moscow State University",
+      "ko": "Moscow State University 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "2025 China League Two",
+    "url": "https://en.wikipedia.org/wiki/2025_China_League_Two",
+    "keywords": ["Home", "\\", "2025 China League Two"],
+    "description": {
+      "en": "Details about 2025 China League Two",
+      "tr": "2025 China League Two hakkında (Home, \\)",
+      "az": "2025 China League Two haqqında ətraflı (Home)",
+      "es": "Información sobre 2025 China League Two",
+      "ko": "2025 China League Two 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "2025 China League Two - Part 2",
+    "url": "https://en.wikipedia.org/wiki/2025_China_League_Two",
+    "keywords": ["Home", "\\", "2025 China League Two"],
+    "description": {
+      "en": "Details about 2025 China League Two",
+      "tr": "2025 China League Two hakkında (Home, \\)",
+      "az": "2025 China League Two haqqında ətraflı (Home)",
+      "es": "Información sobre 2025 China League Two",
+      "ko": "2025 China League Two 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TVO",
+    "url": "https://en.wikipedia.org/wiki/TVO",
+    "keywords": ["done", "business", "TVO"],
+    "description": {
+      "en": "Details about TVO",
+      "tr": "TVO hakkında (done, business)",
+      "az": "TVO haqqında ətraflı (done)",
+      "es": "Información sobre TVO",
+      "ko": "TVO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TVO - Part 2",
+    "url": "https://en.wikipedia.org/wiki/TVO",
+    "keywords": ["done", "business", "TVO"],
+    "description": {
+      "en": "Details about TVO",
+      "tr": "TVO hakkında (done, business)",
+      "az": "TVO haqqında ətraflı (done)",
+      "es": "Información sobre TVO",
+      "ko": "TVO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Red Terror (Ethiopia)",
+    "url": "https://en.wikipedia.org/wiki/Red_Terror_(Ethiopia)",
+    "keywords": ["instead", "of", "Red Terror (Ethiopia)"],
+    "description": {
+      "en": "Details about Red Terror (Ethiopia)",
+      "tr": "Red Terror (Ethiopia) hakkında (instead, of)",
+      "az": "Red Terror (Ethiopia) haqqında ətraflı (instead)",
+      "es": "Información sobre Red Terror (Ethiopia)",
+      "ko": "Red Terror (Ethiopia) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Red Terror (Ethiopia) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Red_Terror_(Ethiopia)",
+    "keywords": ["instead", "of", "Red Terror (Ethiopia)"],
+    "description": {
+      "en": "Details about Red Terror (Ethiopia)",
+      "tr": "Red Terror (Ethiopia) hakkında (instead, of)",
+      "az": "Red Terror (Ethiopia) haqqında ətraflı (instead)",
+      "es": "Información sobre Red Terror (Ethiopia)",
+      "ko": "Red Terror (Ethiopia) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MND",
+    "url": "https://en.wikipedia.org/wiki/MND",
+    "keywords": ["MND", "", "MND"],
+    "description": {
+      "en": "Details about MND",
+      "tr": "MND hakkında (MND, )",
+      "az": "MND haqqında ətraflı (MND)",
+      "es": "Información sobre MND",
+      "ko": "MND 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "MND - Part 2",
+    "url": "https://en.wikipedia.org/wiki/MND",
+    "keywords": ["MND", "", "MND"],
+    "description": {
+      "en": "Details about MND",
+      "tr": "MND hakkında (MND, )",
+      "az": "MND haqqında ətraflı (MND)",
+      "es": "Información sobre MND",
+      "ko": "MND 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Has",
+    "url": "https://en.wikipedia.org/wiki/Has",
+    "keywords": ["Look", "up", "Has"],
+    "description": {
+      "en": "Details about Has",
+      "tr": "Has hakkında (Look, up)",
+      "az": "Has haqqında ətraflı (Look)",
+      "es": "Información sobre Has",
+      "ko": "Has 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Has - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Has",
+    "keywords": ["Look", "up", "Has"],
+    "description": {
+      "en": "Details about Has",
+      "tr": "Has hakkında (Look, up)",
+      "az": "Has haqqında ətraflı (Look)",
+      "es": "Información sobre Has",
+      "ko": "Has 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "KXR",
+    "url": "https://en.wikipedia.org/wiki/KXR",
+    "keywords": ["KXR", "", "KXR"],
+    "description": {
+      "en": "Details about KXR",
+      "tr": "KXR hakkında (KXR, )",
+      "az": "KXR haqqında ətraflı (KXR)",
+      "es": "Información sobre KXR",
+      "ko": "KXR 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "KXR - Part 2",
+    "url": "https://en.wikipedia.org/wiki/KXR",
+    "keywords": ["KXR", "", "KXR"],
+    "description": {
+      "en": "Details about KXR",
+      "tr": "KXR hakkında (KXR, )",
+      "az": "KXR haqqında ətraflı (KXR)",
+      "es": "Información sobre KXR",
+      "ko": "KXR 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "YGQ",
+    "url": "https://en.wikipedia.org/wiki/YGQ",
+    "keywords": ["YGQ", "", "YGQ"],
+    "description": {
+      "en": "Details about YGQ",
+      "tr": "YGQ hakkında (YGQ, )",
+      "az": "YGQ haqqında ətraflı (YGQ)",
+      "es": "Información sobre YGQ",
+      "ko": "YGQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "YGQ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/YGQ",
+    "keywords": ["YGQ", "", "YGQ"],
+    "description": {
+      "en": "Details about YGQ",
+      "tr": "YGQ hakkında (YGQ, )",
+      "az": "YGQ haqqında ətraflı (YGQ)",
+      "es": "Información sobre YGQ",
+      "ko": "YGQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Giv",
+    "url": "https://en.wikipedia.org/wiki/Giv",
+    "keywords": ["Look", "up", "Giv"],
+    "description": {
+      "en": "Details about Giv",
+      "tr": "Giv hakkında (Look, up)",
+      "az": "Giv haqqında ətraflı (Look)",
+      "es": "Información sobre Giv",
+      "ko": "Giv 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Giv - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Giv",
+    "keywords": ["Look", "up", "Giv"],
+    "description": {
+      "en": "Details about Giv",
+      "tr": "Giv hakkında (Look, up)",
+      "az": "Giv haqqında ətraflı (Look)",
+      "es": "Información sobre Giv",
+      "ko": "Giv 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Lir",
+    "url": "https://en.wikipedia.org/wiki/Lir",
+    "keywords": ["Lir", "", "Lir"],
+    "description": {
+      "en": "Details about Lir",
+      "tr": "Lir hakkında (Lir, )",
+      "az": "Lir haqqında ətraflı (Lir)",
+      "es": "Información sobre Lir",
+      "ko": "Lir 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Lir - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Lir",
+    "keywords": ["Lir", "", "Lir"],
+    "description": {
+      "en": "Details about Lir",
+      "tr": "Lir hakkında (Lir, )",
+      "az": "Lir haqqında ətraflı (Lir)",
+      "es": "Información sobre Lir",
+      "ko": "Lir 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "List of administrative divisions of Shaanxi",
+    "url": "https://en.wikipedia.org/wiki/List_of_administrative_divisions_of_Shaanxi",
+    "keywords": ["County", "\u5434\u5821\u53bf", "List of administrative divisions of Shaanxi"],
+    "description": {
+      "en": "Details about List of administrative divisions of Shaanxi",
+      "tr": "List of administrative divisions of Shaanxi hakkında (County, \u5434\u5821\u53bf)",
+      "az": "List of administrative divisions of Shaanxi haqqında ətraflı (County)",
+      "es": "Información sobre List of administrative divisions of Shaanxi",
+      "ko": "List of administrative divisions of Shaanxi 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "List of administrative divisions of Shaanxi - Part 2",
+    "url": "https://en.wikipedia.org/wiki/List_of_administrative_divisions_of_Shaanxi",
+    "keywords": ["County", "\u5434\u5821\u53bf", "List of administrative divisions of Shaanxi"],
+    "description": {
+      "en": "Details about List of administrative divisions of Shaanxi",
+      "tr": "List of administrative divisions of Shaanxi hakkında (County, \u5434\u5821\u53bf)",
+      "az": "List of administrative divisions of Shaanxi haqqında ətraflı (County)",
+      "es": "Información sobre List of administrative divisions of Shaanxi",
+      "ko": "List of administrative divisions of Shaanxi 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SMO",
+    "url": "https://en.wikipedia.org/wiki/SMO",
+    "keywords": ["SMO", "", "SMO"],
+    "description": {
+      "en": "Details about SMO",
+      "tr": "SMO hakkında (SMO, )",
+      "az": "SMO haqqında ətraflı (SMO)",
+      "es": "Información sobre SMO",
+      "ko": "SMO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SMO - Part 2",
+    "url": "https://en.wikipedia.org/wiki/SMO",
+    "keywords": ["SMO", "", "SMO"],
+    "description": {
+      "en": "Details about SMO",
+      "tr": "SMO hakkında (SMO, )",
+      "az": "SMO haqqında ətraflı (SMO)",
+      "es": "Información sobre SMO",
+      "ko": "SMO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Companies listed on the New York Stock Exchange (X)",
+    "url": "https://en.wikipedia.org/wiki/Companies_listed_on_the_New_York_Stock_Exchange_(X)",
+    "keywords": ["Stock", "name", "Companies listed on the New York Stock Exchange (X)"],
+    "description": {
+      "en": "Details about Companies listed on the New York Stock Exchange (X)",
+      "tr": "Companies listed on the New York Stock Exchange (X) hakkında (Stock, name)",
+      "az": "Companies listed on the New York Stock Exchange (X) haqqında ətraflı (Stock)",
+      "es": "Información sobre Companies listed on the New York Stock Exchange (X)",
+      "ko": "Companies listed on the New York Stock Exchange (X) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Companies listed on the New York Stock Exchange (X) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Companies_listed_on_the_New_York_Stock_Exchange_(X)",
+    "keywords": ["Stock", "name", "Companies listed on the New York Stock Exchange (X)"],
+    "description": {
+      "en": "Details about Companies listed on the New York Stock Exchange (X)",
+      "tr": "Companies listed on the New York Stock Exchange (X) hakkında (Stock, name)",
+      "az": "Companies listed on the New York Stock Exchange (X) haqqında ətraflı (Stock)",
+      "es": "Información sobre Companies listed on the New York Stock Exchange (X)",
+      "ko": "Companies listed on the New York Stock Exchange (X) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Gray (unit)",
+    "url": "https://en.wikipedia.org/wiki/Gray_(unit)",
+    "keywords": ["The", "gray", "Gray (unit)"],
+    "description": {
+      "en": "Details about Gray (unit)",
+      "tr": "Gray (unit) hakkında (The, gray)",
+      "az": "Gray (unit) haqqında ətraflı (The)",
+      "es": "Información sobre Gray (unit)",
+      "ko": "Gray (unit) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Gray (unit) - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Gray_(unit)",
+    "keywords": ["The", "gray", "Gray (unit)"],
+    "description": {
+      "en": "Details about Gray (unit)",
+      "tr": "Gray (unit) hakkında (The, gray)",
+      "az": "Gray (unit) haqqında ətraflı (The)",
+      "es": "Información sobre Gray (unit)",
+      "ko": "Gray (unit) 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Oberkommando der Wehrmacht",
+    "url": "https://en.wikipedia.org/wiki/Oberkommando_der_Wehrmacht",
+    "keywords": ["Oberkommando", "der", "Oberkommando der Wehrmacht"],
+    "description": {
+      "en": "Details about Oberkommando der Wehrmacht",
+      "tr": "Oberkommando der Wehrmacht hakkında (Oberkommando, der)",
+      "az": "Oberkommando der Wehrmacht haqqında ətraflı (Oberkommando)",
+      "es": "Información sobre Oberkommando der Wehrmacht",
+      "ko": "Oberkommando der Wehrmacht 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Oberkommando der Wehrmacht - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Oberkommando_der_Wehrmacht",
+    "keywords": ["Oberkommando", "der", "Oberkommando der Wehrmacht"],
+    "description": {
+      "en": "Details about Oberkommando der Wehrmacht",
+      "tr": "Oberkommando der Wehrmacht hakkında (Oberkommando, der)",
+      "az": "Oberkommando der Wehrmacht haqqında ətraflı (Oberkommando)",
+      "es": "Información sobre Oberkommando der Wehrmacht",
+      "ko": "Oberkommando der Wehrmacht 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "YRS",
+    "url": "https://en.wikipedia.org/wiki/YRS",
+    "keywords": ["YRS", "", "YRS"],
+    "description": {
+      "en": "Details about YRS",
+      "tr": "YRS hakkında (YRS, )",
+      "az": "YRS haqqında ətraflı (YRS)",
+      "es": "Información sobre YRS",
+      "ko": "YRS 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "YRS - Part 2",
+    "url": "https://en.wikipedia.org/wiki/YRS",
+    "keywords": ["YRS", "", "YRS"],
+    "description": {
+      "en": "Details about YRS",
+      "tr": "YRS hakkında (YRS, )",
+      "az": "YRS haqqında ətraflı (YRS)",
+      "es": "Información sobre YRS",
+      "ko": "YRS 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ZDF",
+    "url": "https://en.wikipedia.org/wiki/ZDF",
+    "keywords": ["ZDF", "", "ZDF"],
+    "description": {
+      "en": "Details about ZDF",
+      "tr": "ZDF hakkında (ZDF, )",
+      "az": "ZDF haqqında ətraflı (ZDF)",
+      "es": "Información sobre ZDF",
+      "ko": "ZDF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ZDF - Part 2",
+    "url": "https://en.wikipedia.org/wiki/ZDF",
+    "keywords": ["ZDF", "", "ZDF"],
+    "description": {
+      "en": "Details about ZDF",
+      "tr": "ZDF hakkında (ZDF, )",
+      "az": "ZDF haqqında ətraflı (ZDF)",
+      "es": "Información sobre ZDF",
+      "ko": "ZDF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BFW",
+    "url": "https://en.wikipedia.org/wiki/BFW",
+    "keywords": ["BFW", "", "BFW"],
+    "description": {
+      "en": "Details about BFW",
+      "tr": "BFW hakkında (BFW, )",
+      "az": "BFW haqqında ətraflı (BFW)",
+      "es": "Información sobre BFW",
+      "ko": "BFW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BFW - Part 2",
+    "url": "https://en.wikipedia.org/wiki/BFW",
+    "keywords": ["BFW", "", "BFW"],
+    "description": {
+      "en": "Details about BFW",
+      "tr": "BFW hakkında (BFW, )",
+      "az": "BFW haqqında ətraflı (BFW)",
+      "es": "Información sobre BFW",
+      "ko": "BFW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AWD",
+    "url": "https://en.wikipedia.org/wiki/AWD",
+    "keywords": ["AWD", "", "AWD"],
+    "description": {
+      "en": "Details about AWD",
+      "tr": "AWD hakkında (AWD, )",
+      "az": "AWD haqqında ətraflı (AWD)",
+      "es": "Información sobre AWD",
+      "ko": "AWD 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "AWD - Part 2",
+    "url": "https://en.wikipedia.org/wiki/AWD",
+    "keywords": ["AWD", "", "AWD"],
+    "description": {
+      "en": "Details about AWD",
+      "tr": "AWD hakkında (AWD, )",
+      "az": "AWD haqqında ətraflı (AWD)",
+      "es": "Información sobre AWD",
+      "ko": "AWD 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Luv",
+    "url": "https://en.wikipedia.org/wiki/Luv",
+    "keywords": ["Luv", "", "Luv"],
+    "description": {
+      "en": "Details about Luv",
+      "tr": "Luv hakkında (Luv, )",
+      "az": "Luv haqqında ətraflı (Luv)",
+      "es": "Información sobre Luv",
+      "ko": "Luv 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Luv - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Luv",
+    "keywords": ["Luv", "", "Luv"],
+    "description": {
+      "en": "Details about Luv",
+      "tr": "Luv hakkında (Luv, )",
+      "az": "Luv haqqında ətraflı (Luv)",
+      "es": "Información sobre Luv",
+      "ko": "Luv 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "EUF",
+    "url": "https://en.wikipedia.org/wiki/EUF",
+    "keywords": ["&quot;", "", "EUF"],
+    "description": {
+      "en": "Details about EUF",
+      "tr": "EUF hakkında (&quot;, )",
+      "az": "EUF haqqında ətraflı (&quot;)",
+      "es": "Información sobre EUF",
+      "ko": "EUF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "EUF - Part 2",
+    "url": "https://en.wikipedia.org/wiki/EUF",
+    "keywords": ["&quot;", "", "EUF"],
+    "description": {
+      "en": "Details about EUF",
+      "tr": "EUF hakkında (&quot;, )",
+      "az": "EUF haqqında ətraflı (&quot;)",
+      "es": "Información sobre EUF",
+      "ko": "EUF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FHW",
+    "url": "https://en.wikipedia.org/wiki/FHW",
+    "keywords": ["FHW", "", "FHW"],
+    "description": {
+      "en": "Details about FHW",
+      "tr": "FHW hakkında (FHW, )",
+      "az": "FHW haqqında ətraflı (FHW)",
+      "es": "Información sobre FHW",
+      "ko": "FHW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FHW - Part 2",
+    "url": "https://en.wikipedia.org/wiki/FHW",
+    "keywords": ["FHW", "", "FHW"],
+    "description": {
+      "en": "Details about FHW",
+      "tr": "FHW hakkında (FHW, )",
+      "az": "FHW haqqında ətraflı (FHW)",
+      "es": "Información sobre FHW",
+      "ko": "FHW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Malawian kwacha",
+    "url": "https://en.wikipedia.org/wiki/Malawian_kwacha",
+    "keywords": ["The", "kwacha", "Malawian kwacha"],
+    "description": {
+      "en": "Details about Malawian kwacha",
+      "tr": "Malawian kwacha hakkında (The, kwacha)",
+      "az": "Malawian kwacha haqqında ətraflı (The)",
+      "es": "Información sobre Malawian kwacha",
+      "ko": "Malawian kwacha 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Malawian kwacha - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Malawian_kwacha",
+    "keywords": ["The", "kwacha", "Malawian kwacha"],
+    "description": {
+      "en": "Details about Malawian kwacha",
+      "tr": "Malawian kwacha hakkında (The, kwacha)",
+      "az": "Malawian kwacha haqqında ətraflı (The)",
+      "es": "Información sobre Malawian kwacha",
+      "ko": "Malawian kwacha 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Nya",
+    "url": "https://en.wikipedia.org/wiki/Nya",
+    "keywords": ["Look", "up", "Nya"],
+    "description": {
+      "en": "Details about Nya",
+      "tr": "Nya hakkında (Look, up)",
+      "az": "Nya haqqında ətraflı (Look)",
+      "es": "Información sobre Nya",
+      "ko": "Nya 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Nya - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Nya",
+    "keywords": ["Look", "up", "Nya"],
+    "description": {
+      "en": "Details about Nya",
+      "tr": "Nya hakkında (Look, up)",
+      "az": "Nya haqqında ətraflı (Look)",
+      "es": "Información sobre Nya",
+      "ko": "Nya 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "DCO",
+    "url": "https://en.wikipedia.org/wiki/DCO",
+    "keywords": ["DCO", "", "DCO"],
+    "description": {
+      "en": "Details about DCO",
+      "tr": "DCO hakkında (DCO, )",
+      "az": "DCO haqqında ətraflı (DCO)",
+      "es": "Información sobre DCO",
+      "ko": "DCO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "DCO - Part 2",
+    "url": "https://en.wikipedia.org/wiki/DCO",
+    "keywords": ["DCO", "", "DCO"],
+    "description": {
+      "en": "Details about DCO",
+      "tr": "DCO hakkında (DCO, )",
+      "az": "DCO haqqında ətraflı (DCO)",
+      "es": "Información sobre DCO",
+      "ko": "DCO 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FC Zbrojovka Brno",
+    "url": "https://en.wikipedia.org/wiki/FC_Zbrojovka_Brno",
+    "keywords": ["(Voluntary", "sports", "FC Zbrojovka Brno"],
+    "description": {
+      "en": "Details about FC Zbrojovka Brno",
+      "tr": "FC Zbrojovka Brno hakkında ((Voluntary, sports)",
+      "az": "FC Zbrojovka Brno haqqında ətraflı ((Voluntary)",
+      "es": "Información sobre FC Zbrojovka Brno",
+      "ko": "FC Zbrojovka Brno 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "FC Zbrojovka Brno - Part 2",
+    "url": "https://en.wikipedia.org/wiki/FC_Zbrojovka_Brno",
+    "keywords": ["(Voluntary", "sports", "FC Zbrojovka Brno"],
+    "description": {
+      "en": "Details about FC Zbrojovka Brno",
+      "tr": "FC Zbrojovka Brno hakkında ((Voluntary, sports)",
+      "az": "FC Zbrojovka Brno haqqında ətraflı ((Voluntary)",
+      "es": "Información sobre FC Zbrojovka Brno",
+      "ko": "FC Zbrojovka Brno 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BWW",
+    "url": "https://en.wikipedia.org/wiki/BWW",
+    "keywords": ["BWW", "", "BWW"],
+    "description": {
+      "en": "Details about BWW",
+      "tr": "BWW hakkında (BWW, )",
+      "az": "BWW haqqında ətraflı (BWW)",
+      "es": "Información sobre BWW",
+      "ko": "BWW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BWW - Part 2",
+    "url": "https://en.wikipedia.org/wiki/BWW",
+    "keywords": ["BWW", "", "BWW"],
+    "description": {
+      "en": "Details about BWW",
+      "tr": "BWW hakkında (BWW, )",
+      "az": "BWW haqqında ətraflı (BWW)",
+      "es": "Información sobre BWW",
+      "ko": "BWW 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "GNE",
+    "url": "https://en.wikipedia.org/wiki/GNE",
+    "keywords": ["GNE", "", "GNE"],
+    "description": {
+      "en": "Details about GNE",
+      "tr": "GNE hakkında (GNE, )",
+      "az": "GNE haqqında ətraflı (GNE)",
+      "es": "Información sobre GNE",
+      "ko": "GNE 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "GNE - Part 2",
+    "url": "https://en.wikipedia.org/wiki/GNE",
+    "keywords": ["GNE", "", "GNE"],
+    "description": {
+      "en": "Details about GNE",
+      "tr": "GNE hakkında (GNE, )",
+      "az": "GNE haqqında ətraflı (GNE)",
+      "es": "Información sobre GNE",
+      "ko": "GNE 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "UCM",
+    "url": "https://en.wikipedia.org/wiki/UCM",
+    "keywords": ["UCM", "", "UCM"],
+    "description": {
+      "en": "Details about UCM",
+      "tr": "UCM hakkında (UCM, )",
+      "az": "UCM haqqında ətraflı (UCM)",
+      "es": "Información sobre UCM",
+      "ko": "UCM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "UCM - Part 2",
+    "url": "https://en.wikipedia.org/wiki/UCM",
+    "keywords": ["UCM", "", "UCM"],
+    "description": {
+      "en": "Details about UCM",
+      "tr": "UCM hakkında (UCM, )",
+      "az": "UCM haqqında ətraflı (UCM)",
+      "es": "Información sobre UCM",
+      "ko": "UCM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LTT",
+    "url": "https://en.wikipedia.org/wiki/LTT",
+    "keywords": ["Look", "up", "LTT"],
+    "description": {
+      "en": "Details about LTT",
+      "tr": "LTT hakkında (Look, up)",
+      "az": "LTT haqqında ətraflı (Look)",
+      "es": "Información sobre LTT",
+      "ko": "LTT 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LTT - Part 2",
+    "url": "https://en.wikipedia.org/wiki/LTT",
+    "keywords": ["Look", "up", "LTT"],
+    "description": {
+      "en": "Details about LTT",
+      "tr": "LTT hakkında (Look, up)",
+      "az": "LTT haqqında ətraflı (Look)",
+      "es": "Información sobre LTT",
+      "ko": "LTT 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "JHE",
+    "url": "https://en.wikipedia.org/wiki/JHE",
+    "keywords": ["JHE", "", "JHE"],
+    "description": {
+      "en": "Details about JHE",
+      "tr": "JHE hakkında (JHE, )",
+      "az": "JHE haqqında ətraflı (JHE)",
+      "es": "Información sobre JHE",
+      "ko": "JHE 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "JHE - Part 2",
+    "url": "https://en.wikipedia.org/wiki/JHE",
+    "keywords": ["JHE", "", "JHE"],
+    "description": {
+      "en": "Details about JHE",
+      "tr": "JHE hakkında (JHE, )",
+      "az": "JHE haqqında ətraflı (JHE)",
+      "es": "Información sobre JHE",
+      "ko": "JHE 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HTM",
+    "url": "https://en.wikipedia.org/wiki/HTM",
+    "keywords": ["HTM", "", "HTM"],
+    "description": {
+      "en": "Details about HTM",
+      "tr": "HTM hakkında (HTM, )",
+      "az": "HTM haqqında ətraflı (HTM)",
+      "es": "Información sobre HTM",
+      "ko": "HTM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HTM - Part 2",
+    "url": "https://en.wikipedia.org/wiki/HTM",
+    "keywords": ["HTM", "", "HTM"],
+    "description": {
+      "en": "Details about HTM",
+      "tr": "HTM hakkında (HTM, )",
+      "az": "HTM haqqında ətraflı (HTM)",
+      "es": "Información sobre HTM",
+      "ko": "HTM 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Watertown Regional Airport",
+    "url": "https://en.wikipedia.org/wiki/Watertown_Regional_Airport",
+    "keywords": ["Watertown", "Regional", "Watertown Regional Airport"],
+    "description": {
+      "en": "Details about Watertown Regional Airport",
+      "tr": "Watertown Regional Airport hakkında (Watertown, Regional)",
+      "az": "Watertown Regional Airport haqqında ətraflı (Watertown)",
+      "es": "Información sobre Watertown Regional Airport",
+      "ko": "Watertown Regional Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Watertown Regional Airport - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Watertown_Regional_Airport",
+    "keywords": ["Watertown", "Regional", "Watertown Regional Airport"],
+    "description": {
+      "en": "Details about Watertown Regional Airport",
+      "tr": "Watertown Regional Airport hakkında (Watertown, Regional)",
+      "az": "Watertown Regional Airport haqqında ətraflı (Watertown)",
+      "es": "Información sobre Watertown Regional Airport",
+      "ko": "Watertown Regional Airport 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BGA",
+    "url": "https://en.wikipedia.org/wiki/BGA",
+    "keywords": ["Look", "up", "BGA"],
+    "description": {
+      "en": "Details about BGA",
+      "tr": "BGA hakkında (Look, up)",
+      "az": "BGA haqqında ətraflı (Look)",
+      "es": "Información sobre BGA",
+      "ko": "BGA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "BGA - Part 2",
+    "url": "https://en.wikipedia.org/wiki/BGA",
+    "keywords": ["Look", "up", "BGA"],
+    "description": {
+      "en": "Details about BGA",
+      "tr": "BGA hakkında (Look, up)",
+      "az": "BGA haqqında ətraflı (Look)",
+      "es": "Información sobre BGA",
+      "ko": "BGA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TLV",
+    "url": "https://en.wikipedia.org/wiki/TLV",
+    "keywords": ["TLV", "", "TLV"],
+    "description": {
+      "en": "Details about TLV",
+      "tr": "TLV hakkında (TLV, )",
+      "az": "TLV haqqında ətraflı (TLV)",
+      "es": "Información sobre TLV",
+      "ko": "TLV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "TLV - Part 2",
+    "url": "https://en.wikipedia.org/wiki/TLV",
+    "keywords": ["TLV", "", "TLV"],
+    "description": {
+      "en": "Details about TLV",
+      "tr": "TLV hakkında (TLV, )",
+      "az": "TLV haqqında ətraflı (TLV)",
+      "es": "Información sobre TLV",
+      "ko": "TLV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "NWI",
+    "url": "https://en.wikipedia.org/wiki/NWI",
+    "keywords": ["The", "abbreviation", "NWI"],
+    "description": {
+      "en": "Details about NWI",
+      "tr": "NWI hakkında (The, abbreviation)",
+      "az": "NWI haqqında ətraflı (The)",
+      "es": "Información sobre NWI",
+      "ko": "NWI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "NWI - Part 2",
+    "url": "https://en.wikipedia.org/wiki/NWI",
+    "keywords": ["The", "abbreviation", "NWI"],
+    "description": {
+      "en": "Details about NWI",
+      "tr": "NWI hakkında (The, abbreviation)",
+      "az": "NWI haqqında ətraflı (The)",
+      "es": "Información sobre NWI",
+      "ko": "NWI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ILQ",
+    "url": "https://en.wikipedia.org/wiki/ILQ",
+    "keywords": ["ILQ", "", "ILQ"],
+    "description": {
+      "en": "Details about ILQ",
+      "tr": "ILQ hakkında (ILQ, )",
+      "az": "ILQ haqqında ətraflı (ILQ)",
+      "es": "Información sobre ILQ",
+      "ko": "ILQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ILQ - Part 2",
+    "url": "https://en.wikipedia.org/wiki/ILQ",
+    "keywords": ["ILQ", "", "ILQ"],
+    "description": {
+      "en": "Details about ILQ",
+      "tr": "ILQ hakkında (ILQ, )",
+      "az": "ILQ haqqında ətraflı (ILQ)",
+      "es": "Información sobre ILQ",
+      "ko": "ILQ 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Glenbrook North High School",
+    "url": "https://en.wikipedia.org/wiki/Glenbrook_North_High_School",
+    "keywords": ["Glenbrook", "North", "Glenbrook North High School"],
+    "description": {
+      "en": "Details about Glenbrook North High School",
+      "tr": "Glenbrook North High School hakkında (Glenbrook, North)",
+      "az": "Glenbrook North High School haqqında ətraflı (Glenbrook)",
+      "es": "Información sobre Glenbrook North High School",
+      "ko": "Glenbrook North High School 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Glenbrook North High School - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Glenbrook_North_High_School",
+    "keywords": ["Glenbrook", "North", "Glenbrook North High School"],
+    "description": {
+      "en": "Details about Glenbrook North High School",
+      "tr": "Glenbrook North High School hakkında (Glenbrook, North)",
+      "az": "Glenbrook North High School haqqında ətraflı (Glenbrook)",
+      "es": "Información sobre Glenbrook North High School",
+      "ko": "Glenbrook North High School 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Qaumi Watan Party",
+    "url": "https://en.wikipedia.org/wiki/Qaumi_Watan_Party",
+    "keywords": ["Qaumi", "Watan", "Qaumi Watan Party"],
+    "description": {
+      "en": "Details about Qaumi Watan Party",
+      "tr": "Qaumi Watan Party hakkında (Qaumi, Watan)",
+      "az": "Qaumi Watan Party haqqında ətraflı (Qaumi)",
+      "es": "Información sobre Qaumi Watan Party",
+      "ko": "Qaumi Watan Party 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Qaumi Watan Party - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Qaumi_Watan_Party",
+    "keywords": ["Qaumi", "Watan", "Qaumi Watan Party"],
+    "description": {
+      "en": "Details about Qaumi Watan Party",
+      "tr": "Qaumi Watan Party hakkında (Qaumi, Watan)",
+      "az": "Qaumi Watan Party haqqında ətraflı (Qaumi)",
+      "es": "Información sobre Qaumi Watan Party",
+      "ko": "Qaumi Watan Party 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CBB",
+    "url": "https://en.wikipedia.org/wiki/CBB",
+    "keywords": ["CBB", "", "CBB"],
+    "description": {
+      "en": "Details about CBB",
+      "tr": "CBB hakkında (CBB, )",
+      "az": "CBB haqqında ətraflı (CBB)",
+      "es": "Información sobre CBB",
+      "ko": "CBB 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CBB - Part 2",
+    "url": "https://en.wikipedia.org/wiki/CBB",
+    "keywords": ["CBB", "", "CBB"],
+    "description": {
+      "en": "Details about CBB",
+      "tr": "CBB hakkında (CBB, )",
+      "az": "CBB haqqında ətraflı (CBB)",
+      "es": "Información sobre CBB",
+      "ko": "CBB 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HSC",
+    "url": "https://en.wikipedia.org/wiki/HSC",
+    "keywords": ["HSC", "", "HSC"],
+    "description": {
+      "en": "Details about HSC",
+      "tr": "HSC hakkında (HSC, )",
+      "az": "HSC haqqında ətraflı (HSC)",
+      "es": "Información sobre HSC",
+      "ko": "HSC 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "HSC - Part 2",
+    "url": "https://en.wikipedia.org/wiki/HSC",
+    "keywords": ["HSC", "", "HSC"],
+    "description": {
+      "en": "Details about HSC",
+      "tr": "HSC hakkında (HSC, )",
+      "az": "HSC haqqında ətraflı (HSC)",
+      "es": "Información sobre HSC",
+      "ko": "HSC 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "KVF",
+    "url": "https://en.wikipedia.org/wiki/KVF",
+    "keywords": ["KVF", "", "KVF"],
+    "description": {
+      "en": "Details about KVF",
+      "tr": "KVF hakkında (KVF, )",
+      "az": "KVF haqqında ətraflı (KVF)",
+      "es": "Información sobre KVF",
+      "ko": "KVF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "KVF - Part 2",
+    "url": "https://en.wikipedia.org/wiki/KVF",
+    "keywords": ["KVF", "", "KVF"],
+    "description": {
+      "en": "Details about KVF",
+      "tr": "KVF hakkında (KVF, )",
+      "az": "KVF haqqında ətraflı (KVF)",
+      "es": "Información sobre KVF",
+      "ko": "KVF 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "T\u00dcV",
+    "url": "https://en.wikipedia.org/wiki/T\u00dcV",
+    "keywords": ["T\u00dcV", "", "T\u00dcV"],
+    "description": {
+      "en": "Details about T\u00dcV",
+      "tr": "T\u00dcV hakkında (T\u00dcV, )",
+      "az": "T\u00dcV haqqında ətraflı (T\u00dcV)",
+      "es": "Información sobre T\u00dcV",
+      "ko": "T\u00dcV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "T\u00dcV - Part 2",
+    "url": "https://en.wikipedia.org/wiki/T\u00dcV",
+    "keywords": ["T\u00dcV", "", "T\u00dcV"],
+    "description": {
+      "en": "Details about T\u00dcV",
+      "tr": "T\u00dcV hakkında (T\u00dcV, )",
+      "az": "T\u00dcV haqqında ətraflı (T\u00dcV)",
+      "es": "Información sobre T\u00dcV",
+      "ko": "T\u00dcV 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SII",
+    "url": "https://en.wikipedia.org/wiki/SII",
+    "keywords": ["SII", "", "SII"],
+    "description": {
+      "en": "Details about SII",
+      "tr": "SII hakkında (SII, )",
+      "az": "SII haqqında ətraflı (SII)",
+      "es": "Información sobre SII",
+      "ko": "SII 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SII - Part 2",
+    "url": "https://en.wikipedia.org/wiki/SII",
+    "keywords": ["SII", "", "SII"],
+    "description": {
+      "en": "Details about SII",
+      "tr": "SII hakkında (SII, )",
+      "az": "SII haqqında ətraflı (SII)",
+      "es": "Información sobre SII",
+      "ko": "SII 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ZFB-05",
+    "url": "https://en.wikipedia.org/wiki/ZFB-05",
+    "keywords": ["The", "", "ZFB-05"],
+    "description": {
+      "en": "Details about ZFB-05",
+      "tr": "ZFB-05 hakkında (The, )",
+      "az": "ZFB-05 haqqında ətraflı (The)",
+      "es": "Información sobre ZFB-05",
+      "ko": "ZFB-05 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "ZFB-05 - Part 2",
+    "url": "https://en.wikipedia.org/wiki/ZFB-05",
+    "keywords": ["The", "", "ZFB-05"],
+    "description": {
+      "en": "Details about ZFB-05",
+      "tr": "ZFB-05 hakkında (The, )",
+      "az": "ZFB-05 haqqında ətraflı (The)",
+      "es": "Información sobre ZFB-05",
+      "ko": "ZFB-05 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SLG",
+    "url": "https://en.wikipedia.org/wiki/SLG",
+    "keywords": ["The", "initials", "SLG"],
+    "description": {
+      "en": "Details about SLG",
+      "tr": "SLG hakkında (The, initials)",
+      "az": "SLG haqqında ətraflı (The)",
+      "es": "Información sobre SLG",
+      "ko": "SLG 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "SLG - Part 2",
+    "url": "https://en.wikipedia.org/wiki/SLG",
+    "keywords": ["The", "initials", "SLG"],
+    "description": {
+      "en": "Details about SLG",
+      "tr": "SLG hakkında (The, initials)",
+      "az": "SLG haqqında ətraflı (The)",
+      "es": "Información sobre SLG",
+      "ko": "SLG 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Omo",
+    "url": "https://en.wikipedia.org/wiki/Omo",
+    "keywords": ["Look", "up", "Omo"],
+    "description": {
+      "en": "Details about Omo",
+      "tr": "Omo hakkında (Look, up)",
+      "az": "Omo haqqında ətraflı (Look)",
+      "es": "Información sobre Omo",
+      "ko": "Omo 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Omo - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Omo",
+    "keywords": ["Look", "up", "Omo"],
+    "description": {
+      "en": "Details about Omo",
+      "tr": "Omo hakkında (Look, up)",
+      "az": "Omo haqqında ətraflı (Look)",
+      "es": "Información sobre Omo",
+      "ko": "Omo 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Jaguar XJR-15",
+    "url": "https://en.wikipedia.org/wiki/Jaguar_XJR-15",
+    "keywords": ["The", "Jaguar", "Jaguar XJR-15"],
+    "description": {
+      "en": "Details about Jaguar XJR-15",
+      "tr": "Jaguar XJR-15 hakkında (The, Jaguar)",
+      "az": "Jaguar XJR-15 haqqında ətraflı (The)",
+      "es": "Información sobre Jaguar XJR-15",
+      "ko": "Jaguar XJR-15 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Jaguar XJR-15 - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Jaguar_XJR-15",
+    "keywords": ["The", "Jaguar", "Jaguar XJR-15"],
+    "description": {
+      "en": "Details about Jaguar XJR-15",
+      "tr": "Jaguar XJR-15 hakkında (The, Jaguar)",
+      "az": "Jaguar XJR-15 haqqında ətraflı (The)",
+      "es": "Información sobre Jaguar XJR-15",
+      "ko": "Jaguar XJR-15 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Queen's Gambit Accepted",
+    "url": "https://en.wikipedia.org/wiki/Queen's_Gambit_Accepted",
+    "keywords": ["The", "Queen&#039;s", "Queen's Gambit Accepted"],
+    "description": {
+      "en": "Details about Queen's Gambit Accepted",
+      "tr": "Queen's Gambit Accepted hakkında (The, Queen&#039;s)",
+      "az": "Queen's Gambit Accepted haqqında ətraflı (The)",
+      "es": "Información sobre Queen's Gambit Accepted",
+      "ko": "Queen's Gambit Accepted 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Queen's Gambit Accepted - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Queen's_Gambit_Accepted",
+    "keywords": ["The", "Queen&#039;s", "Queen's Gambit Accepted"],
+    "description": {
+      "en": "Details about Queen's Gambit Accepted",
+      "tr": "Queen's Gambit Accepted hakkında (The, Queen&#039;s)",
+      "az": "Queen's Gambit Accepted haqqında ətraflı (The)",
+      "es": "Información sobre Queen's Gambit Accepted",
+      "ko": "Queen's Gambit Accepted 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Sik",
+    "url": "https://en.wikipedia.org/wiki/Sik",
+    "keywords": ["Sik", "", "Sik"],
+    "description": {
+      "en": "Details about Sik",
+      "tr": "Sik hakkında (Sik, )",
+      "az": "Sik haqqında ətraflı (Sik)",
+      "es": "Información sobre Sik",
+      "ko": "Sik 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Sik - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Sik",
+    "keywords": ["Sik", "", "Sik"],
+    "description": {
+      "en": "Details about Sik",
+      "tr": "Sik hakkında (Sik, )",
+      "az": "Sik haqqında ətraflı (Sik)",
+      "es": "Información sobre Sik",
+      "ko": "Sik 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Brigham Young University",
+    "url": "https://en.wikipedia.org/wiki/Brigham_Young_University",
+    "keywords": ["Brigham", "Young", "Brigham Young University"],
+    "description": {
+      "en": "Details about Brigham Young University",
+      "tr": "Brigham Young University hakkında (Brigham, Young)",
+      "az": "Brigham Young University haqqında ətraflı (Brigham)",
+      "es": "Información sobre Brigham Young University",
+      "ko": "Brigham Young University 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Brigham Young University - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Brigham_Young_University",
+    "keywords": ["Brigham", "Young", "Brigham Young University"],
+    "description": {
+      "en": "Details about Brigham Young University",
+      "tr": "Brigham Young University hakkında (Brigham, Young)",
+      "az": "Brigham Young University haqqında ətraflı (Brigham)",
+      "es": "Información sobre Brigham Young University",
+      "ko": "Brigham Young University 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CRI",
+    "url": "https://en.wikipedia.org/wiki/CRI",
+    "keywords": ["Look", "up", "CRI"],
+    "description": {
+      "en": "Details about CRI",
+      "tr": "CRI hakkında (Look, up)",
+      "az": "CRI haqqında ətraflı (Look)",
+      "es": "Información sobre CRI",
+      "ko": "CRI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CRI - Part 2",
+    "url": "https://en.wikipedia.org/wiki/CRI",
+    "keywords": ["Look", "up", "CRI"],
+    "description": {
+      "en": "Details about CRI",
+      "tr": "CRI hakkında (Look, up)",
+      "az": "CRI haqqında ətraflı (Look)",
+      "es": "Información sobre CRI",
+      "ko": "CRI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Quarter on quarter",
+    "url": "https://en.wikipedia.org/wiki/Quarter_on_quarter",
+    "keywords": ["Quarter-on-quarter", "or", "Quarter on quarter"],
+    "description": {
+      "en": "Details about Quarter on quarter",
+      "tr": "Quarter on quarter hakkında (Quarter-on-quarter, or)",
+      "az": "Quarter on quarter haqqında ətraflı (Quarter-on-quarter)",
+      "es": "Información sobre Quarter on quarter",
+      "ko": "Quarter on quarter 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Quarter on quarter - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Quarter_on_quarter",
+    "keywords": ["Quarter-on-quarter", "or", "Quarter on quarter"],
+    "description": {
+      "en": "Details about Quarter on quarter",
+      "tr": "Quarter on quarter hakkında (Quarter-on-quarter, or)",
+      "az": "Quarter on quarter haqqında ətraflı (Quarter-on-quarter)",
+      "es": "Información sobre Quarter on quarter",
+      "ko": "Quarter on quarter 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LSI",
+    "url": "https://en.wikipedia.org/wiki/LSI",
+    "keywords": ["LSI", "", "LSI"],
+    "description": {
+      "en": "Details about LSI",
+      "tr": "LSI hakkında (LSI, )",
+      "az": "LSI haqqında ətraflı (LSI)",
+      "es": "Información sobre LSI",
+      "ko": "LSI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "LSI - Part 2",
+    "url": "https://en.wikipedia.org/wiki/LSI",
+    "keywords": ["LSI", "", "LSI"],
+    "description": {
+      "en": "Details about LSI",
+      "tr": "LSI hakkında (LSI, )",
+      "az": "LSI haqqında ətraflı (LSI)",
+      "es": "Información sobre LSI",
+      "ko": "LSI 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CXX",
+    "url": "https://en.wikipedia.org/wiki/CXX",
+    "keywords": ["CXX", "", "CXX"],
+    "description": {
+      "en": "Details about CXX",
+      "tr": "CXX hakkında (CXX, )",
+      "az": "CXX haqqında ətraflı (CXX)",
+      "es": "Información sobre CXX",
+      "ko": "CXX 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CXX - Part 2",
+    "url": "https://en.wikipedia.org/wiki/CXX",
+    "keywords": ["CXX", "", "CXX"],
+    "description": {
+      "en": "Details about CXX",
+      "tr": "CXX hakkında (CXX, )",
+      "az": "CXX haqqında ətraflı (CXX)",
+      "es": "Información sobre CXX",
+      "ko": "CXX 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Improvised explosive device",
+    "url": "https://en.wikipedia.org/wiki/Improvised_explosive_device",
+    "keywords": ["Improvised explosive device", "improvised", "Improvised explosive device"],
+    "description": {
+      "en": "Details about Improvised explosive device",
+      "tr": "Improvised explosive device hakkında (Improvised explosive device, improvised)",
+      "az": "Improvised explosive device haqqında ətraflı (Improvised explosive device)",
+      "es": "Información sobre Improvised explosive device",
+      "ko": "Improvised explosive device 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "Improvised explosive device - Part 2",
+    "url": "https://en.wikipedia.org/wiki/Improvised_explosive_device",
+    "keywords": ["Improvised explosive device", "improvised", "Improvised explosive device"],
+    "description": {
+      "en": "Details about Improvised explosive device",
+      "tr": "Improvised explosive device hakkında (Improvised explosive device, improvised)",
+      "az": "Improvised explosive device haqqında ətraflı (Improvised explosive device)",
+      "es": "Información sobre Improvised explosive device",
+      "ko": "Improvised explosive device 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "American Kennel Club",
+    "url": "https://en.wikipedia.org/wiki/American_Kennel_Club",
+    "keywords": ["The", "American", "American Kennel Club"],
+    "description": {
+      "en": "Details about American Kennel Club",
+      "tr": "American Kennel Club hakkında (The, American)",
+      "az": "American Kennel Club haqqında ətraflı (The)",
+      "es": "Información sobre American Kennel Club",
+      "ko": "American Kennel Club 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "American Kennel Club - Part 2",
+    "url": "https://en.wikipedia.org/wiki/American_Kennel_Club",
+    "keywords": ["The", "American", "American Kennel Club"],
+    "description": {
+      "en": "Details about American Kennel Club",
+      "tr": "American Kennel Club hakkında (The, American)",
+      "az": "American Kennel Club haqqında ətraflı (The)",
+      "es": "Información sobre American Kennel Club",
+      "ko": "American Kennel Club 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CBA",
+    "url": "https://en.wikipedia.org/wiki/CBA",
+    "keywords": ["Look", "up", "CBA"],
+    "description": {
+      "en": "Details about CBA",
+      "tr": "CBA hakkında (Look, up)",
+      "az": "CBA haqqında ətraflı (Look)",
+      "es": "Información sobre CBA",
+      "ko": "CBA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "CBA - Part 2",
+    "url": "https://en.wikipedia.org/wiki/CBA",
+    "keywords": ["Look", "up", "CBA"],
+    "description": {
+      "en": "Details about CBA",
+      "tr": "CBA hakkında (Look, up)",
+      "az": "CBA haqqında ətraflı (Look)",
+      "es": "Información sobre CBA",
+      "ko": "CBA 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "OTN",
+    "url": "https://en.wikipedia.org/wiki/OTN",
+    "keywords": ["OTN", "", "OTN"],
+    "description": {
+      "en": "Details about OTN",
+      "tr": "OTN hakkında (OTN, )",
+      "az": "OTN haqqında ətraflı (OTN)",
+      "es": "Información sobre OTN",
+      "ko": "OTN 에 대한 정보"
+    }
+  },
+  {
+    "category": "Global",
+    "title": "OTN - Part 2",
+    "url": "https://en.wikipedia.org/wiki/OTN",
+    "keywords": ["OTN", "", "OTN"],
+    "description": {
+      "en": "Details about OTN",
+      "tr": "OTN hakkında (OTN, )",
+      "az": "OTN haqqında ətraflı (OTN)",
+      "es": "Información sobre OTN",
+      "ko": "OTN 에 대한 정보"
+    }
+  }
 ]

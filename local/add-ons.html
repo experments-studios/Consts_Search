@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Cookie</title>
+    <title>Pluget Search Add-ons </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="myicon.png">
     <style>
         *, *::before, *::after {
             box-sizing: border-box; 
@@ -11,165 +12,188 @@
             padding: 0;
         }
         
-        html {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
         :root {
-            --primary-text-color: #e8eaed; 
-            --secondary-text-color: #bdc1c6; 
-            --background-color: #121212; 
-            --surface-color: #242428; 
-            --button-bg-color: #36363c; 
-            --border-width: 1px;
-            --accent-color: #00e0ff; 
-            --logo-main-color: #00ff88; 
-            --logo-glow-color: rgba(0, 255, 136, 0.4); 
-            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.3);
-            --shadow-neon: 0 0 10px rgba(0, 224, 255, 0.6); 
-            --shadow-intense-neon: 0 0 15px var(--accent-color);
-            --border-radius-sm: 4px;
-            --border-radius-lg: 16px; 
+            --primary-text-color: #f1f3f4; 
+            --secondary-text-color: #9aa0a6; 
+            --background-color: #0f172a; 
+            --surface-color: rgba(30, 41, 59, 0.7); 
+            --accent-color: #38bdf8; 
+            --logo-main-color: #2dd4bf; 
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --border-radius-lg: 20px; 
+            --transition-speed: 0.3s;
         }
 
         body.light {
-            --primary-text-color: #202124;
-            --secondary-text-color: #5f6368;
-            --background-color: #f8f9fa;
-            --surface-color: #ffffff;
-            --button-bg-color: #e8eaed;
-            --accent-color: #1a73e8; 
-            --logo-main-color: #4285f4; 
-            --logo-glow-color: rgba(66, 133, 244, 0.2);
-            --shadow-base: 0 1px 6px rgba(0, 0, 0, 0.1);
-            --shadow-neon: 0 1px 4px rgba(0, 0, 0, 0.08); 
-            --shadow-intense-neon: 0 3px 10px rgba(0, 0, 0, 0.15);
+            --primary-text-color: #1e293b;
+            --secondary-text-color: #64748b;
+            --background-color: #f8fafc;
+            --surface-color: rgba(255, 255, 255, 0.8);
+            --accent-color: #0284c7; 
+            --logo-main-color: #0d9488; 
+            --glass-border: rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: "Segoe UI", sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--background-color);
             color: var(--primary-text-color);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column; 
-            gap: 25px; 
+            gap: 20px; 
             padding: 20px;
+            /* Arka plana hafif bir gradyan ekleyelim */
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            transition: background var(--transition-speed);
         }
 
-        .container, #cookieList {
+        body.light {
+            background: radial-gradient(circle at top right, #e2e8f0, #f8fafc);
+        }
+
+        .container {
             background: var(--surface-color);
-            padding: 30px 30px;
+            backdrop-filter: blur(12px); /* Cam efekti */
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
             border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-base);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 420px; 
+            max-width: 450px; 
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container h2 {
             margin-bottom: 25px;
             color: var(--logo-main-color);
             text-align: center;
-            text-shadow: 0 0 8px var(--logo-glow-color);
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .input-group {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
         }
 
         input[type="text"] {
-            padding: 12px 15px;
-            font-size: 16px;
-            border: var(--border-width) solid var(--button-bg-color);
-            background-color: var(--background-color); 
+            padding: 12px 16px;
+            font-size: 15px;
+            border: none;
+            background: transparent;
             color: var(--primary-text-color);
-            border-radius: var(--border-radius-sm);
             flex: 1;
-            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         input[type="text"]:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 8px var(--accent-color);
             outline: none;
         }
 
         button {
-            background-color: var(--accent-color);
-            color: #121212; 
+            background: var(--accent-color);
+            color: white; 
             font-weight: 600;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: var(--border-radius-sm);
+            padding: 12px 24px;
+            font-size: 14px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.2s, filter 0.2s;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
         }
 
         button:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
             filter: brightness(1.1);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         #cookieList {
             list-style: none;
-            padding: 20px;
-            max-height: 300px;
+            width: 100%;
+            max-width: 450px;
+            max-height: 250px;
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) transparent;
         }
 
+        /* Liste elemanları için özel tasarım */
         #cookieList li {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--button-bg-color);
-            cursor: pointer;
-            text-align: left;
-            font-size: 16px;
-            color: var(--primary-text-color);
-            transition: background-color 0.2s ease;
+            background: var(--surface-color);
+            margin-bottom: 10px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 4px;
-        }
-
-        #cookieList li .cookie-url {
-            font-size: 0.9em;
-            color: var(--secondary-text-color);
-            font-style: italic;
-        }
-
-        #cookieList li:last-child {
-            border-bottom: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
         #cookieList li:hover {
-            background-color: var(--button-bg-color);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: var(--accent-color);
+            transform: scale(1.02);
         }
 
-    
+        .cookie-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cookie-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .cookie-url {
+            font-size: 12px;
+            color: var(--secondary-text-color);
+            margin-top: 4px;
+        }
+
         .back-link {
-            color: var(--accent-color);
+            color: var(--secondary-text-color);
             text-decoration: none;
-            font-size: 16px;
-            margin-top: -10px; 
-            transition: filter 0.2s;
+            font-size: 14px;
+            transition: color 0.2s;
+            margin-top: 10px;
         }
+
         .back-link:hover {
-            text-decoration: underline;
-            filter: brightness(1.2);
+            color: var(--accent-color);
         }
+
+        /* Scrollbar güzelleştirme */
+        #cookieList::-webkit-scrollbar { width: 5px; }
+        #cookieList::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Install Cookie</h2>
+        <h2>install add-ons</h2>
         <div class="input-group">
-            <input type="text" id="cookieName" placeholder="Cookie Name / Project...">
+            <input type="text" id="cookieName" placeholder="addon name">
             <button onclick="addAndGo()">ADD</button>
         </div>
     </div>
@@ -177,9 +201,12 @@
     <ul id="cookieList">
         </ul>
 
-    <a href="index.html" class="back-link">← Go Back to Search</a>
+    <a href="index.html" class="back-link">← Back to Search</a>
 
     <script>
+        // ... (Senin mevcut IndexedDB ve JS mantığın burada aynen kalabilir) ...
+        // Sadece görselleştirme kısmını (loadCookies içindeki li oluşturma) biraz güncelledim
+        
         let db;
         const DB_NAME = "CookieURLDB"; 
         const DB_VERSION = 1;
@@ -187,172 +214,64 @@
 
         function initDB() {
             return new Promise((resolve, reject) => {
-                if (!window.indexedDB) {
-                    alert("Your browser does not support IndexedDB.");
-                    return reject("IndexedDB not supported");
-                }
-
                 const request = indexedDB.open(DB_NAME, DB_VERSION);
-
-                request.onerror = (event) => {
-                    console.error("IndexedDB error:", event.target.error);
-                    reject(event.target.error);
+                request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+                request.onupgradeneeded = (e) => {
+                    db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: "name" });
                 };
-
-                request.onsuccess = (event) => {
-                    db = event.target.result;
-                    console.log("IndexedDB successfully opened.");
-                    resolve(db);
-                };
-
-                request.onupgradeneeded = (event) => {
-                    db = event.target.result;
-                    if (!db.objectStoreNames.contains(STORE_NAME)) {
-                        db.createObjectStore(STORE_NAME, { keyPath: "name" });
-                    }
-                };
-            });
-        }
-
-        function addCookieToDB(name, url) {
-            return new Promise((resolve, reject) => {
-                if (!db) {
-                    return reject("Database not available.");
-                }
-
-                document.cookie = `${name}=; path=/; max-age=604800`;
-
-                const transaction = db.transaction([STORE_NAME], "readwrite");
-                const objectStore = transaction.objectStore(STORE_NAME);
-
-                const cookieData = {
-                    name: name,
-                    url: url 
-                };
-
-                const request = objectStore.put(cookieData); 
-
-                request.onsuccess = () => {
-                    console.log(`Cookie "${name}" successfully added/updated in IndexedDB.`);
-                    resolve();
-                };
-
-                request.onerror = (event) => {
-                    console.error("Error adding cookie to IndexedDB:", event.target.error);
-                    reject(event.target.error);
-                };
-            });
-        }
-
-        function getAllCookiesFromDB() {
-            return new Promise((resolve, reject) => {
-                if (!db) {
-                    return reject("Database not available.");
-                }
-
-                const transaction = db.transaction([STORE_NAME], "readonly");
-                const objectStore = transaction.objectStore(STORE_NAME);
-                
-                const request = objectStore.getAll(); 
-
-                request.onsuccess = (event) => {
-                    resolve(event.target.result); 
-                };
-
-                request.onerror = (event) => {
-                    console.error("Error retrieving cookies from IndexedDB:", event.target.error);
-                    reject(event.target.error);
-                };
+                request.onerror = (e) => reject(e.target.error);
             });
         }
 
         async function loadCookies() {
             const cookieList = document.getElementById("cookieList");
             cookieList.innerHTML = ''; 
-
             try {
-                const cookies = await getAllCookiesFromDB();
+                const transaction = db.transaction([STORE_NAME], "readonly");
+                const cookies = await new Promise(r => {
+                    transaction.objectStore(STORE_NAME).getAll().onsuccess = (e) => r(e.target.result);
+                });
 
                 if (cookies.length === 0) {
-                    const li = document.createElement("li");
-                    li.textContent = "No cookies added.";
-                    li.style.justifyContent = 'center'; 
-                    li.style.cursor = 'default';
-                    cookieList.appendChild(li);
+                    cookieList.innerHTML = '<li style="justify-content:center; opacity:0.6;">No projects yet.</li>';
                     return;
                 }
 
                 cookies.forEach(cookie => {
                     const li = document.createElement("li");
-                    
-                    const nameSpan = document.createElement("span");
-                    nameSpan.textContent = cookie.name;
-
-                    const urlSpan = document.createElement("span");
-                    urlSpan.textContent = `(${cookie.url})`;
-                    urlSpan.classList.add("cookie-url");
-
-                    li.appendChild(nameSpan);
-                    li.appendChild(urlSpan);
-                    
-                    li.onclick = () => goToCookiePage(cookie.url); 
+                    li.innerHTML = `
+                        <div class="cookie-info">
+                            <span class="cookie-name"> ${cookie.name}</span>
+                            <span class="cookie-url">{cookie.url}</span>
+                        </div>
+                        <span style="color:var(--accent-color)">→</span>
+                    `;
+                    li.onclick = () => window.location.href = cookie.url; 
                     cookieList.appendChild(li);
                 });
-
-            } catch (error) {
-                console.error("Error loading cookies:", error);
-                const li = document.createElement("li");
-                li.textContent = "Could not load cookies.";
-                cookieList.appendChild(li);
-            }
-        }
-
-        function goToCookiePage(url) {
-            if (url) {
-                window.location.href = url;
-            } else {
-                alert("Invalid cookie URL.");
-            }
+            } catch (error) { console.error(error); }
         }
 
         async function addAndGo() {
-            const cookieNameInput = document.getElementById("cookieName");
-            const name = cookieNameInput.value.trim();
+            const input = document.getElementById("cookieName");
+            const name = input.value.trim();
+            if (!name) return alert("Please enter a name");
+            const url = `https://plugets.pages.dev?addon=${name}`;
             
-            const url = `https://${name}/contextsearchmain.html`;
-
-            if (name === "") {
-                alert("no cookie name");
-                return;
-            }
-
-            try {
-                await addCookieToDB(name, url);
-                await loadCookies(); 
+            const transaction = db.transaction([STORE_NAME], "readwrite");
+            transaction.objectStore(STORE_NAME).put({ name, url });
+            transaction.oncomplete = () => {
+                loadCookies();
                 window.location.href = url;
-            } catch (error) {
-                alert("An error occurred while adding the cookie: " + error);
-                console.error("addAndGo Error:", error);
-            }
-        }
-
-        function applySavedTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                document.body.classList.add('light');
-            }
+            };
         }
 
         document.addEventListener("DOMContentLoaded", async () => {
-            applySavedTheme(); 
-            try {
-                await initDB();
-                await loadCookies();
-            } catch (error) {
-                console.error("Initialization error:", error);
-            }
+            if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+            await initDB();
+            await loadCookies();
         });
     </script>
-
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - consts.pages.dev</title>
+    <title>Privacy Policy - plugets.pages.dev</title>
     <style>
         :root {
             --primary-text-color: #e8eaed; 
@@ -138,40 +138,58 @@
 </head>
 <body>
     <div class="content-card">
-        <h1>Privacy Policy</h1>
-        <p>Thank you for visiting our website, **consts.pages.dev**. Your privacy is important to us.</p>
+   <h1>Privacy Policy</h1>
+    <p><strong>Last Updated:</strong> April 3, 2026</p>
+    
+    <p>Thank you for using <strong>Pluget Search</strong>. Your privacy is our priority. This policy outlines how we handle data across our official domains:</p>
+    <ul>
+        <li><span class="domains">plugetsearch.pages.dev</span></li>
+        <li><span class="domains">plugets.pages.dev</span></li>
+        <li><span class="domains">search.pluget.pages.dev</span></li>
+        <li><span class="domains">database.plugetsearch.pages.dev</span></li>
+    </ul>
 
-        <h2>Data Collection & Usage</h2>
-        <p>This website **does not directly collect any personal data**. We do not use contact forms, membership systems, comment sections, or direct analytical/marketing cookies.</p>
+    <h2>1. Data Collection & Zero-Backend Policy</h2>
+    <p>Our service is designed to be privacy-centric. <strong>We do not directly collect, store, or sell any personal data.</strong></p>
+    <ul>
+        <li>We do not use user accounts, registration, or membership systems.</li>
+        <li>We do not use tracking cookies for marketing, profiling, or advertising.</li>
+        <li>We do not maintain a central database of your search queries or IP addresses.</li>
+    </ul>
 
-        <h2>Third-Party Processing (Cloudflare)</h2>
-        <p>However, our website is hosted and served using **Cloudflare Pages**. Cloudflare processes certain technical data automatically to ensure the security (such as protection against DDoS attacks) and performance (faster loading times) of our website. This technical data may include:</p>
+    <h2>2. Third-Party Infrastructure (Cloudflare Pages)</h2>
+    <p>Our websites are hosted and served using <strong>Cloudflare Pages</strong>. To ensure website security (e.g., protection against DDoS attacks) and performance, Cloudflare automatically processes certain technical data:</p>
+    <ul>
+        <li><strong>IP Addresses:</strong> Processed temporarily for security monitoring and bot detection.</li>
+        <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security. These do not track personal behavior.</li>
+        <li><strong>Traffic Logs:</strong> Anonymized data may be logged for performance optimization and threat prevention.</li>
+    </ul>
+    <p>For more information, please visit the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Privacy Policy</a>.</p>
 
-        <ul>
-            <li><strong>IP Addresses:</strong> Visitor IP addresses are processed by Cloudflare for security and traffic management purposes.</li>
-            <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security (e.g., to detect bots). These cookies do not collect personal data or track you.</li>
-            <li><strong>Traffic Logs:</strong> General, anonymized traffic data may be logged for security and performance monitoring.</li>
-        </ul>
+    <h2>3. External API Integration (Wikipedia API)</h2>
+    <p>To provide a more comprehensive search experience and display additional relevant results, this website utilizes the <strong>Wikipedia API</strong>.</p>
+    <ul>
+        <li><strong>Purpose:</strong> We use this API to fetch and display public information directly within our search results.</li>
+        <li><strong>Data Flow:</strong> When a search is performed, a request may be sent to Wikipedia’s servers. This interaction is subject to Wikipedia’s data practices.</li>
+    </ul>
+    <p>For more information, please visit the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank">Wikimedia Foundation Privacy Policy</a>.</p>
 
-        <p>For more information about Cloudflare's data processing practices, please visit Cloudflare's Privacy Policy: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">https://www.cloudflare.com/privacypolicy/</a></p>
+    <h2>4. Scope & External Links</h2>
+    <p>This policy applies solely to the domains operated by us. Our search results may contain links to external websites. We are not responsible for the privacy practices or content of these third-party services.</p>
 
-        <h2>Scope</h2>
-        <p>This privacy policy applies solely to **consts.pages.dev** and does not cover other websites or services beyond our control.</p>
+    <h2>5. Contact</h2>
+    <p>If you have any questions regarding this Privacy Policy or the technical operations of our services, please feel free to contact us through our official project channels.</p>
 
-        <h2>Contact</h2>
-        <p>If you have any questions about our privacy policy, please feel free to contact us.</p>
-
-        <p>Last Updated: **11 November 2025**</p>
-    </div>
+    <footer>
+        <p>&copy; 2026 Ilkin Yahya All rights reserved.</p>
+    </footer>
 
     <a href="index.html" class="back-button">← Back to Search</a>
 
     <script>
         function applySavedTheme() {
             const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                document.body.classList.add('light');
-            }
+            if (savedTheme === 'light') {}
         }
         
         document.addEventListener('DOMContentLoaded', applySavedTheme);
