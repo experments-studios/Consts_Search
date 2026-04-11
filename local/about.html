@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Pluget Search</title>
+    <link rel="icon" type="image/png" href="myicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #202124;
+            --bg-secondary: #303134;
+            --bg-tertiary: #3c4043;
+            --text-primary: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --accent: #8ab4f8;
+            --accent-hover: #aecbfa;
+            --border-color: #5f6368;
+            --shadow: 0 1px 6px rgba(32,33,36,.28);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.5);
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --border-radius: 24px;
+        }
+
+        body.light-theme {
+            --bg-primary: #fff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e8eaed;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --accent: #1a73e8;
+            --accent-hover: #174ea6;
+            --border-color: #dadce0;
+            --shadow: 0 1px 6px rgba(32,33,36,.1);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.2);
+        }
+
+        body.midnight-theme {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #475569;
+        }
+
+        body.ocean-theme {
+            --bg-primary: #0c4a6e;
+            --bg-secondary: #075985;
+            --bg-tertiary: #0369a1;
+            --text-primary: #f0f9ff;
+            --text-secondary: #bae6fd;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #0284c7;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .header-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .lang-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 1000;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .lang-dropdown.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            padding: 12px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .lang-option:last-child {
+            border-bottom: none;
+        }
+
+        .lang-option:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .lang-option.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .lang-flag {
+            font-size: 16px;
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-title {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .about-section {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .section-content p {
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.2s;
+            border: 1px solid var(--border-color);
+        }
+
+        .github-link:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+        .highlight-box {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tech-card {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-card h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .tech-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 650px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .header-nav {
+                gap: 15px;
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+
+            .about-section {
+                padding: 20px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Pluget</a>
+            <nav class="header-nav">
+                <a href="index.html" class="header-link" data-i18n="nav_home">Home</a>
+                <a href="search.html" class="header-link" data-i18n="nav_search">Search</a>
+                <a href="add-ons.html" class="header-link" data-i18n="nav_addons">Add-ons</a>
+            </nav>
+        </div>
+        <div class="language-selector">
+            <button class="lang-btn" id="langBtn">
+                <span id="currentLang">🇬🇧 English</span>
+                <span>▼</span>
+            </button>
+            <div class="lang-dropdown" id="langDropdown">
+                <div class="lang-option" data-lang="en">
+                    <span class="lang-flag">🇬🇧</span>
+                    <span>English</span>
+                </div>
+                <div class="lang-option" data-lang="az">
+                    <span class="lang-flag">🇦🇿</span>
+                    <span>Azərbaycanca</span>
+                </div>
+                <div class="lang-option" data-lang="tr">
+                    <span class="lang-flag">🇹🇷</span>
+                    <span>Türkçe</span>
+                </div>
+                <div class="lang-option" data-lang="ko">
+                    <span class="lang-flag">🇰🇷</span>
+                    <span>한국어</span>
+                </div>
+                <div class="lang-option" data-lang="es">
+                    <span class="lang-flag">🇪🇸</span>
+                    <span>Español</span>
+                </div>
+                <div class="lang-option" data-lang="fr">
+                    <span class="lang-flag">🇫🇷</span>
+                    <span>Français</span>
+                </div>
+                <div class="lang-option" data-lang="de">
+                    <span class="lang-flag">🇩🇪</span>
+                    <span>Deutsch</span>
+                </div>
+                <div class="lang-option" data-lang="ja">
+                    <span class="lang-flag">🇯🇵</span>
+                    <span>日本語</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="about-header">
+            <h1 class="about-title" data-i18n="about_title">About Pluget Search</h1>
+            <p class="about-subtitle" data-i18n="about_subtitle">Privacy-first, innovative, serverless search engine</p>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+                <span data-i18n="what_is_title">What is Pluget Search?</span>
+            </h2>
+            <div class="section-content">
+                <p data-i18n="what_is_desc">Pluget Search is an innovative search engine that prioritizes user privacy. It is also an open-source search engine, meaning anyone can view, modify, and contribute to its code.</p>
+                
+                <div class="highlight-box">
+                    <p data-i18n="open_source_highlight">Being open source ensures transparency and allows the community to continuously improve the search experience.</p>
+                </div>
+
+                <a href="https://github.com/experments-studios/Consts_Search" target="_blank" class="github-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span data-i18n="view_github">View on GitHub</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                </svg>
+                <span data-i18n="privacy_title">Privacy First</span>
+            </h2>
+            <div class="section-content">
+                <p data-i18n="privacy_desc">The main goal of this search engine is to prioritize user experience and user privacy. Unlike traditional search engines, Pluget Search does not track your searches, store your personal data, or share your information with third parties.</p>
+                
+                <ul class="feature-list">
+                    <li data-i18n="privacy_no_tracking">No search tracking or logging</li>
+                    <li data-i18n="privacy_no_data">No personal data collection</li>
+                    <li data-i18n="privacy_no_ads">No targeted advertising</li>
+                    <li data-i18n="privacy_open">Fully transparent open source code</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                </svg>
+                <span data-i18n="serverless_title">Serverless Architecture</span>
+            </h2>
+            <div class="section-content">
+                <p data-i18n="serverless_desc">The biggest advantage of this search engine is that it can work without a server. The code runs entirely on the frontend, which means you can download Pluget Search's code and run it on your own device without any server costs.</p>
+                
+                <div class="highlight-box">
+                    <p data-i18n="serverless_highlight">No server required = No hosting costs = Total privacy</p>
+                </div>
+
+                <p data-i18n="usage_options">You can use Pluget Search from the official website or download the code and easily run it on static hosting.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                </svg>
+                <span data-i18n="plugins_title">Plugins System</span>
+            </h2>
+            <div class="section-content">
+                <p data-i18n="plugins_desc">Pluget Search includes a plugin menu where users can easily install plugins by simply pasting the plugin's URL. Plugins work as web pages, and anyone can develop plugins for Pluget Search.</p>
+                
+                <ul class="feature-list">
+                    <li data-i18n="plugins_easy">Easy installation via URL</li>
+                    <li data-i18n="plugins_develop">Anyone can develop plugins</li>
+                    <li data-i18n="plugins_host">Host on any static hosting</li>
+                    <li data-i18n="plugins_share">Share via simple URL</li>
+                </ul>
+
+                <p data-i18n="plugins_develop_desc">To develop a plugin, you can take Pluget Search's code, customize it, and host it on simple static hosting to get a URL. Then users can easily install your plugin via the URL.</p>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <svg class="section-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                <span data-i18n="database_title">Database Structure</span>
+            </h2>
+            <div class="section-content">
+                <p data-i18n="database_desc">Unlike other search engines, since Pluget Search does not use a backend, it needs different solutions for the database. Therefore, we store sites and pages as JSON.</p>
+                
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <h4 data-i18n="tech_json">JSON Storage</h4>
+                        <p data-i18n="tech_json_desc">All data stored in lightweight JSON format</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4 data-i18n="tech_nlp">Natural Language Processing</h4>
+                        <p data-i18n="tech_nlp_desc">Processes search queries in the frontend</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4 data-i18n="tech_wiki">Wikipedia API</h4>
+                        <p data-i18n="tech_wiki_desc">Dynamic indexing through Wikipedia queries</p>
+                    </div>
+                    <div class="tech-card">
+                        <h4 data-i18n="tech_frontend">100% Frontend</h4>
+                        <p data-i18n="tech_frontend_desc">No backend servers required</p>
+                    </div>
+                </div>
+
+                <p data-i18n="database_nlp_desc">Additionally, the natural language processing system inside this search engine processes the search data in the frontend when a user makes a search, sends queries to the Wikipedia API, and can dynamically index pages.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_search: "Search",
+                nav_addons: "Add-ons",
+                about_title: "About Pluget Search",
+                about_subtitle: "Privacy-first, innovative, serverless search engine",
+                what_is_title: "What is Pluget Search?",
+                what_is_desc: "Pluget Search is an innovative search engine that prioritizes user privacy. It is also an open-source search engine, meaning anyone can view, modify, and contribute to its code.",
+                open_source_highlight: "Being open source ensures transparency and allows the community to continuously improve the search experience.",
+                view_github: "View on GitHub",
+                privacy_title: "Privacy First",
+                privacy_desc: "The main goal of this search engine is to prioritize user experience and user privacy. Unlike traditional search engines, Pluget Search does not track your searches, store your personal data, or share your information with third parties.",
+                privacy_no_tracking: "No search tracking or logging",
+                privacy_no_data: "No personal data collection",
+                privacy_no_ads: "No targeted advertising",
+                privacy_open: "Fully transparent open source code",
+                serverless_title: "Serverless Architecture",
+                serverless_desc: "The biggest advantage of this search engine is that it can work without a server. The code runs entirely on the frontend, which means you can download Pluget Search's code and run it on your own device without any server costs.",
+                serverless_highlight: "No server required = No hosting costs = Total privacy",
+                usage_options: "You can use Pluget Search from the official website or download the code and easily run it on static hosting.",
+                plugins_title: "Plugins System",
+                plugins_desc: "Pluget Search includes a plugin menu where users can easily install plugins by simply pasting the plugin's URL. Plugins work as web pages, and anyone can develop plugins for Pluget Search.",
+                plugins_easy: "Easy installation via URL",
+                plugins_develop: "Anyone can develop plugins",
+                plugins_host: "Host on any static hosting",
+                plugins_share: "Share via simple URL",
+                plugins_develop_desc: "To develop a plugin, you can take Pluget Search's code, customize it, and host it on simple static hosting to get a URL. Then users can easily install your plugin via the URL.",
+                database_title: "Database Structure",
+                database_desc: "Unlike other search engines, since Pluget Search does not use a backend, it needs different solutions for the database. Therefore, we store sites and pages as JSON.",
+                tech_json: "JSON Storage",
+                tech_json_desc: "All data stored in lightweight JSON format",
+                tech_nlp: "Natural Language Processing",
+                tech_nlp_desc: "Processes search queries in the frontend",
+                tech_wiki: "Wikipedia API",
+                tech_wiki_desc: "Dynamic indexing through Wikipedia queries",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "No backend servers required",
+                database_nlp_desc: "Additionally, the natural language processing system inside this search engine processes the search data in the frontend when a user makes a search, sends queries to the Wikipedia API, and can dynamically index pages."
+            },
+            az: {
+                nav_home: "Ana Səhifə",
+                nav_search: "Axtarış",
+                nav_addons: "Əlavələr",
+                about_title: "Pluget Search Haqqında",
+                about_subtitle: "Məxfilik əsaslı, innovativ, serverləs axtarış mühərriki",
+                what_is_title: "Pluget Search Nədir?",
+                what_is_desc: "Pluget Search istifadəçi məxfiliyini ön plana çıxaran innovativ bir axtarış mühərrikidir. Həm də açıq mənbəli bir axtarış mühərrikidir, yəni istənilən şəxs kodunu görə, dəyişdirə və töhfə verə bilər.",
+                open_source_highlight: "Açıq mənbə olmaq şəffaflığı təmin edir və cəmiyyətin axtarış təcrübəsini davamlı yaxşılaşdırmasına imkan verir.",
+                view_github: "GitHub-da görün",
+                privacy_title: "Məxfilik Əsaslı",
+                privacy_desc: "Bu axtarış mühərrikinin əsas məqsədi istifadəçi təcrübəsini və istifadəçi məxfiliyini ön plana çıxartmaqdır. Ənənəvi axtarış mühərriklərindən fərqli olaraq, Pluget Search axtarışlarınızı izləmir, şəxsi məlumatlarınızı saxlamır və məlumatlarınızı üçüncü tərəflərlə paylaşmır.",
+                privacy_no_tracking: "Axtarış izləmə və ya qeydiyyat yoxdur",
+                privacy_no_data: "Şəxsi məlumat toplanması yoxdur",
+                privacy_no_ads: "Hədəfli reklam yoxdur",
+                privacy_open: "Tam şəffaf açıq mənbə kodu",
+                serverless_title: "Serverləs Arxitektura",
+                serverless_desc: "Bu axtarış mühərrikinin ən böyük üstünlüyü server olmadan işləyə bilməsidir. Kod tamamilə frontend-də işləyir, yəni Pluget Search-in kodunu yükləyib heç bir server xərci olmadan öz cihazınızda işlədə bilərsiniz.",
+                serverless_highlight: "Server tələb olunmur = Hostinq xərci yoxdur = Tam məxfilik",
+                usage_options: "Pluget Search-i rəsmi veb saytdan istifadə edə və ya kodu yükləyib statik hostinqdə asanlıqla işlədə bilərsiniz.",
+                plugins_title: "Əlavələr Sistemi",
+                plugins_desc: "Pluget Search-də istifadəçilərin əlavənin URL-sini yapışdıraraq asanlıqla əlavə qura biləcəyi bir əlavə menyusu var. Əlavələr veb səhifə kimi işləyir və hər kəs Pluget Search üçün əlavə inkişaf etdirə bilər.",
+                plugins_easy: "URL vasitəsilə asan quraşdırma",
+                plugins_develop: "Hər kəs əlavə inkişaf etdirə bilər",
+                plugins_host: "İstənilən statik hostinqdə yerləşdirin",
+                plugins_share: "Sadə URL ilə paylaşın",
+                plugins_develop_desc: "Əlavə inkişaf etdirmək üçün Pluget Search-in kodunu götürüb, fərdiləşdirə və sadə statik hostinqdə yerləşdirərək URL əldə edə bilərsiniz. Sonra istifadəçilər URL vasitəsilə əlavənizi asanlıqla qura bilərlər.",
+                database_title: "Verilənlər Bazası Strukturu",
+                database_desc: "Digər axtarış mühərriklərindən fərqli olaraq, Pluget Search backend istifadə etmədiyi üçün verilənlər bazası üçün fərqli həllər lazımdır. Buna görə də saytları və səhifələri JSON formatında saxlayırıq.",
+                tech_json: "JSON Saxlama",
+                tech_json_desc: "Bütün məlumatlar yüngül JSON formatında saxlanılır",
+                tech_nlp: "Təbii Dil İşləmə",
+                tech_nlp_desc: "Axtarış sorğularını frontend-də işləyir",
+                tech_wiki: "Wikipedia API",
+                tech_wiki_desc: "Wikipedia sorğuları vasitəsilə dinamik indeksləmə",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "Backend serverləri tələb olunmur",
+                database_nlp_desc: "Əlavə olaraq, bu axtarış mühərrikinin daxilindəki təbii dil işləmə sistemi, istifadəçi axtarış etdikdə axtarış məlumatlarını frontend-də işləyir, Wikipedia API-ə sorğular göndərir və səhifələri dinamik indeksləyə bilər."
+            },
+            tr: {
+                nav_home: "Ana Sayfa",
+                nav_search: "Arama",
+                nav_addons: "Eklentiler",
+                about_title: "Pluget Search Hakkında",
+                about_subtitle: "Gizlilik odaklı, yenilikçi, sunucusuz arama motoru",
+                what_is_title: "Pluget Search Nedir?",
+                what_is_desc: "Pluget Search, kullanıcı gizliliğini esas alan yenilikçi bir arama motorudur. Aynı zamanda açık kaynaklı bir arama motorudur, yani herkes kodunu görüntüleyebilir, değiştirebilir ve katkıda bulunabilir.",
+                open_source_highlight: "Açık kaynak olmak şeffaflığı sağlar ve topluluğun arama deneyimini sürekli iyileştirmesine olanak tanır.",
+                view_github: "GitHub'da Görüntüle",
+                privacy_title: "Gizlilik Öncelikli",
+                privacy_desc: "Bu arama motorunun amacı kullanıcı deneyimini ve kullanıcı gizliliğini ön plana çıkarmaktır. Geleneksel arama motorlarından farklı olarak, Pluget Search aramalarınızı izlemez, kişisel verilerinizi saklamaz ve bilgilerinizi üçüncü taraflarla paylaşmaz.",
+                privacy_no_tracking: "Arama izleme veya kayıt yok",
+                privacy_no_data: "Kişisel veri toplama yok",
+                privacy_no_ads: "Hedefli reklam yok",
+                privacy_open: "Tamamen şeffaf açık kaynak kodu",
+                serverless_title: "Sunucusuz Mimari",
+                serverless_desc: "Bu arama motorunun en büyük avantajı sunucu olmadan çalışabilmesidir. Kod tamamen frontend'de çalışır, yani Pluget Search'ün kodlarını indirip hiçbir sunucu maliyeti olmadan kendi cihazınızda rahatlıkla çalıştırabilirsiniz.",
+                serverless_highlight: "Sunucu gerekmez = Hosting maliyeti yok = Tam gizlilik",
+                usage_options: "Pluget Search'ü resmi web sitesinden kullanabilir veya kodlarını indirip statik bir hosting'de rahatlıkla çalıştırabilirsiniz.",
+                plugins_title: "Eklentiler Sistemi",
+                plugins_desc: "Pluget Search'ün içinde bir eklenti menüsü vardır. Bu menüden kullanıcı, sadece eklentinin URL'sini yapıştırarak o eklentiyi kurabilir. Eklentiler bir web sayfası olarak çalışır ve herkes Pluget Search için eklenti geliştirebilir.",
+                plugins_easy: "URL ile kolay kurulum",
+                plugins_develop: "Herkes eklenti geliştirebilir",
+                plugins_host: "Herhangi bir statik hosting'de barındırın",
+                plugins_share: "Basit URL ile paylaşın",
+                plugins_develop_desc: "Eklenti geliştirirken Pluget Search'ün kodlarını alıp özelleştirip, basit bir statik hosting'de barındırıp URL'sini alabilirsiniz. Sonra kullanıcılar URL üzerinden sizin eklentinizi rahatlıkla kurabilir.",
+                database_title: "Veritabanı Yapısı",
+                database_desc: "Diğer arama motorlarının aksine, Pluget Search arka planda backend kullanmadığı için veritabanı için daha farklı çözümler üretmesi gerekir. Bu yüzden site ve sayfaları JSON olarak tutuyoruz.",
+                tech_json: "JSON Depolama",
+                tech_json_desc: "Tüm veriler hafif JSON formatında saklanır",
+                tech_nlp: "Doğal Dil İşleme",
+                tech_nlp_desc: "Arama sorgularını frontend'de işler",
+                tech_wiki: "Wikipedia API",
+                tech_wiki_desc: "Wikipedia sorgularıyla dinamik indeksleme",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "Backend sunucuları gerekmez",
+                database_nlp_desc: "Ayrıca bu arama motorunun içindeki doğal dil işleme sistemi, kullanıcı bir arama yaptığında arama verisini frontend'de işleyip Wikipedia API'sine sorgular atıp dinamik olarak sayfalar indeksleyebilir."
+            },
+            ko: {
+                nav_home: "홈",
+                nav_search: "검색",
+                nav_addons: "애드온",
+                about_title: "Pluget Search 소개",
+                about_subtitle: "개인정보 보호 중심의 혁신적인 서버리스 검색 엔진",
+                what_is_title: "Pluget Search란?",
+                what_is_desc: "Pluget Search는 사용자 개인정보 보호를 최우선으로 하는 혁신적인 검색 엔진입니다. 또한 오픈 소스 검색 엔진으로, 누구나 코드를 보고, 수정하고, 기여할 수 있습니다.",
+                open_source_highlight: "오픈 소스는 투명성을 보장하고 커뮤니티가 검색 경험을 지속적으로 개선할 수 있게 합니다.",
+                view_github: "GitHub에서 보기",
+                privacy_title: "개인정보 보호 우선",
+                privacy_desc: "이 검색 엔진의 주요 목표는 사용자 경험과 개인정보 보호를 최우선으로 하는 것입니다. 기존 검색 엔진과 달리 Pluget Search는 검색을 추적하지 않고, 개인 데이터를 저장하지 않으며, 정보를 제3자와 공유하지 않습니다.",
+                privacy_no_tracking: "검색 추적 및 로깅 없음",
+                privacy_no_data: "개인 데이터 수집 없음",
+                privacy_no_ads: "타겟 광고 없음",
+                privacy_open: "완전히 투명한 오픈 소스 코드",
+                serverless_title: "서버리스 아키텍처",
+                serverless_desc: "이 검색 엔진의 가장 큰 장점은 서버 없이도 작동할 수 있다는 것입니다. 코드가 전면에서 완전히 실행되므로 Pluget Search 코드를 다운로드하여 서버 비용 없이 자신의 장치에서 쉽게 실행할 수 있습니다.",
+                serverless_highlight: "서버 불필요 = 호스팅 비용 없음 = 완전한 개인정보 보호",
+                usage_options: "Pluget Search를 공식 웹사이트에서 사용하거나 코드를 다운로드하여 정적 호스팅에서 쉽게 실행할 수 있습니다.",
+                plugins_title: "플러그인 시스템",
+                plugins_desc: "Pluget Search에는 플러그인 메뉴가 있어 사용자가 플러그인 URL을 붙여넣기만 하면 쉽게 설치할 수 있습니다. 플러그인은 웹 페이지로 작동하며 누구나 Pluget Search용 플러그인을 개발할 수 있습니다.",
+                plugins_easy: "URL을 통한 쉬운 설치",
+                plugins_develop: "누구나 플러그인 개발 가능",
+                plugins_host: "모든 정적 호스팅에서 호스팅",
+                plugins_share: "간단한 URL로 공유",
+                plugins_develop_desc: "플러그인을 개발하려면 Pluget Search 코드를 가져와 사용자 정의하고 간단한 정적 호스팅에 호스팅하여 URL을 얻을 수 있습니다. 그런 다음 사용자는 URL을 통해 플러그인을 쉽게 설치할 수 있습니다.",
+                database_title: "데이터베이스 구조",
+                database_desc: "다른 검색 엔진과 달리 Pluget Search는 백엔드를 사용하지 않으므로 데이터베이스에 대해 다른 솔루션이 필요합니다. 따라서 사이트와 페이지를 JSON으로 저장합니다.",
+                tech_json: "JSON 저장",
+                tech_json_desc: "모든 데이터가 가벼운 JSON 형식으로 저장됨",
+                tech_nlp: "자연어 처리",
+                tech_nlp_desc: "프론트엔드에서 검색 쿼리 처리",
+                tech_wiki: "위키백과 API",
+                tech_wiki_desc: "위키백과 쿼리를 통한 동적 인덱싱",
+                tech_frontend: "100% 프론트엔드",
+                tech_frontend_desc: "백엔드 서버 불필요",
+                database_nlp_desc: "또한 이 검색 엔진의 자연어 처리 시스템은 사용자가 검색할 때 검색 데이터를 프론트엔드에서 처리하고 위키백과 API에 쿼리를 보내 페이지를 동적으로 인덱싱할 수 있습니다."
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_search: "Buscar",
+                nav_addons: "Complementos",
+                about_title: "Acerca de Pluget Search",
+                about_subtitle: "Motor de búsqueda innovador sin servidor, centrado en la privacidad",
+                what_is_title: "¿Qué es Pluget Search?",
+                what_is_desc: "Pluget Search es un motor de búsqueda innovador que prioriza la privacidad del usuario. También es un motor de búsqueda de código abierto, lo que significa que cualquiera puede ver, modificar y contribuir a su código.",
+                open_source_highlight: "Ser de código abierto garantiza transparencia y permite a la comunidad mejorar continuamente la experiencia de búsqueda.",
+                view_github: "Ver en GitHub",
+                privacy_title: "Privacidad Primero",
+                privacy_desc: "El objetivo principal de este motor de búsqueda es priorizar la experiencia del usuario y la privacidad. A diferencia de los motores de búsqueda tradicionales, Pluget Search no rastrea tus búsquedas, almacena tus datos personales ni comparte tu información con terceros.",
+                privacy_no_tracking: "Sin rastreo ni registro de búsquedas",
+                privacy_no_data: "Sin recopilación de datos personales",
+                privacy_no_ads: "Sin publicidad dirigida",
+                privacy_open: "Código abierto completamente transparente",
+                serverless_title: "Arquitectura sin Servidor",
+                serverless_desc: "La mayor ventaja de este motor de búsqueda es que puede funcionar sin un servidor. El código se ejecuta completamente en el frontend, lo que significa que puedes descargar el código de Pluget Search y ejecutarlo en tu propio dispositivo sin ningún costo de servidor.",
+                serverless_highlight: "Sin servidor requerido = Sin costos de hosting = Privacidad total",
+                usage_options: "Puedes usar Pluget Search desde el sitio web oficial o descargar el código y ejecutarlo fácilmente en un hosting estático.",
+                plugins_title: "Sistema de Complementos",
+                plugins_desc: "Pluget Search incluye un menú de complementos donde los usuarios pueden instalar complementos fácilmente simplemente pegando la URL del complemento. Los complementos funcionan como páginas web, y cualquiera puede desarrollar complementos para Pluget Search.",
+                plugins_easy: "Instalación fácil mediante URL",
+                plugins_develop: "Cualquiera puede desarrollar complementos",
+                plugins_host: "Alojar en cualquier hosting estático",
+                plugins_share: "Compartir mediante URL simple",
+                plugins_develop_desc: "Para desarrollar un complemento, puedes tomar el código de Pluget Search, personalizarlo y alojarlo en un hosting estático simple para obtener una URL. Luego los usuarios pueden instalar tu complemento fácilmente mediante la URL.",
+                database_title: "Estructura de la Base de Datos",
+                database_desc: "A diferencia de otros motores de búsqueda, como Pluget Search no utiliza un backend, necesita soluciones diferentes para la base de datos. Por lo tanto, almacenamos sitios y páginas como JSON.",
+                tech_json: "Almacenamiento JSON",
+                tech_json_desc: "Todos los datos almacenados en formato JSON ligero",
+                tech_nlp: "Procesamiento de Lenguaje Natural",
+                tech_nlp_desc: "Procesa consultas de búsqueda en el frontend",
+                tech_wiki: "API de Wikipedia",
+                tech_wiki_desc: "Indexación dinámica a través de consultas de Wikipedia",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "No se requieren servidores backend",
+                database_nlp_desc: "Además, el sistema de procesamiento de lenguaje natural dentro de este motor de búsqueda procesa los datos de búsqueda en el frontend cuando un usuario realiza una búsqueda, envía consultas a la API de Wikipedia y puede indexar páginas dinámicamente."
+            },
+            fr: {
+                nav_home: "Accueil",
+                nav_search: "Rechercher",
+                nav_addons: "Extensions",
+                about_title: "À propos de Pluget Search",
+                about_subtitle: "Moteur de recherche innovant sans serveur, axé sur la confidentialité",
+                what_is_title: "Qu'est-ce que Pluget Search ?",
+                what_is_desc: "Pluget Search est un moteur de recherche innovant qui privilégie la confidentialité de l'utilisateur. C'est aussi un moteur de recherche open source, ce qui signifie que n'importe qui peut voir, modifier et contribuer à son code.",
+                open_source_highlight: "Le fait d'être open source garantit la transparence et permet à la communauté d'améliorer continuellement l'expérience de recherche.",
+                view_github: "Voir sur GitHub",
+                privacy_title: "Confidentialité d'abord",
+                privacy_desc: "L'objectif principal de ce moteur de recherche est de privilégier l'expérience utilisateur et la confidentialité. Contrairement aux moteurs de recherche traditionnels, Pluget Search ne suit pas vos recherches, ne stocke pas vos données personnelles et ne partage pas vos informations avec des tiers.",
+                privacy_no_tracking: "Pas de suivi ou d'enregistrement des recherches",
+                privacy_no_data: "Pas de collecte de données personnelles",
+                privacy_no_ads: "Pas de publicité ciblée",
+                privacy_open: "Code open source entièrement transparent",
+                serverless_title: "Architecture sans Serveur",
+                serverless_desc: "Le plus grand avantage de ce moteur de recherche est qu'il peut fonctionner sans serveur. Le code s'exécute entièrement sur le frontend, ce qui signifie que vous pouvez télécharger le code de Pluget Search et l'exécuter sur votre propre appareil sans aucun coût de serveur.",
+                serverless_highlight: "Aucun serveur requis = Aucun coût d'hébergement = Confidentialité totale",
+                usage_options: "Vous pouvez utiliser Pluget Search depuis le site web officiel ou télécharger le code et l'exécuter facilement sur un hébergement statique.",
+                plugins_title: "Système d'Extensions",
+                plugins_desc: "Pluget Search comprend un menu d'extensions où les utilisateurs peuvent facilement installer des extensions en collant simplement l'URL de l'extension. Les extensions fonctionnent comme des pages web, et tout le monde peut développer des extensions pour Pluget Search.",
+                plugins_easy: "Installation facile via URL",
+                plugins_develop: "Tout le monde peut développer des extensions",
+                plugins_host: "Héberger sur n'importe quel hébergement statique",
+                plugins_share: "Partager via une URL simple",
+                plugins_develop_desc: "Pour développer une extension, vous pouvez prendre le code de Pluget Search, le personnaliser et l'héberger sur un hébergement statique simple pour obtenir une URL. Ensuite, les utilisateurs peuvent facilement installer votre extension via l'URL.",
+                database_title: "Structure de la Base de Données",
+                database_desc: "Contrairement aux autres moteurs de recherche, comme Pluget Search n'utilise pas de backend, il a besoin de solutions différentes pour la base de données. C'est pourquoi nous stockons les sites et les pages en JSON.",
+                tech_json: "Stockage JSON",
+                tech_json_desc: "Toutes les données stockées au format JSON léger",
+                tech_nlp: "Traitement du Langage Naturel",
+                tech_nlp_desc: "Traite les requêtes de recherche sur le frontend",
+                tech_wiki: "API Wikipedia",
+                tech_wiki_desc: "Indexation dynamique via les requêtes Wikipedia",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "Aucun serveur backend requis",
+                database_nlp_desc: "De plus, le système de traitement du langage naturel à l'intérieur de ce moteur de recherche traite les données de recherche sur le frontend lorsqu'un utilisateur effectue une recherche, envoie des requêtes à l'API Wikipedia et peut indexer les pages dynamiquement."
+            },
+            de: {
+                nav_home: "Startseite",
+                nav_search: "Suche",
+                nav_addons: "Erweiterungen",
+                about_title: "Über Pluget Search",
+                about_subtitle: "Innovative, serverlose Suchmaschine mit Fokus auf Datenschutz",
+                what_is_title: "Was ist Pluget Search?",
+                what_is_desc: "Pluget Search ist eine innovative Suchmaschine, die den Datenschutz der Benutzer priorisiert. Es ist auch eine Open-Source-Suchmaschine, was bedeutet, dass jeder den Code einsehen, ändern und dazu beitragen kann.",
+                open_source_highlight: "Open Source zu sein gewährleistet Transparenz und ermöglicht es der Community, das Sucherlebnis kontinuierlich zu verbessern.",
+                view_github: "Auf GitHub ansehen",
+                privacy_title: "Datenschutz zuerst",
+                privacy_desc: "Das Hauptziel dieser Suchmaschine ist es, das Benutzererlebnis und den Datenschutz zu priorisieren. Im Gegensatz zu traditionellen Suchmaschinen verfolgt Pluget Search Ihre Suchen nicht, speichert keine persönlichen Daten und teilt Ihre Informationen nicht mit Dritten.",
+                privacy_no_tracking: "Keine Suchverfolgung oder Protokollierung",
+                privacy_no_data: "Keine Sammlung persönlicher Daten",
+                privacy_no_ads: "Keine gezielte Werbung",
+                privacy_open: "Vollständig transparenter Open-Source-Code",
+                serverless_title: "Serverlose Architektur",
+                serverless_desc: "Der größte Vorteil dieser Suchmaschine ist, dass sie ohne Server funktionieren kann. Der Code läuft vollständig im Frontend, was bedeutet, dass Sie den Code von Pluget Search herunterladen und ohne Serverkosten auf Ihrem eigenen Gerät ausführen können.",
+                serverless_highlight: "Kein Server erforderlich = Keine Hosting-Kosten = Vollständiger Datenschutz",
+                usage_options: "Sie können Pluget Search über die offizielle Website nutzen oder den Code herunterladen und einfach auf statischem Hosting ausführen.",
+                plugins_title: "Erweiterungssystem",
+                plugins_desc: "Pluget Search enthält ein Erweiterungsmenü, in dem Benutzer Erweiterungen einfach installieren können, indem sie einfach die URL der Erweiterung einfügen. Erweiterungen funktionieren als Webseiten, und jeder kann Erweiterungen für Pluget Search entwickeln.",
+                plugins_easy: "Einfache Installation per URL",
+                plugins_develop: "Jeder kann Erweiterungen entwickeln",
+                plugins_host: "Auf jedem statischen Hosting hosten",
+                plugins_share: "Per einfacher URL teilen",
+                plugins_develop_desc: "Um eine Erweiterung zu entwickeln, können Sie den Code von Pluget Search nehmen, anpassen und auf einfachem statischem Hosting hosten, um eine URL zu erhalten. Dann können Benutzer Ihre Erweiterung einfach über die URL installieren.",
+                database_title: "Datenbankstruktur",
+                database_desc: "Im Gegensatz zu anderen Suchmaschinen benötigt Pluget Search, da es kein Backend verwendet, andere Lösungen für die Datenbank. Deshalb speichern wir Websites und Seiten als JSON.",
+                tech_json: "JSON-Speicherung",
+                tech_json_desc: "Alle Daten im leichten JSON-Format gespeichert",
+                tech_nlp: "Natürliche Sprachverarbeitung",
+                tech_nlp_desc: "Verarbeitet Suchanfragen im Frontend",
+                tech_wiki: "Wikipedia-API",
+                tech_wiki_desc: "Dynamische Indexierung durch Wikipedia-Abfragen",
+                tech_frontend: "100% Frontend",
+                tech_frontend_desc: "Keine Backend-Server erforderlich",
+                database_nlp_desc: "Darüber hinaus verarbeitet das System zur natürlichen Sprachverarbeitung in dieser Suchmaschine die Suchdaten im Frontend, wenn ein Benutzer eine Suche durchführt, sendet Abfragen an die Wikipedia-API und kann Seiten dynamisch indexieren."
+            },
+            ja: {
+                nav_home: "ホーム",
+                nav_search: "検索",
+                nav_addons: "アドオン",
+                about_title: "Pluget Searchについて",
+                about_subtitle: "プライバシー重視の革新的なサーバーレス検索エンジン",
+                what_is_title: "Pluget Searchとは？",
+                what_is_desc: "Pluget Searchは、ユーザーのプライバシーを最優先する革新的な検索エンジンです。また、オープンソースの検索エンジンでもあり、誰でもコードを閲覧、変更、貢献できます。",
+                open_source_highlight: "オープンソースであることは透明性を確保し、コミュニティが検索体験を継続的に改善できるようにします。",
+                view_github: "GitHubで見る",
+                privacy_title: "プライバシー第一",
+                privacy_desc: "この検索エンジンの主な目的は、ユーザーエクスペリエンスとユーザーのプライバシーを最優先することです。従来の検索エンジンとは異なり、Pluget Searchは検索を追跡せず、個人データを保存せず、情報を第三者と共有しません。",
+                privacy_no_tracking: "検索の追跡や記録なし",
+                privacy_no_data: "個人データの収集なし",
+                privacy_no_ads: "ターゲット広告なし",
+                privacy_open: "完全に透明なオープンソースコード",
+                serverless_title: "サーバーレスアーキテクチャ",
+                serverless_desc: "この検索エンジンの最大の利点は、サーバーなしで動作できることです。コードは完全にフロントエンドで実行されるため、Pluget Searchのコードをダウンロードして、サーバー費用なしに自分のデバイスで簡単に実行できます。",
+                serverless_highlight: "サーバー不要 = ホスティング費用なし = 完全なプライバシー",
+                usage_options: "Pluget Searchは公式ウェブサイトから使用するか、コードをダウンロードして静的ホスティングで簡単に実行できます。",
+                plugins_title: "プラグインシステム",
+                plugins_desc: "Pluget Searchにはプラグインメニューがあり、ユーザーはプラグインのURLを貼り付けるだけで簡単にインストールできます。プラグインはウェブページとして動作し、誰でもPluget Search用のプラグインを開発できます。",
+                plugins_easy: "URLによる簡単インストール",
+                plugins_develop: "誰でもプラグインを開発可能",
+                plugins_host: "任意の静的ホスティングでホスト",
+                plugins_share: "シンプルなURLで共有",
+                plugins_develop_desc: "プラグインを開発するには、Pluget Searchのコードを取得してカスタマイズし、シンプルな静的ホスティングでホストしてURLを取得できます。その後、ユーザーはURLを通じてプラグインを簡単にインストールできます。",
+                database_title: "データベース構造",
+                database_desc: "他の検索エンジンとは異なり、Pluget Searchはバックエンドを使用しないため、データベースには異なるソリューションが必要です。そのため、サイトとページをJSONとして保存しています。",
+                tech_json: "JSONストレージ",
+                tech_json_desc: "すべてのデータが軽量なJSON形式で保存",
+                tech_nlp: "自然言語処理",
+                tech_nlp_desc: "フロントエンドで検索クエリを処理",
+                tech_wiki: "Wikipedia API",
+                tech_wiki_desc: "Wikipediaクエリによる動的インデックス作成",
+                tech_frontend: "100% フロントエンド",
+                tech_frontend_desc: "バックエンドサーバー不要",
+                database_nlp_desc: "さらに、この検索エンジン内の自然言語処理システムは、ユーザーが検索を行うときに検索データをフロントエンドで処理し、Wikipedia APIにクエリを送信し、ページを動的にインデックスできます。"
+            }
+        };
+
+        // Language management
+        let currentLang = localStorage.getItem('pluget-lang') || 'en';
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('pluget-lang', lang);
+            
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update current language display
+            const langNames = {
+                en: '🇬🇧 English',
+                az: '🇦🇿 Azərbaycanca',
+                tr: '🇹🇷 Türkçe',
+                ko: '🇰🇷 한국어',
+                es: '🇪🇸 Español',
+                fr: '🇫🇷 Français',
+                de: '🇩🇪 Deutsch',
+                ja: '🇯🇵 日本語'
+            };
+            document.getElementById('currentLang').textContent = langNames[lang];
+            
+            // Update active state in dropdown
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.lang === lang);
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            setLanguage(currentLang);
+            
+            // Language dropdown toggle
+            const langBtn = document.getElementById('langBtn');
+            const langDropdown = document.getElementById('langDropdown');
+            
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('open');
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                langDropdown.classList.remove('open');
+            });
+            
+            // Language selection
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.addEventListener('click', () => {
+                    setLanguage(opt.dataset.lang);
+                    langDropdown.classList.remove('open');
+                });
+            });
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('pluget-theme') || 'dark';
+            if (savedTheme !== 'dark') {
+                document.body.classList.add(savedTheme + '-theme');
+            }
+        });
+    </script>
+</body>
+</html>

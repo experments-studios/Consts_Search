@@ -546,11 +546,31 @@ function renderPhotosUI(list, lang) {
 
 // Initialize
 function initializeApp() {
+    // Language select elementini bul ve event listener ekle
+    const languageSelect = document.getElementById('language-select');
+    if (languageSelect) {
+        // Mevcut dili seçili yap
+        languageSelect.value = currentLang;
+        
+        // Change event listener ekle
+        languageSelect.addEventListener('change', (e) => {
+            setLanguage(e.target.value);
+        });
+    }
+    
+    // Search input event listener
+    const searchInput = document.getElementById('search');
+    if (searchInput) {
+        searchInput.addEventListener('keyup', handleSearchInput);
+    }
+    
+    // Sayfa yüklendiğinde mevcut dili ayarla
     setLanguage(currentLang);
+    
+    // URL'den query parametresi kontrol et
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
     if (q) {
-        const searchInput = document.getElementById('search');
         const decodedQ = decodeURIComponent(q);
         if (searchInput) searchInput.value = decodedQ;
         searchSites(decodedQ);
@@ -594,25 +614,37 @@ function initDesignSettings() {
     const orbsEnabled = localStorage.getItem('consts-orbs') !== 'false';
     
     setDesignTheme(savedTheme);
-    designElements.themeButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.theme === savedTheme);
-    });
+    
+    if (designElements.themeButtons) {
+        designElements.themeButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === savedTheme);
+        });
+    }
     
     if (!animationsEnabled) toggleDesignAnimations();
     
     designState.blurStrength = parseInt(blurValue);
-    designElements.blurSlider.value = designState.blurStrength;
-    document.getElementById('blurValue').textContent = designState.blurStrength;
+    if (designElements.blurSlider) {
+        designElements.blurSlider.value = designState.blurStrength;
+        const blurValueEl = document.getElementById('blurValue');
+        if (blurValueEl) blurValueEl.textContent = designState.blurStrength;
+    }
     
     designState.transparency = parseInt(transparencyValue);
-    designElements.transparencySlider.value = designState.transparency;
-    document.getElementById('transparencyValue').textContent = designState.transparency;
+    if (designElements.transparencySlider) {
+        designElements.transparencySlider.value = designState.transparency;
+        const transparencyValueEl = document.getElementById('transparencyValue');
+        if (transparencyValueEl) transparencyValueEl.textContent = designState.transparency;
+    }
     
     designState.gradientIntensity = parseInt(gradientValue);
-    designElements.gradientSlider.value = designState.gradientIntensity;
-    document.getElementById('gradientValue').textContent = designState.gradientIntensity;
+    if (designElements.gradientSlider) {
+        designElements.gradientSlider.value = designState.gradientIntensity;
+        const gradientValueEl = document.getElementById('gradientValue');
+        if (gradientValueEl) gradientValueEl.textContent = designState.gradientIntensity;
+    }
     
-    if (orbsEnabled) {
+    if (orbsEnabled && designElements.orbsSwitch) {
         designElements.orbsSwitch.classList.add('active');
         designElements.body.classList.add('glass-orbs');
     }
@@ -621,88 +653,118 @@ function initDesignSettings() {
 }
 
 function setupDesignListeners() {
-    designElements.settingsToggle.addEventListener('click', () => {
-        designElements.settingsPanel.classList.toggle('open');
-    });
-    
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.settings-panel') && !e.target.closest('.settings-toggle')) {
-            designElements.settingsPanel.classList.remove('open');
-        }
-    });
-    
-    designElements.themeButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            designElements.themeButtons.forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            setDesignTheme(e.target.dataset.theme);
+    if (designElements.settingsToggle && designElements.settingsPanel) {
+        designElements.settingsToggle.addEventListener('click', () => {
+            designElements.settingsPanel.classList.toggle('open');
         });
-    });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.settings-panel') && !e.target.closest('.settings-btn')) {
+                designElements.settingsPanel.classList.remove('open');
+            }
+        });
+    }
     
-    designElements.animationSwitch.addEventListener('click', toggleDesignAnimations);
-    designElements.glassmorphSwitch.addEventListener('click', toggleDesignGlassmorphism);
+    if (designElements.themeButtons) {
+        designElements.themeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                designElements.themeButtons.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                setDesignTheme(e.target.dataset.theme);
+            });
+        });
+    }
     
-    designElements.blurSlider.addEventListener('input', (e) => {
-        designState.blurStrength = parseInt(e.target.value);
-        document.getElementById('blurValue').textContent = designState.blurStrength;
-        localStorage.setItem('consts-blur', designState.blurStrength);
-    });
+    if (designElements.animationSwitch) {
+        designElements.animationSwitch.addEventListener('click', toggleDesignAnimations);
+    }
     
-    designElements.transparencySlider.addEventListener('input', (e) => {
-        designState.transparency = parseInt(e.target.value);
-        document.getElementById('transparencyValue').textContent = designState.transparency;
-        localStorage.setItem('consts-transparency', designState.transparency);
-    });
+    if (designElements.glassmorphSwitch) {
+        designElements.glassmorphSwitch.addEventListener('click', toggleDesignGlassmorphism);
+    }
     
-    designElements.gradientSlider.addEventListener('input', (e) => {
-        designState.gradientIntensity = parseInt(e.target.value);
-        document.getElementById('gradientValue').textContent = designState.gradientIntensity;
-        localStorage.setItem('consts-gradient', designState.gradientIntensity);
-    });
+    if (designElements.blurSlider) {
+        designElements.blurSlider.addEventListener('input', (e) => {
+            designState.blurStrength = parseInt(e.target.value);
+            const blurValueEl = document.getElementById('blurValue');
+            if (blurValueEl) blurValueEl.textContent = designState.blurStrength;
+            localStorage.setItem('consts-blur', designState.blurStrength);
+        });
+    }
     
-    designElements.orbsSwitch.addEventListener('click', toggleDesignGlassOrbs);
-    designElements.insetShadowSwitch.addEventListener('click', toggleDesignInsetShadow);
-    designElements.blurBackgroundSwitch.addEventListener('click', toggleDesignBlurBackground);
+    if (designElements.transparencySlider) {
+        designElements.transparencySlider.addEventListener('input', (e) => {
+            designState.transparency = parseInt(e.target.value);
+            const transparencyValueEl = document.getElementById('transparencyValue');
+            if (transparencyValueEl) transparencyValueEl.textContent = designState.transparency;
+            localStorage.setItem('consts-transparency', designState.transparency);
+        });
+    }
+    
+    if (designElements.gradientSlider) {
+        designElements.gradientSlider.addEventListener('input', (e) => {
+            designState.gradientIntensity = parseInt(e.target.value);
+            const gradientValueEl = document.getElementById('gradientValue');
+            if (gradientValueEl) gradientValueEl.textContent = designState.gradientIntensity;
+            localStorage.setItem('consts-gradient', designState.gradientIntensity);
+        });
+    }
+    
+    if (designElements.orbsSwitch) {
+        designElements.orbsSwitch.addEventListener('click', toggleDesignGlassOrbs);
+    }
+    
+    if (designElements.insetShadowSwitch) {
+        designElements.insetShadowSwitch.addEventListener('click', toggleDesignInsetShadow);
+    }
+    
+    if (designElements.blurBackgroundSwitch) {
+        designElements.blurBackgroundSwitch.addEventListener('click', toggleDesignBlurBackground);
+    }
 }
 
 function setDesignTheme(theme) {
     designState.theme = theme;
-    designElements.body.classList.remove('dark-theme', 'light-theme', 'neon-theme');
+    designElements.body.classList.remove('dark-theme', 'light-theme', 'neon-theme', 'midnight-theme', 'ocean-theme');
+    
     if (theme === 'light') designElements.body.classList.add('light-theme');
     else if (theme === 'neon') designElements.body.classList.add('neon-theme');
+    else if (theme === 'midnight') designElements.body.classList.add('midnight-theme');
+    else if (theme === 'ocean') designElements.body.classList.add('ocean-theme');
+    
     localStorage.setItem('consts-theme', theme);
 }
 
 function toggleDesignAnimations() {
     designState.animationsEnabled = !designState.animationsEnabled;
-    designElements.animationSwitch.classList.toggle('active');
+    if (designElements.animationSwitch) designElements.animationSwitch.classList.toggle('active');
     designElements.body.classList.toggle('animations-enabled');
-    designElements.settingsToggle.classList.toggle('animations-enabled');
+    if (designElements.settingsToggle) designElements.settingsToggle.classList.toggle('animations-enabled');
     localStorage.setItem('consts-animations', designState.animationsEnabled);
 }
 
 function toggleDesignGlassmorphism() {
     designState.glassmorphEnabled = !designState.glassmorphEnabled;
-    designElements.glassmorphSwitch.classList.toggle('active');
+    if (designElements.glassmorphSwitch) designElements.glassmorphSwitch.classList.toggle('active');
     localStorage.setItem('consts-glassmorphism', designState.glassmorphEnabled);
 }
 
 function toggleDesignGlassOrbs() {
     designState.glassOrbsEnabled = !designState.glassOrbsEnabled;
-    designElements.orbsSwitch.classList.toggle('active');
+    if (designElements.orbsSwitch) designElements.orbsSwitch.classList.toggle('active');
     designElements.body.classList.toggle('glass-orbs');
     localStorage.setItem('consts-orbs', designState.glassOrbsEnabled);
 }
 
 function toggleDesignInsetShadow() {
     designState.insetShadowEnabled = !designState.insetShadowEnabled;
-    designElements.insetShadowSwitch.classList.toggle('active');
+    if (designElements.insetShadowSwitch) designElements.insetShadowSwitch.classList.toggle('active');
     localStorage.setItem('consts-inset-shadow', designState.insetShadowEnabled);
 }
 
 function toggleDesignBlurBackground() {
     designState.blurBackgroundEnabled = !designState.blurBackgroundEnabled;
-    designElements.blurBackgroundSwitch.classList.toggle('active');
+    if (designElements.blurBackgroundSwitch) designElements.blurBackgroundSwitch.classList.toggle('active');
     localStorage.setItem('consts-blur-bg', designState.blurBackgroundEnabled);
 }
 
@@ -711,11 +773,16 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
     document.documentElement.lang = lang;
+    
     const t = translations[lang];
     const searchInput = document.getElementById('search');
-    if (searchInput) searchInput.placeholder = t.searchPlaceholder;
+    if (searchInput && t) searchInput.placeholder = t.searchPlaceholder;
+    
+    // Filter butonlarını ve kategorileri güncelle
     createFilterButtons(lang);
     createCategories(lang);
+    
+    // Mevcut arama sonuçlarını yeniden render et
     const query = searchInput?.value || '';
     searchSites(query, '', lang);
 }
@@ -724,4 +791,13 @@ function setLanguage(lang) {
 document.addEventListener('DOMContentLoaded', () => {
     loadAllData();
     initDesignSettings();
+    
+    // Tema senkronizasyonu için storage event listener
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'language') {
+            setLanguage(e.newValue);
+        } else if (e.key === 'pluget-theme') {
+            setDesignTheme(e.newValue);
+        }
+    });
 });

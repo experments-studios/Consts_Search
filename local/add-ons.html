@@ -2,276 +2,660 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pluget Search Add-ons </title>
+    <title>Pluget Search Add-ons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="myicon.png">
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box; 
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         :root {
-            --primary-text-color: #f1f3f4; 
-            --secondary-text-color: #9aa0a6; 
-            --background-color: #0f172a; 
-            --surface-color: rgba(30, 41, 59, 0.7); 
-            --accent-color: #38bdf8; 
-            --logo-main-color: #2dd4bf; 
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --border-radius-lg: 20px; 
-            --transition-speed: 0.3s;
+            --bg-primary: #202124;
+            --bg-secondary: #303134;
+            --bg-tertiary: #3c4043;
+            --text-primary: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --accent: #8ab4f8;
+            --accent-hover: #aecbfa;
+            --border-color: #5f6368;
+            --shadow: 0 1px 6px rgba(32,33,36,.28);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.5);
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --border-radius: 24px;
         }
-
-        body.light {
-            --primary-text-color: #1e293b;
-            --secondary-text-color: #64748b;
-            --background-color: #f8fafc;
-            --surface-color: rgba(255, 255, 255, 0.8);
-            --accent-color: #0284c7; 
-            --logo-main-color: #0d9488; 
-            --glass-border: rgba(0, 0, 0, 0.1);
+        
+        body.light-theme {
+            --bg-primary: #fff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e8eaed;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --accent: #1a73e8;
+            --accent-hover: #174ea6;
+            --border-color: #dadce0;
+            --shadow: 0 1px 6px rgba(32,33,36,.1);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.2);
         }
-
+        
+        body.midnight-theme {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #475569;
+        }
+        
+        body.ocean-theme {
+            --bg-primary: #0c4a6e;
+            --bg-secondary: #075985;
+            --bg-tertiary: #0369a1;
+            --text-primary: #f0f9ff;
+            --text-secondary: #bae6fd;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #0284c7;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background: var(--background-color);
-            color: var(--primary-text-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            flex-direction: column; 
-            gap: 20px; 
             padding: 20px;
-            /* Arka plana hafif bir gradyan ekleyelim */
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
-            transition: background var(--transition-speed);
+            border-bottom: 1px solid var(--border-color);
         }
-
-        body.light {
-            background: radial-gradient(circle at top right, #e2e8f0, #f8fafc);
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
         }
-
-        .container {
-            background: var(--surface-color);
-            backdrop-filter: blur(12px); /* Cam efekti */
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px;
-            border-radius: var(--border-radius-lg);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Main Content */
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            max-width: 680px;
+            margin: 0 auto;
             width: 100%;
-            max-width: 450px; 
-            animation: fadeIn 0.6s ease-out;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .container h2 {
-            margin-bottom: 25px;
-            color: var(--logo-main-color);
+        
+        .page-title {
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 40px;
             text-align: center;
-            font-weight: 600;
-            letter-spacing: -0.5px;
         }
-
+        
+        /* Input Section */
+        .input-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .input-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: block;
+        }
+        
         .input-group {
             display: flex;
             gap: 12px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 8px;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 4px;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
         }
-
+        
+        .input-group:focus-within {
+            background: var(--bg-tertiary);
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+        
         input[type="text"] {
-            padding: 12px 16px;
-            font-size: 15px;
+            flex: 1;
+            padding: 14px 20px;
+            font-size: 16px;
             border: none;
             background: transparent;
-            color: var(--primary-text-color);
-            flex: 1;
-        }
-
-        input[type="text"]:focus {
+            color: var(--text-primary);
             outline: none;
         }
-
-        button {
-            background: var(--accent-color);
-            color: white; 
-            font-weight: 600;
+        
+        input[type="text"]::placeholder {
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: var(--bg-primary);
             border: none;
             padding: 12px 24px;
             font-size: 14px;
-            border-radius: 10px;
+            font-weight: 500;
+            border-radius: 20px;
             cursor: pointer;
-            transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-            filter: brightness(1.1);
+        
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-
-        button:active {
-            transform: translateY(0);
+        
+        .btn-secondary {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
         }
-
-        #cookieList {
-            list-style: none;
+        
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+        
+        /* Add-ons List */
+        .addons-section {
             width: 100%;
-            max-width: 450px;
-            max-height: 250px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent-color) transparent;
         }
-
-        /* Liste elemanları için özel tasarım */
-        #cookieList li {
-            background: var(--surface-color);
-            margin-bottom: 10px;
-            padding: 16px 20px;
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        
+        .addon-count {
+            font-size: 12px;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 4px 12px;
             border-radius: 12px;
-            border: 1px solid var(--glass-border);
+        }
+        
+        .addons-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .addon-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-
-        #cookieList li:hover {
-            background: rgba(56, 189, 248, 0.1);
-            border-color: var(--accent-color);
-            transform: scale(1.02);
+        
+        .addon-item:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+            transform: translateX(4px);
         }
-
-        .cookie-info {
+        
+        .addon-info {
             display: flex;
             flex-direction: column;
+            gap: 4px;
         }
-
-        .cookie-name {
-            font-weight: 600;
+        
+        .addon-name {
+            font-weight: 500;
             font-size: 15px;
+            color: var(--text-primary);
         }
-
-        .cookie-url {
+        
+        .addon-url {
             font-size: 12px;
-            color: var(--secondary-text-color);
-            margin-top: 4px;
+            color: var(--text-secondary);
+            font-family: monospace;
         }
-
-        .back-link {
-            color: var(--secondary-text-color);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-            margin-top: 10px;
+        
+        .addon-arrow {
+            color: var(--accent);
+            opacity: 0;
+            transition: all 0.2s;
         }
-
-        .back-link:hover {
-            color: var(--accent-color);
+        
+        .addon-item:hover .addon-arrow {
+            opacity: 1;
+            transform: translateX(4px);
         }
-
-        /* Scrollbar güzelleştirme */
-        #cookieList::-webkit-scrollbar { width: 5px; }
-        #cookieList::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+        }
+        
+        .empty-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+        
+        .empty-text {
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        /* Settings Toggle */
+        .settings-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            font-size: 20px;
+            z-index: 100;
+        }
+        
+        .settings-btn:hover {
+            transform: rotate(30deg) scale(1.1);
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+        }
+        
+        /* Settings Panel */
+        .settings-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 280px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 99;
+        }
+        
+        .settings-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .settings-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+        
+        .theme-btn {
+            padding: 10px;
+            border: 2px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+        
+        .theme-btn.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+        
+        .theme-btn:hover {
+            border-color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 640px) {
+            .main {
+                padding: 20px;
+            }
+            
+            .page-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .settings-panel {
+                right: 20px;
+                left: 20px;
+                width: auto;
+            }
+            
+            .settings-btn {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h2>install add-ons</h2>
-        <div class="input-group">
-            <input type="text" id="cookieName" placeholder="addon name">
-            <button onclick="addAndGo()">ADD</button>
+    <header class="header">
+        <a href="index.html" class="logo">Pluget</a>
+        <a href="index.html" class="back-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Search
+        </a>
+    </header>
+    
+    <main class="main">
+        <h1 class="page-title">Install Add-ons</h1>
+        
+        <div class="input-section">
+            <label class="input-label">Add-on Name</label>
+            <div class="input-group">
+                <input type="text" id="addonName" placeholder="Enter add-on name..." autocomplete="off">
+                <button class="btn" onclick="addAndGo()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px;">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    Install
+                </button>
+            </div>
+        </div>
+        
+        <div class="addons-section">
+            <div class="section-header">
+                <span class="section-title">Installed Add-ons</span>
+                <span class="addon-count" id="addonCount">0 items</span>
+            </div>
+            <ul class="addons-list" id="addonList">
+                <li class="empty-state">
+                    <div class="empty-icon">📦</div>
+                    <p class="empty-text">No add-ons installed yet</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p class="footer-text">Pluget Search Add-ons Manager • Secure Local Storage Only</p>
+    </footer>
+    
+    <!-- Settings -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-title">⚙️ Theme</div>
+        <div class="theme-options">
+            <button class="theme-btn active" data-theme="dark">🌙 Dark</button>
+            <button class="theme-btn" data-theme="light">☀️ Light</button>
+            <button class="theme-btn" data-theme="midnight">🌌 Midnight</button>
+            <button class="theme-btn" data-theme="ocean">🌊 Ocean</button>
         </div>
     </div>
-
-    <ul id="cookieList">
-        </ul>
-
-    <a href="index.html" class="back-link">← Back to Search</a>
-
+    
+    <button class="settings-btn" id="settingsBtn">⚙️</button>
+    
     <script>
-        // ... (Senin mevcut IndexedDB ve JS mantığın burada aynen kalabilir) ...
-        // Sadece görselleştirme kısmını (loadCookies içindeki li oluşturma) biraz güncelledim
-        
+        // Database setup
         let db;
-        const DB_NAME = "CookieURLDB"; 
+        const DB_NAME = "PlugetAddonsDB";
         const DB_VERSION = 1;
-        const STORE_NAME = "cookies"; 
-
+        const STORE_NAME = "addons";
+        
+        // State
+        const state = {
+            theme: localStorage.getItem('pluget-theme') || 'dark'
+        };
+        
+        // Elements
+        const els = {
+            body: document.body,
+            addonName: document.getElementById('addonName'),
+            addonList: document.getElementById('addonList'),
+            addonCount: document.getElementById('addonCount'),
+            settingsBtn: document.getElementById('settingsBtn'),
+            settingsPanel: document.getElementById('settingsPanel'),
+            themeBtns: document.querySelectorAll('.theme-btn')
+        };
+        
+        // Initialize
+        async function init() {
+            await initDB();
+            loadSettings();
+            loadAddons();
+            setupEvents();
+        }
+        
         function initDB() {
             return new Promise((resolve, reject) => {
                 const request = indexedDB.open(DB_NAME, DB_VERSION);
-                request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+                
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => {
+                    db = request.result;
+                    resolve();
+                };
+                
                 request.onupgradeneeded = (e) => {
                     db = e.target.result;
-                    if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: "name" });
+                    if (!db.objectStoreNames.contains(STORE_NAME)) {
+                        db.createObjectStore(STORE_NAME, { keyPath: "name" });
+                    }
                 };
-                request.onerror = (e) => reject(e.target.error);
             });
         }
-
-        async function loadCookies() {
-            const cookieList = document.getElementById("cookieList");
-            cookieList.innerHTML = ''; 
+        
+        function loadSettings() {
+            setTheme(state.theme);
+            els.themeBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === state.theme);
+            });
+        }
+        
+        function setupEvents() {
+            // Settings toggle
+            els.settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                els.settingsPanel.classList.toggle('open');
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.settings-panel') && !e.target.closest('.settings-btn')) {
+                    els.settingsPanel.classList.remove('open');
+                }
+            });
+            
+            // Theme buttons
+            els.themeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    els.themeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    setTheme(btn.dataset.theme);
+                });
+            });
+            
+            // Enter key on input
+            els.addonName.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') addAndGo();
+            });
+        }
+        
+        function setTheme(theme) {
+            state.theme = theme;
+            els.body.classList.remove('light-theme', 'midnight-theme', 'ocean-theme');
+            if (theme !== 'dark') {
+                els.body.classList.add(theme + '-theme');
+            }
+            localStorage.setItem('pluget-theme', theme);
+        }
+        
+        async function loadAddons() {
             try {
                 const transaction = db.transaction([STORE_NAME], "readonly");
-                const cookies = await new Promise(r => {
-                    transaction.objectStore(STORE_NAME).getAll().onsuccess = (e) => r(e.target.result);
-                });
-
-                if (cookies.length === 0) {
-                    cookieList.innerHTML = '<li style="justify-content:center; opacity:0.6;">No projects yet.</li>';
-                    return;
-                }
-
-                cookies.forEach(cookie => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `
-                        <div class="cookie-info">
-                            <span class="cookie-name"> ${cookie.name}</span>
-                            <span class="cookie-url">{cookie.url}</span>
-                        </div>
-                        <span style="color:var(--accent-color)">→</span>
-                    `;
-                    li.onclick = () => window.location.href = cookie.url; 
-                    cookieList.appendChild(li);
-                });
-            } catch (error) { console.error(error); }
+                const store = transaction.objectStore(STORE_NAME);
+                const request = store.getAll();
+                
+                request.onsuccess = () => {
+                    const addons = request.result;
+                    renderAddons(addons);
+                };
+            } catch (error) {
+                console.error('Error loading add-ons:', error);
+            }
         }
-
-        async function addAndGo() {
-            const input = document.getElementById("cookieName");
-            const name = input.value.trim();
-            if (!name) return alert("Please enter a name");
-            const url = `https://plugets.pages.dev?addon=${name}`;
+        
+        function renderAddons(addons) {
+            els.addonCount.textContent = addons.length + (addons.length === 1 ? ' item' : ' items');
             
-            const transaction = db.transaction([STORE_NAME], "readwrite");
-            transaction.objectStore(STORE_NAME).put({ name, url });
-            transaction.oncomplete = () => {
-                loadCookies();
-                window.location.href = url;
-            };
+            if (addons.length === 0) {
+                els.addonList.innerHTML = `
+                    <li class="empty-state">
+                        <div class="empty-icon">📦</div>
+                        <p class="empty-text">No add-ons installed yet</p>
+                    </li>
+                `;
+                return;
+            }
+            
+            els.addonList.innerHTML = '';
+            addons.forEach(addon => {
+                const li = document.createElement('li');
+                li.className = 'addon-item';
+                li.innerHTML = `
+                    <div class="addon-info">
+                        <span class="addon-name">${escapeHtml(addon.name)}</span>
+                        <span class="addon-url">${escapeHtml(addon.url)}</span>
+                    </div>
+                    <span class="addon-arrow">→</span>
+                `;
+                li.onclick = () => window.location.href = addon.url;
+                els.addonList.appendChild(li);
+            });
         }
-
-        document.addEventListener("DOMContentLoaded", async () => {
-            if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
-            await initDB();
-            await loadCookies();
-        });
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        async function addAndGo() {
+            const name = els.addonName.value.trim();
+            if (!name) {
+                els.addonName.focus();
+                return;
+            }
+            
+            const url = `https://plugetsearch.pages.dev?addon=${encodeURIComponent(name)}`;
+            
+            try {
+                const transaction = db.transaction([STORE_NAME], "readwrite");
+                const store = transaction.objectStore(STORE_NAME);
+                
+                await new Promise((resolve, reject) => {
+                    const request = store.put({ name, url });
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+                
+                window.location.href = url;
+            } catch (error) {
+                console.error('Error saving add-on:', error);
+                alert('Failed to install add-on. Please try again.');
+            }
+        }
+        
+        // Run
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
