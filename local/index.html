@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
 </head>
 <body style="background: #000;">
+     <link rel="icon" type="image/png" href="myicon.png">
 
     <script>
         const dbName = "AppEngineDB";
         const storeName = "Storage";
 
         async function startApp() {
-            // 1. Veritabanını sessizce aç
             const db = await new Promise((resolve) => {
                 const request = indexedDB.open(dbName, 1);
                 request.onupgradeneeded = (e) => {
@@ -28,7 +28,6 @@
             let targetUrl;
 
             if (addonUrl && db) {
-                // Eğer sorgu varsa, kaydet ve o adrese git
                 targetUrl = addonUrl;
                 await new Promise((resolve) => {
                     const tx = db.transaction(storeName, "readwrite");
@@ -36,7 +35,6 @@
                     tx.oncomplete = () => resolve();
                 });
             } else if (db) {
-                // Sorgu yoksa hafızaya bak
                 const savedUrl = await new Promise((resolve) => {
                     const tx = db.transaction(storeName, "readonly");
                     const request = tx.objectStore(storeName).get('last_active_url');
@@ -45,11 +43,8 @@
                 });
                 targetUrl = savedUrl || 'main.html';
             } else {
-                // DB hatası veya başka bir durumda varsayılana git
                 targetUrl = 'main.html';
             }
-
-            // Doğrudan yönlendir
             window.location.replace(targetUrl);
         }
 

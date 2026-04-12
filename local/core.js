@@ -220,7 +220,7 @@ const translations = {
     }
 };
 
-// Metin Normalleştirme
+
 function normalizeText(text) {
     if (!text) return '';
     let normalized = text.replace(/İ/g, 'i').replace(/I/g, 'ı').toLowerCase().trim();
@@ -228,8 +228,6 @@ function normalizeText(text) {
     const charMap = { 'ş': 's', 'ı': 'i', 'ç': 'c', 'ğ': 'g', 'ü': 'u', 'ö': 'o', 'ə': 'e' };
     return normalized.split('').map(char => charMap[char] || char).join('');
 }
-
-// Wikipedia API'den veri çekme (Sadece AI filtresinde kullanılır)
 async function fetchWikipediaResult(query, lang = 'en') {
     try {
         const wikiLang = lang === 'az' ? 'az' : lang === 'tr' ? 'tr' : 'en';
@@ -247,8 +245,6 @@ async function fetchWikipediaResult(query, lang = 'en') {
         
         const firstResult = searchResults[0];
         const pageTitle = firstResult.title;
-        
-        // Detaylı bilgi al
         const detailResponse = await fetch(
             `https://${wikiLang}.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(pageTitle)}&prop=extracts&explaintext=true&exintro=true&format=json&origin=*`
         );
@@ -265,40 +261,35 @@ async function fetchWikipediaResult(query, lang = 'en') {
             url: `https://${wikiLang}.wikipedia.org/wiki/${encodeURIComponent(pageTitle)}`
         };
     } catch (error) {
-        console.error('Wikipedia API Hatası:', error);
+        console.error('Wikipedia API error');
         return null;
     }
 }
-
-// Veri Çekme - Tüm JSON dosyalarını yükle
 async function loadAllData() {
     try {
-        // sites.json yükle
         const sitesResponse = await fetch('https://database.plugetsearch.pages.dev/sites.json'); 
         if (sitesResponse.ok) {
             sites = await sitesResponse.json();
         } else {
-            console.warn('sites.json bulunamadı');
+            console.warn('sites.json');
         }
         
-        // shops.json yükle
+        // shops.json 
         try {
             const shopsResponse = await fetch('https://database.plugetsearch.pages.dev/shops.json');
             if (shopsResponse.ok) {
                 shops = await shopsResponse.json();
             }
         } catch (err) {
-            console.warn('shops.json yüklenemedi:', err);
+            console.warn('shops.json:', err);
         }
-        
-        // photos.json yükle
         try {
             const photosResponse = await fetch('https://database.plugetsearch.pages.dev/photos.json');
             if (photosResponse.ok) {
                 photos = await photosResponse.json();
             }
         } catch (err) {
-            console.warn('photos.json yüklenemedi:', err);
+            console.warn('photos.json:', err);
         }
         
         initializeApp();
@@ -309,7 +300,7 @@ async function loadAllData() {
     }
 }
 
-// Filter butonları oluştur
+
 function createFilterButtons(lang) {
     const filterContainer = document.getElementById('filterButtons');
     if (!filterContainer) return;
@@ -341,8 +332,6 @@ function createFilterButtons(lang) {
         filterContainer.appendChild(btn);
     });
 }
-
-// Kategoriler
 function createCategories(lang) {
     const container = document.getElementById('siteCategories');
     if (!container || sites.length === 0) return;
@@ -360,8 +349,6 @@ function createCategories(lang) {
         container.appendChild(item);
     });
 }
-
-// Search Input Handler
 function handleSearchInput(event) {
     const query = event.target.value;
     searchSites(query);
@@ -371,8 +358,6 @@ function handleSearchInput(event) {
     else url.searchParams.delete('q');
     window.history.replaceState({}, '', url);
 }
-
-// Ana Arama Fonksiyonu
 async function searchSites(query, category = '', lang = currentLang) {
     const resultsContainer = document.getElementById('results');
     const categoriesContainer = document.getElementById('siteCategories');
@@ -382,8 +367,6 @@ async function searchSites(query, category = '', lang = currentLang) {
     const t = translations[lang];
     const normalizedQuery = normalizeText(query);
     const queryTerms = normalizedQuery.split(/\s+/).filter(term => term.length > 0 && !STOP_WORDS.has(term));
-    
-    // Wikipedia sonucunu kontrol et (sadece AI filtresinde ve sorgu varsa)
     if (currentFilter === 'ai' || currentFilter === 'all') {
         if (queryTerms.length > 0) {
             const filteredQuery = queryTerms.join(' ');
@@ -402,8 +385,6 @@ async function searchSites(query, category = '', lang = currentLang) {
             }
         }
     }
-    
-    // Sites arama (all ve site filtrelerinde)
     if (currentFilter === 'all' || currentFilter === 'site') {
         let filteredSites = category 
             ? sites.filter(site => normalizeText(site.category) === normalizeText(category))
@@ -431,8 +412,6 @@ async function searchSites(query, category = '', lang = currentLang) {
         
         renderSitesUI(filteredSites, lang, t);
     }
-    
-    // Shops arama (all ve shop filtrelerinde)
     if (currentFilter === 'all' || currentFilter === 'shop') {
         let filteredShops = [...shops];
         
@@ -452,8 +431,6 @@ async function searchSites(query, category = '', lang = currentLang) {
         
         renderShopsUI(filteredShops, lang);
     }
-    
-    // Photos arama (all ve photos filtrelerinde)
     if (currentFilter === 'all' || currentFilter === 'photos') {
         let filteredPhotos = [...photos];
         
@@ -473,8 +450,6 @@ async function searchSites(query, category = '', lang = currentLang) {
         
         renderPhotosUI(filteredPhotos, lang);
     }
-    
-    // Hiç sonuç bulunamadıysa
     if (resultsContainer.children.length === 0 && queryTerms.length > 0) {
         resultsContainer.innerHTML = `<div class="no-results">${t.noResults}</div>`;
     }
@@ -498,8 +473,6 @@ function renderSitesUI(list, lang, t) {
         resultsContainer.appendChild(card);
     });
 }
-
-// Shops UI render
 function renderShopsUI(list, lang) {
     const resultsContainer = document.getElementById('results');
     
@@ -526,8 +499,6 @@ function renderShopsUI(list, lang) {
         resultsContainer.appendChild(card);
     });
 }
-
-// Photos UI render
 function renderPhotosUI(list, lang) {
     const resultsContainer = document.getElementById('results');
     
@@ -543,31 +514,19 @@ function renderPhotosUI(list, lang) {
         resultsContainer.appendChild(card);
     });
 }
-
-// Initialize
 function initializeApp() {
-    // Language select elementini bul ve event listener ekle
     const languageSelect = document.getElementById('language-select');
     if (languageSelect) {
-        // Mevcut dili seçili yap
         languageSelect.value = currentLang;
-        
-        // Change event listener ekle
         languageSelect.addEventListener('change', (e) => {
             setLanguage(e.target.value);
         });
     }
-    
-    // Search input event listener
     const searchInput = document.getElementById('search');
     if (searchInput) {
         searchInput.addEventListener('keyup', handleSearchInput);
     }
-    
-    // Sayfa yüklendiğinde mevcut dili ayarla
     setLanguage(currentLang);
-    
-    // URL'den query parametresi kontrol et
     const urlParams = new URLSearchParams(window.location.search);
     const q = urlParams.get('q');
     if (q) {
@@ -576,8 +535,6 @@ function initializeApp() {
         searchSites(decodedQ);
     }
 }
-
-// ===== DESIGN SETTINGS (Shared with Index) =====
 const designState = {
     theme: 'dark',
     animationsEnabled: true,
@@ -768,7 +725,6 @@ function toggleDesignBlurBackground() {
     localStorage.setItem('consts-blur-bg', designState.blurBackgroundEnabled);
 }
 
-// Dil Ayarı
 function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('language', lang);
@@ -777,22 +733,17 @@ function setLanguage(lang) {
     const t = translations[lang];
     const searchInput = document.getElementById('search');
     if (searchInput && t) searchInput.placeholder = t.searchPlaceholder;
-    
-    // Filter butonlarını ve kategorileri güncelle
     createFilterButtons(lang);
     createCategories(lang);
     
-    // Mevcut arama sonuçlarını yeniden render et
     const query = searchInput?.value || '';
     searchSites(query, '', lang);
 }
 
-// Initialize on DOM load
 document.addEventListener('DOMContentLoaded', () => {
     loadAllData();
     initDesignSettings();
-    
-    // Tema senkronizasyonu için storage event listener
+
     window.addEventListener('storage', (e) => {
         if (e.key === 'language') {
             setLanguage(e.newValue);

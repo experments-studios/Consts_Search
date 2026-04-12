@@ -504,17 +504,12 @@
     <footer class="footer">
         <p class="footer-text">Pluget Search © 2026 Ilkin Yahya</p>
     </footer>
-
-    <!-- Settings Button - main.html'e yönlendirir -->
     <div class="settings-container">
         <a href="index.html#settings" class="settings-btn" title="Ayarlar için ana sayfaya git">⚙️</a>
     </div>
 
     <script src="core.js"></script>
-    
-    <!-- Theme Sync Script -->
     <script>
-        // main.html'den ayarları oku ve uygula
         function syncSettings() {
             const theme = localStorage.getItem('pluget-theme') || 'dark';
             const animations = localStorage.getItem('pluget-anim') !== 'false';
@@ -524,21 +519,17 @@
                 document.body.classList.add(theme + '-theme');
             }
             
-            // Animasyon ayarı
             if (!animations) {
                 document.body.classList.remove('animations-enabled');
             } else {
                 document.body.classList.add('animations-enabled');
             }
             
-            // Border radius
             document.documentElement.style.setProperty('--border-radius', radius + 'px');
         }
         
-        // Sayfa yüklenince ve localStorage değişince uygula
         document.addEventListener('DOMContentLoaded', syncSettings);
         
-        // Diğer sekmede ayar değişirse senkronize et
         window.addEventListener('storage', syncSettings);
     </script>
 </body>

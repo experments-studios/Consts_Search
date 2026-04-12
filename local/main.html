@@ -72,8 +72,6 @@
             flex-direction: column;
             transition: all 0.3s ease;
         }
-
-        /* Header */
         .header {
             display: flex;
             justify-content: flex-end;
@@ -123,7 +121,6 @@
             border-radius: 50%;
         }
 
-        /* Main Content */
         .main {
             flex: 1;
             display: flex;
@@ -156,8 +153,6 @@
             color: var(--text-secondary);
             margin-top: 5px;
         }
-
-        /* Search Container */
         .search-wrapper {
             width: 100%;
             max-width: 584px;
@@ -244,8 +239,6 @@
             width: 24px;
             height: 24px;
         }
-
-        /* Voice Search Active State */
         .icon-btn.recording {
             animation: pulse 1.5s infinite;
             color: #ea4335;
@@ -255,8 +248,6 @@
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.1); opacity: 0.8; }
         }
-
-        /* Tooltip */
         .tooltip {
             position: absolute;
             bottom: -35px;
@@ -320,7 +311,6 @@
             border-color: transparent;
         }
 
-        /* Shortcuts */
         .shortcuts {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -373,11 +363,9 @@
             text-overflow: ellipsis;
             max-width: 100%;
         }
-
-        /* Settings */
         .settings-container {
             position: fixed;
-            bottom: 80px;
+            bottom: 30px;
             right: 30px;
             z-index: 100;
         }
@@ -405,7 +393,7 @@
 
         .settings-panel {
             position: absolute;
-            bottom: 60px;
+            bottom: 70px;
             right: 0;
             width: 320px;
             background: var(--bg-secondary);
@@ -542,8 +530,6 @@
             text-align: right;
             margin-top: 5px;
         }
-
-        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -649,8 +635,6 @@
             background: var(--accent-hover);
             transform: translateY(-1px);
         }
-
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -671,22 +655,90 @@
             animation: none !important;
             transition: none !important;
         }
-
-        /* Responsive */
         @media (max-width: 650px) {
-            .logo { font-size: 56px; }
-            .search-label { font-size: 20px; }
-            .search-wrapper { max-width: 90%; }
-            .shortcuts { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-            .settings-container { right: 20px; bottom: 70px; }
-            .settings-panel { width: 280px; right: -10px; }
+            .logo { font-size: 48px; }
+            .search-label { font-size: 18px; }
+            .search-wrapper { max-width: 95%; }
+            .shortcuts { 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 12px; 
+                padding: 0 10px;
+            }
+            .settings-container { 
+                right: 15px; 
+                bottom: 15px; 
+            }
+            .settings-panel { 
+                width: calc(100vw - 40px); 
+                right: 0;
+                left: auto;
+                max-width: 320px;
+            }
             .modal-content { padding: 24px; }
+            .header {
+                padding: 15px 10px;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .header-link {
+                font-size: 12px;
+            }
+            .main {
+                margin-top: 0;
+                padding: 10px;
+            }
+            .search-box {
+                padding: 10px 12px;
+            }
+            .search-input {
+                font-size: 16px; 
+            }
+            .buttons {
+                margin-top: 20px;
+                width: 100%;
+                padding: 0 10px;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 400px) {
-            .shortcuts { grid-template-columns: repeat(3, 1fr); }
-            .buttons { flex-direction: column; width: 100%; padding: 0 20px; }
-            .btn { width: 100%; justify-content: center; }
+            .shortcuts { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 8px;
+            }
+            .buttons { 
+                flex-direction: column; 
+                width: 100%; 
+                padding: 0 10px; 
+            }
+            .btn { 
+                width: 100%; 
+                justify-content: center; 
+            }
+            .logo {
+                font-size: 40px;
+            }
+            .settings-panel {
+                width: calc(100vw - 30px);
+                right: -5px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .shortcuts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .shortcut {
+                padding: 12px 8px;
+            }
+            .shortcut-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
         }
     </style>
 <base target="_blank">
@@ -697,7 +749,6 @@
         <a href="about.html" class="header-link">About</a>
         <a href="search.html" class="header-link">Search</a>
         <a href="pp.html" class="header-link">Privacy Policy</a>
-        <button class="settings-btn" id="settingsBtn">⚙️</button>
         <div class="apps-btn" id="appsBtn">
           
         </div>
@@ -742,7 +793,7 @@
         </div>
 
         <div class="shortcuts" id="shortcuts">
-              <a href="https://pluget.pages.dev" class="shortcut" target="_blank">
+              <a href="https://pluget.pages.dev " class="shortcut" target="_blank">
                 <div class="shortcut-icon">P</div>
                 <span class="shortcut-title">Pluget Office</span>
             </a>
@@ -752,9 +803,8 @@
             </a>
         </div>
     </main>
-
-    <!-- Settings Panel - KOMPAKT HAL -->
     <div class="settings-container">
+        <button class="settings-btn" id="settingsBtn">⚙️</button>
         <div class="settings-panel" id="settingsPanel">
             <div class="settings-title"> Appearance Settings</div>
 
@@ -786,8 +836,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Privacy Modal - Original Content -->
     <div class="modal-overlay" id="privacyModal">
         <div class="modal-content">
             <div class="modal-title">Privacy Policy</div>
@@ -817,7 +865,7 @@
                     <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security. These do not track personal behavior.</li>
                     <li><strong>Traffic Logs:</strong> Anonymized data may be logged for performance optimization and threat prevention.</li>
                 </ul>
-                <p>For more information, please visit the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Privacy Policy</a>.</p>
+                <p>For more information, please visit the <a href="https://www.cloudflare.com/privacypolicy/ " target="_blank">Cloudflare Privacy Policy</a>.</p>
 
                 <h2>3. External API Integration (Wikipedia API)</h2>
                 <p>To provide a more comprehensive search experience and display additional relevant results, this website utilizes the <strong>Wikipedia API</strong>.</p>
@@ -825,7 +873,7 @@
                     <li><strong>Purpose:</strong> We use this API to fetch and display public information directly within our search results.</li>
                     <li><strong>Data Flow:</strong> When a search is performed, a request may be sent to Wikipedia's servers. This interaction is subject to Wikipedia's data practices.</li>
                 </ul>
-                <p>For more information, please visit the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank">Wikimedia Foundation Privacy Policy</a>.</p>
+                <p>For more information, please visit the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy " target="_blank">Wikimedia Foundation Privacy Policy</a>.</p>
 
                 <h2>4. Scope & External Links</h2>
                 <p>This policy applies solely to the domains operated by us. Our search results may contain links to external websites. We are not responsible for the privacy practices or content of these third-party services.</p>
@@ -842,8 +890,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Image Search Modal -->
     <div class="modal-overlay" id="imageModal">
         <div class="modal-content" style="max-width: 400px;">
             <div class="modal-title">Image Search</div>
@@ -860,7 +906,6 @@
     </div>
 
     <script>
-        // State Management
         const state = {
             privacyAccepted: localStorage.getItem('pluget-privacy') === 'true',
             theme: localStorage.getItem('pluget-theme') || 'dark',
@@ -889,7 +934,6 @@
             closeImageModal: document.getElementById('closeImageModal')
         };
 
-        // Speech Recognition Setup
         let recognition = null;
         if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1040,8 +1084,6 @@
                 localStorage.setItem('pluget-privacy', 'true');
                 els.privacyModal.classList.remove('show');
             });
-
-            // Close modals on overlay click
             document.querySelectorAll('.modal-overlay').forEach(modal => {
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
