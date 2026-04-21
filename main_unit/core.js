@@ -340,16 +340,16 @@ function generateDynamicSearchResults(query, lang) {
             type: ''
         },
         {
-            t: `github - ${cleanQuery}`,
-            c: "Technology",
+            t: `TikTok User - @${cleanQuery}`,
+            c: "Social",
             d: {
-                en: `github - ${cleanQuery}`,
-                tr: `github - ${cleanQuery} `,
-                az: `github - ${cleanQuery}`,
-                es: `github -${cleanQuery}`,
-                ko: `github - ${cleanQuery} `
+                en: `Find user @${cleanQuery} on TikTok`,
+                tr: `TikTok'ta @${cleanQuery} kullanıcısını bul`,
+                az: `TikTok-da @${cleanQuery} istifadəçisini tap`,
+                es: `Encontrar usuario @${cleanQuery} en TikTok`,
+                ko: `TikTok에서 @${cleanQuery} 사용자 찾기`
             },
-            u: `https://github.com/search?q=${cleanQuery}`,
+            u: `https://www.tiktok.com/@${cleanQuery}`,
             icon: '',
             type: ''
         }
@@ -396,7 +396,7 @@ async function loadJsonData(jsonFiles) {
 async function loadAllData() {
     try {
         try {
-            const siteJsonDataResponse = await fetch('https://database.plugetsearch.pages.dev/sitejsondata.json');
+            const siteJsonDataResponse = await fetch('sitejsondata.json');
             if (siteJsonDataResponse.ok) siteJsonData = await siteJsonDataResponse.json();
         } catch (err) {
             console.warn('sitejsondata.json error:', err);
@@ -414,7 +414,7 @@ async function loadAllData() {
         }
 
         try {
-            const sitesResponse = await fetch('https://database.plugetsearch.pages.dev/sites.json');
+            const sitesResponse = await fetch('sites.json');
             if (sitesResponse.ok) {
                 const sitesData = await sitesResponse.json();
                 if (Array.isArray(sitesData)) sites = [...additionalSites, ...sitesData];

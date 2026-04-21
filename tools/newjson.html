@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Technology Güncelleyici</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+        h2 { color: #333; text-align: center; }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: monospace;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #0056b3; }
+        .result-container { margin-top: 20px; }
+        .error { color: #dc3545; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>JSON "c" Değeri Güncelleyici</h2>
+    <p>JSON verisini yapıştırın, içindeki tüm "c" anahtarlarını "Technology" yapalım.</p>
+    
+    <textarea id="jsonInput" placeholder='Örn: {"a": 1, "c": "eski_deger"}'></textarea>
+    <button onclick="transformJSON()">Dönüştür ve Güncelle</button>
+
+    <div class="result-container">
+        <h3>Sonuç:</h3>
+        <textarea id="jsonOutput" readonly placeholder="Sonuç burada görünecek..."></textarea>
+    </div>
+    <div id="errorMessage" class="error"></div>
+</div>
+
+<script>
+    function transformJSON() {
+        const input = document.getElementById('jsonInput').value;
+        const outputField = document.getElementById('jsonOutput');
+        const errorField = document.getElementById('errorMessage');
+        
+        errorField.innerText = "";
+        
+        try {
+            // JSON'ı objeye çevir
+            let data = JSON.parse(input);
+
+            // Özyinelemeli (recursive) fonksiyon: Tüm objeyi gezer
+            function updateC(obj) {
+                if (typeof obj !== 'object' || obj === null) return;
+
+                for (let key in obj) {
+                    if (key === 'c') {
+                        obj[key] = "Technology";
+                    }
+                    // Eğer iç içe objeler veya arrayler varsa onları da kontrol et
+                    if (typeof obj[key] === 'object') {
+                        updateC(obj[key]);
+                    }
+                }
+            }
+
+            updateC(data);
+
+            // Sonucu tekrar JSON stringine çevir (güzel formatlı)
+            outputField.value = JSON.stringify(data, null, 4);
+        } catch (e) {
+            errorField.innerText = "Hata: Geçersiz JSON formatı! Lütfen girdiğinizi kontrol edin.";
+            outputField.value = "";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluget Search</title>
+    <link rel="icon" type="image/png" href="myicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #202124;
+            --bg-secondary: #303134;
+            --bg-tertiary: #3c4043;
+            --text-primary: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --accent: #8ab4f8;
+            --accent-hover: #aecbfa;
+            --border-color: #5f6368;
+            --shadow: 0 1px 6px rgba(32,33,36,.28);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.5);
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --border-radius: 24px;
+            --blur-amount: 10px;
+        }
+
+        body.light-theme {
+            --bg-primary: #fff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e8eaed;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --accent: #1a73e8;
+            --accent-hover: #174ea6;
+            --border-color: #dadce0;
+            --shadow: 0 1px 6px rgba(32,33,36,.1);
+            --shadow-hover: 0 1px 6px rgba(32,33,36,.2);
+        }
+
+        body.midnight-theme {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #475569;
+        }
+
+        body.ocean-theme {
+            --bg-primary: #0c4a6e;
+            --bg-secondary: #075985;
+            --bg-tertiary: #0369a1;
+            --text-primary: #f0f9ff;
+            --text-secondary: #bae6fd;
+            --accent: #38bdf8;
+            --accent-hover: #7dd3fc;
+            --border-color: #0284c7;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 13px;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .header-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .apps-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .apps-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 4px);
+            gap: 2px;
+        }
+
+        .apps-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--text-primary);
+            border-radius: 50%;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-top: -50px;
+        }
+
+        .logo-container {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 72px;
+            font-weight: 500;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: default;
+            user-select: none;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+        .search-wrapper {
+            width: 100%;
+            max-width: 584px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-label {
+            font-size: 24px;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 12px 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.2s ease;
+        }
+
+        .search-box:hover,
+        .search-box:focus-within {
+            background: var(--bg-tertiary);
+            box-shadow: var(--shadow-hover);
+            border-color: transparent;
+        }
+
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-actions {
+            display: flex;
+            gap: 12px;
+            margin-left: 8px;
+        }
+
+        .icon-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            background: var(--bg-primary);
+        }
+
+        .icon-btn svg {
+            width: 24px;
+            height: 24px;
+        }
+        .icon-btn.recording {
+            animation: pulse 1.5s infinite;
+            color: #ea4335;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .tooltip {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+            pointer-events: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .icon-btn:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--bg-secondary);
+            border: 1px solid transparent;
+            color: var(--text-primary);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            border-color: var(--border-color);
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: transparent;
+        }
+
+        .shortcuts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 560px;
+            padding: 0 20px;
+        }
+
+        .shortcut {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .shortcut:hover {
+            background: var(--bg-secondary);
+        }
+
+        .shortcut-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-tertiary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 20px;
+            transition: transform 0.2s;
+        }
+
+        .shortcut:hover .shortcut-icon {
+            transform: scale(1.1);
+        }
+
+        .shortcut-title {
+            font-size: 12px;
+            opacity: 0.9;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+        .settings-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+
+        .settings-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            font-size: 20px;
+        }
+
+        .settings-btn:hover {
+            transform: rotate(30deg) scale(1.1);
+            background: var(--bg-tertiary);
+        }
+
+        .settings-panel {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .settings-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .settings-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .setting-group {
+            margin-bottom: 20px;
+        }
+
+        .setting-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .theme-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .theme-btn {
+            padding: 10px;
+            border: 2px solid var(--border-color);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+
+        .theme-btn.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .theme-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .toggle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .toggle-switch {
+            width: 44px;
+            height: 24px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .toggle-switch.active {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(20px);
+        }
+
+        .slider-container {
+            margin: 10px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--bg-tertiary);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            cursor: pointer;
+        }
+
+        .slider-value {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: right;
+            margin-top: 5px;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .modal-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .modal-text h1 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin: 20px 0 10px 0;
+        }
+
+        .modal-text h2 {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin: 16px 0 8px 0;
+        }
+
+        .modal-text ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        .modal-text li {
+            margin: 5px 0;
+        }
+
+        .modal-text .domains {
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .modal-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .modal-text a:hover {
+            text-decoration: underline;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body:not(.animations-enabled) * {
+            animation: none !important;
+            transition: none !important;
+        }
+        @media (max-width: 650px) {
+            .logo { font-size: 48px; }
+            .search-label { font-size: 18px; }
+            .search-wrapper { max-width: 95%; }
+            .shortcuts { 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 12px; 
+                padding: 0 10px;
+            }
+            .settings-container { 
+                right: 15px; 
+                bottom: 15px; 
+            }
+            .settings-panel { 
+                width: calc(100vw - 40px); 
+                right: 0;
+                left: auto;
+                max-width: 320px;
+            }
+            .modal-content { padding: 24px; }
+            .header {
+                padding: 15px 10px;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .header-link {
+                font-size: 12px;
+            }
+            .main {
+                margin-top: 0;
+                padding: 10px;
+            }
+            .search-box {
+                padding: 10px 12px;
+            }
+            .search-input {
+                font-size: 16px; 
+            }
+            .buttons {
+                margin-top: 20px;
+                width: 100%;
+                padding: 0 10px;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .shortcuts { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 8px;
+            }
+            .buttons { 
+                flex-direction: column; 
+                width: 100%; 
+                padding: 0 10px; 
+            }
+            .btn { 
+                width: 100%; 
+                justify-content: center; 
+            }
+            .logo {
+                font-size: 40px;
+            }
+            .settings-panel {
+                width: calc(100vw - 30px);
+                right: -5px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .shortcuts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .shortcut {
+                padding: 12px 8px;
+            }
+            .shortcut-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body class="animations-enabled">
+    <header class="header">
+        <a href="about.html" class="header-link">About</a>
+        <a href="search.html" class="header-link">Search</a>
+        <a href="pp.html" class="header-link">Privacy Policy</a>
+        <div class="apps-btn" id="appsBtn">
+          
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="logo-container">
+            <h1 class="logo">Pluget</h1>
+        </div>
+
+        <div class="search-wrapper">
+      <form class="search-box" id="searchForm">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+
+                <input type="text" class="search-input" id="searchInput" placeholder="Search Pluget or type a URL" autocomplete="off">
+
+                <div class="search-actions">
+                    <button type="button" class="icon-btn" id="voiceBtn" title="Search by voice">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                        </svg>
+                        <span class="tooltip">Voice Search</span>
+                    </button>
+
+                    <button type="button" class="icon-btn" id="lensBtn" title="Search by image">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-2.12-.83-4.03-2.18-5.45C15.82 4.67 13.82 4 11.5 4c-.91 0-1.78.14-2.58.41L3 11h2.5l-1.5 1.5 2 2L7 13h2.5l-1.5 1.5 2 2L10 15h2.5l-1.5 1.5 2 2 .53-.53c.76.75 1.76 1.26 2.87 1.41.17.02.34.03.52.03 2.48 0 4.68-1.16 6.11-2.97.12-.16.23-.33.33-.5.2-.35.38-.73.53-1.12.15-.4.27-.82.36-1.25.05-.27.09-.55.12-.83z"/>
+                        </svg>
+                        <span class="tooltip">Image Search</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" form="searchForm" class="btn btn-primary">Pluget Search</button>
+            <a href="add-ons.html" class="btn">Install Add-ons</a>
+        </div>
+
+        <div class="shortcuts" id="shortcuts">
+              <a href="https://pluget.pages.dev " class="shortcut" target="_blank">
+                <div class="shortcut-icon">P</div>
+                <span class="shortcut-title">Pluget Office</span>
+            </a>
+            <a href="add-ons.html" class="shortcut" id="addShortcut">
+                <div class="shortcut-icon" style="background: transparent; border: 2px dashed var(--border-color);">+</div>
+                <span class="shortcut-title">Add-ons</span>
+            </a>
+        </div>
+    </main>
+    <div class="settings-container">
+        <button class="settings-btn" id="settingsBtn">⚙️</button>
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-title"> Appearance Settings</div>
+
+            <div class="setting-group">
+                <label class="setting-label">Theme</label>
+                <div class="theme-options">
+                    <button class="theme-btn active" data-theme="dark"> Dark</button>
+                    <button class="theme-btn" data-theme="light"> Light</button>
+                    <button class="theme-btn" data-theme="midnight"> Midnight</button>
+                    <button class="theme-btn" data-theme="ocean"> Ocean</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">Animations</label>
+                <div class="toggle-row">
+                    <span>Enable animations</span>
+                    <div class="toggle-switch active" id="animToggle"></div>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label">Search Bar</label>
+                <div class="slider-container">
+                    <label style="font-size: 12px; color: var(--text-secondary);">Corner radius</label>
+                    <input type="range" class="slider" id="radiusSlider" min="4" max="40" value="24">
+                    <div class="slider-value"><span id="radiusValue">24</span>px</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-title">Privacy Policy</div>
+            <div class="modal-text">
+                <p><strong>Last Updated:</strong> April 3, 2026</p>
+
+                <p>Thank you for using <strong>Pluget Search</strong>. Your privacy is our priority. This policy outlines how we handle data across our official domains:</p>
+                <ul>
+                    <li><span class="domains">plugetsearch.pages.dev</span></li>
+                    <li><span class="domains">plugets.pages.dev</span></li>
+                    <li><span class="domains">search.pluget.pages.dev</span></li>
+                    <li><span class="domains">database.plugetsearch.pages.dev</span></li>
+                </ul>
+
+                <h2>1. Data Collection & Zero-Backend Policy</h2>
+                <p>Our service is designed to be privacy-centric. <strong>We do not directly collect, store, or sell any personal data.</strong></p>
+                <ul>
+                    <li>We do not use user accounts, registration, or membership systems.</li>
+                    <li>We do not use tracking cookies for marketing, profiling, or advertising.</li>
+                    <li>We do not maintain a central database of your search queries or IP addresses.</li>
+                </ul>
+
+                <h2>2. Third-Party Infrastructure (Cloudflare Pages)</h2>
+                <p>Our websites are hosted and served using <strong>Cloudflare Pages</strong>. To ensure website security (e.g., protection against DDoS attacks) and performance, Cloudflare automatically processes certain technical data:</p>
+                <ul>
+                    <li><strong>IP Addresses:</strong> Processed temporarily for security monitoring and bot detection.</li>
+                    <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security. These do not track personal behavior.</li>
+                    <li><strong>Traffic Logs:</strong> Anonymized data may be logged for performance optimization and threat prevention.</li>
+                </ul>
+                <p>For more information, please visit the <a href="https://www.cloudflare.com/privacypolicy/ " target="_blank">Cloudflare Privacy Policy</a>.</p>
+
+                <h2>3. External API Integration (Wikipedia API)</h2>
+                <p>To provide a more comprehensive search experience and display additional relevant results, this website utilizes the <strong>Wikipedia API</strong>.</p>
+                <ul>
+                    <li><strong>Purpose:</strong> We use this API to fetch and display public information directly within our search results.</li>
+                    <li><strong>Data Flow:</strong> When a search is performed, a request may be sent to Wikipedia's servers. This interaction is subject to Wikipedia's data practices.</li>
+                </ul>
+                <p>For more information, please visit the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy " target="_blank">Wikimedia Foundation Privacy Policy</a>.</p>
+
+                <h2>4. Scope & External Links</h2>
+                <p>This policy applies solely to the domains operated by us. Our search results may contain links to external websites. We are not responsible for the privacy practices or content of these third-party services.</p>
+
+                <h2>5. Contact</h2>
+                <p>If you have any questions regarding this Privacy Policy or the technical operations of our services, please feel free to contact us through our official project channels.</p>
+
+                <footer style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                    <p>&copy; 2026 Ilkin Yahya. All rights reserved.</p>
+                </footer>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="acceptPrivacy">I Accept and Continue</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-title">Image Search</div>
+            <div class="modal-text">
+                <p>Upload an image to search visually similar content.</p>
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                <button class="btn-primary" onclick="document.getElementById('imageInput').click()" style="width: 100%; margin-top: 10px;">Choose Image</button>
+                <div id="imagePreview" style="margin-top: 15px; text-align: center;"></div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="closeImageModal" style="background: var(--bg-tertiary); color: var(--text-primary);">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const state = {
+            privacyAccepted: localStorage.getItem('pluget-privacy') === 'true',
+            theme: localStorage.getItem('pluget-theme') || 'dark',
+            animations: localStorage.getItem('pluget-anim') !== 'false',
+            radius: parseInt(localStorage.getItem('pluget-radius')) || 24,
+            searchHistory: JSON.parse(localStorage.getItem('pluget-history') || '[]')
+        };
+
+        // Elements
+        const els = {
+            body: document.body,
+            searchForm: document.getElementById('searchForm'),
+            searchInput: document.getElementById('searchInput'),
+            voiceBtn: document.getElementById('voiceBtn'),
+            lensBtn: document.getElementById('lensBtn'),
+            settingsBtn: document.getElementById('settingsBtn'),
+            settingsPanel: document.getElementById('settingsPanel'),
+            privacyModal: document.getElementById('privacyModal'),
+            acceptPrivacy: document.getElementById('acceptPrivacy'),
+            animToggle: document.getElementById('animToggle'),
+            radiusSlider: document.getElementById('radiusSlider'),
+            radiusValue: document.getElementById('radiusValue'),
+            themeBtns: document.querySelectorAll('.theme-btn'),
+            imageModal: document.getElementById('imageModal'),
+            imageInput: document.getElementById('imageInput'),
+            closeImageModal: document.getElementById('closeImageModal')
+        };
+
+        let recognition = null;
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                els.voiceBtn.classList.add('recording');
+                els.searchInput.placeholder = 'Listening...';
+            };
+
+            recognition.onend = () => {
+                els.voiceBtn.classList.remove('recording');
+                els.searchInput.placeholder = 'Search Pluget or type a URL';
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                els.searchInput.value = transcript;
+                performSearch(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                els.voiceBtn.classList.remove('recording');
+                els.searchInput.placeholder = 'Search Pluget or type a URL';
+                alert('Voice search error: ' + event.error);
+            };
+        }
+
+        // Initialize
+        function init() {
+            loadSettings();
+            setupEvents();
+            checkPrivacy();
+        }
+
+        function loadSettings() {
+            setTheme(state.theme);
+            els.themeBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.theme === state.theme);
+            });
+
+            if (!state.animations) {
+                els.body.classList.remove('animations-enabled');
+                els.animToggle.classList.remove('active');
+            }
+
+            els.radiusSlider.value = state.radius;
+            els.radiusValue.textContent = state.radius;
+            applyStyles();
+        }
+
+        function applyStyles() {
+            document.documentElement.style.setProperty('--border-radius', state.radius + 'px');
+        }
+
+        function setupEvents() {
+            // Settings toggle
+            els.settingsBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                els.settingsPanel.classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.settings-container')) {
+                    els.settingsPanel.classList.remove('open');
+                }
+            });
+
+            // Search form
+            els.searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                performSearch(els.searchInput.value);
+            });
+
+            // Voice search
+            els.voiceBtn.addEventListener('click', () => {
+                if (!recognition) {
+                    alert('Voice search is not supported in your browser. Please use Chrome or Edge.');
+                    return;
+                }
+
+                if (els.voiceBtn.classList.contains('recording')) {
+                    recognition.stop();
+                } else {
+                    recognition.start();
+                }
+            });
+
+            // Image search
+            els.lensBtn.addEventListener('click', () => {
+                els.imageModal.classList.add('show');
+            });
+
+            els.closeImageModal.addEventListener('click', () => {
+                els.imageModal.classList.remove('show');
+            });
+
+            els.imageInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const preview = document.getElementById('imagePreview');
+                        preview.innerHTML = '<img src="' + event.target.result + '" style="max-width: 100%; max-height: 200px; border-radius: 8px;"><p style="margin-top: 10px; font-size: 12px;">Image ready for search</p>';
+
+                        // Simulate image search
+                        setTimeout(() => {
+                            els.imageModal.classList.remove('show');
+                            performSearch(file.name);
+                        }, 1500);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Theme buttons
+            els.themeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    els.themeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    setTheme(btn.dataset.theme);
+                });
+            });
+
+            // Animations toggle
+            els.animToggle.addEventListener('click', () => {
+                state.animations = !state.animations;
+                els.animToggle.classList.toggle('active');
+                els.body.classList.toggle('animations-enabled');
+                localStorage.setItem('pluget-anim', state.animations);
+            });
+
+            // Radius slider
+            els.radiusSlider.addEventListener('input', (e) => {
+                state.radius = e.target.value;
+                els.radiusValue.textContent = state.radius;
+                applyStyles();
+                localStorage.setItem('pluget-radius', state.radius);
+            });
+
+            // Privacy
+            els.acceptPrivacy.addEventListener('click', () => {
+                state.privacyAccepted = true;
+                localStorage.setItem('pluget-privacy', 'true');
+                els.privacyModal.classList.remove('show');
+            });
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('show');
+                    }
+                });
+            });
+        }
+
+        function performSearch(query) {
+            if (!query.trim()) return;
+
+            // Save to history
+            if (!state.searchHistory.includes(query)) {
+                state.searchHistory.unshift(query);
+                if (state.searchHistory.length > 10) state.searchHistory.pop();
+                localStorage.setItem('pluget-history', JSON.stringify(state.searchHistory));
+            }
+
+            // Navigate to search results
+            window.location.href = 'search.html?q=' + encodeURIComponent(query);
+        }
+
+        function setTheme(theme) {
+            state.theme = theme;
+            els.body.classList.remove('light-theme', 'midnight-theme', 'ocean-theme');
+            if (theme !== 'dark') {
+                els.body.classList.add(theme + '-theme');
+            }
+            localStorage.setItem('pluget-theme', theme);
+        }
+
+        function checkPrivacy() {
+            if (!state.privacyAccepted) {
+                els.privacyModal.classList.add('show');
+            }
+        }
+
+        // Run
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

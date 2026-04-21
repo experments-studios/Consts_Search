@@ -2,15 +2,21 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pluget Search</title>
+        <link rel="icon" type="image/png" href="myicon.png">
+    <style>
+        /* Tasarım kaldırıldı, sadece boş siyah bir ekran */
+        body { background: #000; margin: 0; }
+    </style>
 </head>
-<body style="background: #000;">
-     <link rel="icon" type="image/png" href="myicon.png">
-
+<body>
     <script>
         const dbName = "AppEngineDB";
         const storeName = "Storage";
 
         async function startApp() {
+            // IndexedDB'yi aç
             const db = await new Promise((resolve) => {
                 const request = indexedDB.open(dbName, 1);
                 request.onupgradeneeded = (e) => {
@@ -23,28 +29,34 @@
                 request.onerror = () => resolve(null);
             });
 
+            // Sadece addon parametresini al (load ve thm görmezden geliniyor)
             const urlParams = new URLSearchParams(window.location.search);
             const addonUrl = urlParams.get('addon');
-            let targetUrl;
 
-            if (addonUrl && db) {
-                targetUrl = addonUrl;
-                await new Promise((resolve) => {
-                    const tx = db.transaction(storeName, "readwrite");
-                    tx.objectStore(storeName).put(targetUrl, 'last_active_url');
-                    tx.oncomplete = () => resolve();
-                });
-            } else if (db) {
-                const savedUrl = await new Promise((resolve) => {
-                    const tx = db.transaction(storeName, "readonly");
-                    const request = tx.objectStore(storeName).get('last_active_url');
-                    request.onsuccess = () => resolve(request.result);
-                    request.onerror = () => resolve(null);
-                });
-                targetUrl = savedUrl || 'main.html';
-            } else {
-                targetUrl = 'main.html';
+            let targetUrl = 'main.html'; // Varsayılan hedef
+
+            if (db) {
+                // Eğer addon parametresi varsa kaydet ve hedef yap
+                if (addonUrl) {
+                    targetUrl = addonUrl;
+                    await new Promise((resolve) => {
+                        const tx = db.transaction(storeName, "readwrite");
+                        tx.objectStore(storeName).put(targetUrl, 'last_active_url');
+                        tx.oncomplete = () => resolve();
+                    });
+                } else {
+                    // Parametre yoksa son kaydedilen URL'yi oku
+                    const savedUrl = await new Promise((resolve) => {
+                        const tx = db.transaction(storeName, "readonly");
+                        const request = tx.objectStore(storeName).get('last_active_url');
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => resolve(null);
+                    });
+                    if (savedUrl) targetUrl = savedUrl;
+                }
             }
+
+            // Bekleme yapmadan anında yönlendir
             window.location.replace(targetUrl);
         }
 

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="myicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .splash-screen.dark {
+            background: #1a1a1a;
+        }
+
+        .splash-screen.light {
+            background: #f5f5f5;
+        }
+
+        .splash-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .splash-content {
+            text-align: center;
+        }
+
+        .splash-text {
+            font-size: 2.5rem;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .splash-screen.dark .splash-text {
+            color: #ffffff;
+        }
+
+        .splash-screen.light .splash-text {
+            color: #000000;
+        }
+
+        /* Temel efekt */
+        .splash-text.glow {
+            opacity: 1;
+        }
+
+        /* Animasyon: Opacity titreşimi */
+        @keyframes pulseOpacity {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .splash-text.animated {
+            animation: pulseOpacity 1s ease-in-out infinite;
+        }
+
+        /* Animasyon: Fade in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .splash-text.fadeIn {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 1.5rem;
+        }
+
+        .splash-screen.dark .spinner {
+            border-top-color: #ffffff;
+            border-right-color: #ffffff;
+        }
+
+        .splash-screen.light .spinner {
+            border-top-color: #000000;
+            border-right-color: #000000;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <div class="splash-text glow" id="splashText">Pluget Search</div>
+            <div class="spinner" id="spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        const dbName = "AppEngineDB";
+        const storeName = "Storage";
+
+        async function startApp() {
+            // IndexedDB'yi aç
+            const db = await new Promise((resolve) => {
+                const request = indexedDB.open(dbName, 1);
+                request.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(storeName)) {
+                        db.createObjectStore(storeName);
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => resolve(null);
+            });
+
+            // URL parametrelerini al
+            const urlParams = new URLSearchParams(window.location.search);
+            const loadParam = urlParams.get('load');
+            const animationParam = urlParams.get('animation');
+            const themeParam = urlParams.get('thm');
+            const addonUrl = urlParams.get('addon');
+
+            let loadValue = false;
+            let showAnimation = false;
+            let showSplash = false;
+            let theme = 'dark'; // varsayılan koyu tema
+            let splashDuration = 2000; // varsayılan 2 saniye
+
+            // Load parametresini kontrol et
+            if (loadParam !== null) {
+                loadValue = loadParam === 'true';
+                showSplash = loadValue;
+            }
+
+            // Animation parametresini kontrol et
+            if (animationParam === 'on') {
+                showAnimation = true;
+            }
+
+            // Tema parametresini kontrol et
+            if (themeParam === 'light') {
+                theme = 'light';
+            } else if (themeParam === 'dark') {
+                theme = 'dark';
+            }
+
+            // IndexedDB'ye load değerini kaydet
+            if (db) {
+                await new Promise((resolve) => {
+                    const tx = db.transaction(storeName, "readwrite");
+                    tx.objectStore(storeName).put(loadValue, 'load_status');
+                    if (animationParam !== null) {
+                        tx.objectStore(storeName).put(showAnimation, 'animation_enabled');
+                    }
+                    if (themeParam !== null) {
+                        tx.objectStore(storeName).put(theme, 'theme');
+                    }
+                    tx.oncomplete = () => resolve();
+                });
+            }
+
+            // Splash screen'i göster
+            const splashScreen = document.getElementById('splashScreen');
+            const splashText = document.getElementById('splashText');
+            const spinner = document.getElementById('spinner');
+
+            // Tema sınıfını ekle
+            splashScreen.classList.add(theme);
+
+            if (showSplash) {
+                splashScreen.style.display = 'flex';
+
+                if (showAnimation) {
+                    // Animasyon açıksa
+                    splashText.classList.remove('glow');
+                    splashText.classList.add('animated', 'fadeIn');
+                    spinner.classList.remove('hidden');
+
+                    // Animasyon bittiğinde yönlendir (1 saniye animasyon + 1.5 saniye bekleme)
+                    setTimeout(() => {
+                        navigateToTarget(db);
+                    }, 2500);
+                } else {
+                    // Animasyon kapalıysa sadece 2 saniye göster
+                    splashText.classList.add('glow');
+                    spinner.classList.add('hidden');
+                    setTimeout(() => {
+                        navigateToTarget(db);
+                    }, splashDuration);
+                }
+            } else {
+                // Splash screen gösterilmiyorsa direkt yönlendir
+                navigateToTarget(db);
+            }
+
+            async function navigateToTarget(db) {
+                let targetUrl;
+
+                if (addonUrl && db) {
+                    targetUrl = addonUrl;
+                    await new Promise((resolve) => {
+                        const tx = db.transaction(storeName, "readwrite");
+                        tx.objectStore(storeName).put(targetUrl, 'last_active_url');
+                        tx.oncomplete = () => resolve();
+                    });
+                } else if (db) {
+                    const savedUrl = await new Promise((resolve) => {
+                        const tx = db.transaction(storeName, "readonly");
+                        const request = tx.objectStore(storeName).get('last_active_url');
+                        request.onsuccess = () => resolve(request.result);
+                        request.onerror = () => resolve(null);
+                    });
+                    targetUrl = savedUrl || 'main.html';
+                } else {
+                    targetUrl = 'main.html';
+                }
+
+                // Splash screen'i gizle ve yönlendir
+                splashScreen.classList.add('hidden');
+                setTimeout(() => {
+                    window.location.replace(targetUrl);
+                }, 500);
+            }
+        }
+
+        startApp();
+    </script>
+</body>
+</html>

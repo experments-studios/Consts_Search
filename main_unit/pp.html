@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - plugets.pages.dev</title>
+    <style>
+        :root {
+            --primary-text-color: #e8eaed; 
+            --secondary-text-color: #bdc1c6; 
+            --background-color: #121212; 
+            --surface-color: #242428; 
+            --button-bg-color: #36363c; 
+            --accent-color: #00e0ff;
+            --logo-main-color: #00ff88; 
+            --shadow-base: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-neon: 0 0 10px rgba(0, 224, 255, 0.4); 
+            --border-radius-sm: 4px;
+        }
+
+        body.light {
+            --primary-text-color: #202124;
+            --secondary-text-color: #5f6368;
+            --background-color: #f8f9fa;
+            --surface-color: #ffffff;
+            --button-bg-color: #e8eaed;
+            --accent-color: #1a73e8; 
+            --logo-main-color: #4285f4; 
+            --shadow-base: 0 1px 6px rgba(0, 0, 0, 0.1);
+            --shadow-neon: 0 1px 4px rgba(0, 0, 0, 0.08); 
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.8; 
+            margin: 0;
+            padding: 40px 20px;
+            background-color: var(--background-color);
+            color: var(--primary-text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .content-card {
+            background-color: var(--surface-color);
+            color: var(--primary-text-color);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-base);
+            max-width: 800px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        h1 { 
+            font-size: 28px;
+            color: var(--logo-main-color); 
+            margin-bottom: 30px;
+            text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+            text-align: center;
+        }
+        
+        h2 { 
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--button-bg-color);
+        }
+
+        p {
+            margin-bottom: 1.2em;
+        }
+        
+        a { 
+            color: var(--accent-color); 
+            text-decoration: none; 
+            transition: color 0.2s;
+        }
+        a:hover { 
+            text-decoration: underline; 
+            filter: brightness(1.2);
+        }
+
+        ul {
+            list-style-type: none; 
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 10px;
+            color: var(--secondary-text-color);
+        }
+
+        /* Xüsusi neon nöqtə */
+        ul li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            text-shadow: 0 0 5px var(--accent-color);
+        }
+
+        strong {
+            color: var(--primary-text-color);
+        }
+        
+        .back-button {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            padding: 10px 20px;
+            margin: 30px auto 0;
+            text-align: center;
+            background-color: var(--button-bg-color);
+            color: var(--secondary-text-color);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--button-bg-color);
+        }
+        .back-button:hover {
+            background-color: var(--surface-color);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-neon);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-card">
+   <h1>Privacy Policy</h1>
+    <p><strong>Last Updated:</strong> April 3, 2026</p>
+    
+    <p>Thank you for using <strong>Pluget Search</strong>. Your privacy is our priority. This policy outlines how we handle data across our official domains:</p>
+    <ul>
+        <li><span class="domains">plugetsearch.pages.dev</span></li>
+        <li><span class="domains">plugets.pages.dev</span></li>
+        <li><span class="domains">search.pluget.pages.dev</span></li>
+        <li><span class="domains">database.plugetsearch.pages.dev</span></li>
+    </ul>
+
+    <h2>1. Data Collection & Zero-Backend Policy</h2>
+    <p>Our service is designed to be privacy-centric. <strong>We do not directly collect, store, or sell any personal data.</strong></p>
+    <ul>
+        <li>We do not use user accounts, registration, or membership systems.</li>
+        <li>We do not use tracking cookies for marketing, profiling, or advertising.</li>
+        <li>We do not maintain a central database of your search queries or IP addresses.</li>
+    </ul>
+
+    <h2>2. Third-Party Infrastructure (Cloudflare Pages)</h2>
+    <p>Our websites are hosted and served using <strong>Cloudflare Pages</strong>. To ensure website security (e.g., protection against DDoS attacks) and performance, Cloudflare automatically processes certain technical data:</p>
+    <ul>
+        <li><strong>IP Addresses:</strong> Processed temporarily for security monitoring and bot detection.</li>
+        <li><strong>Security Cookies:</strong> Cloudflare may use "strictly necessary" cookies for essential website functionality and security. These do not track personal behavior.</li>
+        <li><strong>Traffic Logs:</strong> Anonymized data may be logged for performance optimization and threat prevention.</li>
+    </ul>
+    <p>For more information, please visit the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">Cloudflare Privacy Policy</a>.</p>
+
+    <h2>3. External API Integration (Wikipedia API)</h2>
+    <p>To provide a more comprehensive search experience and display additional relevant results, this website utilizes the <strong>Wikipedia API</strong>.</p>
+    <ul>
+        <li><strong>Purpose:</strong> We use this API to fetch and display public information directly within our search results.</li>
+        <li><strong>Data Flow:</strong> When a search is performed, a request may be sent to Wikipedia’s servers. This interaction is subject to Wikipedia’s data practices.</li>
+    </ul>
+    <p>For more information, please visit the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank">Wikimedia Foundation Privacy Policy</a>.</p>
+
+    <h2>4. Scope & External Links</h2>
+    <p>This policy applies solely to the domains operated by us. Our search results may contain links to external websites. We are not responsible for the privacy practices or content of these third-party services.</p>
+
+    <h2>5. Contact</h2>
+    <p>If you have any questions regarding this Privacy Policy or the technical operations of our services, please feel free to contact us through our official project channels.</p>
+
+    <footer>
+        <p>&copy; 2026 Ilkin Yahya All rights reserved.</p>
+    </footer>
+
+    <a href="index.html" class="back-button">← Back to Search</a>
+
+    <script>
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {}
+        }
+        
+        document.addEventListener('DOMContentLoaded', applySavedTheme);
+    </script>
+</body>
+</html>
